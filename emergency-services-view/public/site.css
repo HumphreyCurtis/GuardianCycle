@@ -1,0 +1,24 @@
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.mapContainer {
+  position: absolute;
+  top: 19%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sidebarStyle {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  background-color: #404040;
+  color: #ffffff;
+  z-index: 1 !important;
+  padding: 6px;
+  font-weight: bold;
+}
