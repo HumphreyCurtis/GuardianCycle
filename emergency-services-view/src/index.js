@@ -162,7 +162,7 @@ render() {
 	var name = this.state.inc.name;
 	var lat = this.state.inc.lastCoord[0];
 	var long = this.state.inc.lastCoord[1];
-const blah = function(incident) {
+	const alertIncident = function(incident) {
 	if (incident === true) {
 	return (<Alert severity="error">
 			<AlertTitle>Incident</AlertTitle>
@@ -177,8 +177,10 @@ const blah = function(incident) {
 	//const [mesg, setMesg] = useState(<Fragment><em>nothing heard</em></Fragment>);
 	return (
 		<div>
+		<div className='infopane'>
 		<h1>Avon &amp; Somerset GuardianCycle Alert</h1>
-		{blah(this.state.inc.isIncident)}
+		{alertIncident(this.state.inc.isIncident)}
+		</div>
 		<div className='sidebarStyle'>
 		<div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
 		</div>
