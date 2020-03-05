@@ -8,6 +8,8 @@ The live wesbite can be viewed at:
 
 [guardiancycle.preciouschicken.com](https://guardiancycle.preciouschicken.com)
 
+Unfortunately due to a web-sockets issue the site does not display initially (you get a blank page) until you have allowed 'unsafe' elements - this is possible via an icon in the URL bar of the browser (tested on Chrome so far - Firefox / Safari may vary).
+
 to activate an incident use the HiveMQ broker using the topic `guardiancycle` and the following message:
 
 ```json
@@ -22,7 +24,7 @@ to activate an incident use the HiveMQ broker using the topic `guardiancycle` an
 }
 ```
 
-##Development
+## Development
 
 ### mqtt.js
 
