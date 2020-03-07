@@ -1,0 +1,11 @@
+Source for BMR calulation:
+https://www.omnicalculator.com/health/bmr
+
+"BMR (kcal / day) = 10 * weight (kg) + 6.25 * height (cm) – 5 * age (y) + s (kcal / day),
+where s is +5 for males and -161 for females."
+
+Source for calories burned calculation:
+https://keisan.casio.com/exec/system/1350958587
+
+The METS values are provided by "The Compendium of Physical Activities 2011".
+Calorie(Kcal) ＝ BMR x Mets / 24 x hour　
