@@ -29,6 +29,7 @@ to activate an incident use the HiveMQ broker using the topic `guardiancycle` an
 To run locally:
 
 `npm install`
+
 `npm start`
 
 ## Development
