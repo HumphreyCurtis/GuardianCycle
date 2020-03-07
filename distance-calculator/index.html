@@ -5,16 +5,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 </head>
 
-<body>
-    
-<p>Complete the fields to calculate estimated distance:</p>
-    
-<form id="frm1" action="/action_page.php">
-    
-  <input type="button" onclick="myfunc()" value="Submit">    
-  <input type="button" onclick="myfunc()" value="Submit">
-
-</form>
+<body onload="myfunc()">
     
 <br>
 
@@ -38,11 +29,8 @@
 <p id="dist"></p>
     
 <br><br>    
-<b>Counter: </b>
-<p id="counter"></p>
-
-<br><br>    
-<b>Length: </b>
+    
+<b>Number of Co-ordinates: </b>
 <p id="length"></p>   
     
  <script>
@@ -53,7 +41,7 @@
         '{"coordinates":[ [-2.5906169414520264 , 51.45326480293432],'
         + '[-2.5890183448791504 , 51.45262965662454],'
         + '[-2.588406801223755 , 51.4523421664424],'
-        + '[-2.5869154930114746 , 51.45115875755905]] }';
+        + '[-2.5869154930114746 , 51.45115875755905] ] }';
      
         const obj = JSON.parse(json);
         var length = obj.coordinates.length;
