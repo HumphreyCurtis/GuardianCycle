@@ -4,11 +4,11 @@ This component of the GuardianCycle application is intended to alert the Emergen
 
 It is written using the React framework, is fed data from Hive MQ MQTT and uses mapbox for mapping services.
 
-The live wesbite can be viewed at:
+The live website can be viewed at:
 
 [guardiancycle.preciouschicken.com](https://guardiancycle.preciouschicken.com)
 
-Unfortunately due to a web-sockets issue the site does not display initially (you get a blank page) until you have allowed 'unsafe' elements - this is possible via an icon in the URL bar of the browser (tested on Chrome so far - Firefox / Safari may vary).
+Unfortunately due to a web-sockets issue the site does not display initially (you get a blank page) until you have allowed 'unsafe' elements - this is possible via an icon in the URL bar of the browser (tested on Vivaldi broswer, so others - Chrome / Firefox / Safari may vary).
 
 to activate an incident use the HiveMQ broker using the topic `guardiancycle` and the following message:
 
@@ -23,6 +23,13 @@ to activate an incident use the HiveMQ broker using the topic `guardiancycle` an
    "isIncident":true
 }
 ```
+
+## Installation
+
+To run locally:
+
+`npm install`
+`npm start`
 
 ## Development
 
