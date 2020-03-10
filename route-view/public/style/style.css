@@ -1,0 +1,12 @@
+#map {
+	width: 600px;
+	height: 400px;
+}
+.marker {
+  background-image: url('../imgs/mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
