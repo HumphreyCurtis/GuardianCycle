@@ -22,12 +22,12 @@ void setup() {
   int gender = 0;
   
   double calories = caloriesCounted(height, age, weight, time, gender);
-  print("Calories burned: \t" + calories + "\n");
+  print("Calories burned: \t\t" + calories + "\n");
   
   double dist = calcDistance(length, arrayCords);
   print("Total distance travelled: \t" +  dist  + "\n");
   
-  print("Km per Hour: \t" +  (dist / (time/60)));
+  print("Km per Hour: \t\t" +  (dist / (time/60)));
   
 }
 
