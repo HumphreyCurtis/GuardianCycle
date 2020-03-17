@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+<p>Complete the fields to calculate estimated calories burned:</p>
+    
+<select type="number" id="genderinput" name="genderinput" onchange="myfunc()">
+  <option type="number" value="1">Male</option>
+  <option type="number" value="0">Female</option>
+</select>
+
+    <br>
+    <br>
+    
+<form id="frm1" action="/action_page.php">
+    
+  Age: <input type="number" name="age" id="inputage" onchange="myfunc()"><br><br>
+  Height: <input type="number" name="height" id="inputheight" onchange="myfunc()"><br><br>
+  Weight: <input type="number" name="weight" id="inputweight" onchange="myfunc()"><br><br>
+  Ride Duration (Mins): <input type="number" name="time" id="inputtime" onchange="myfunc()"><br><br>
+    
+  <input type="button" onclick="myfunc()" value="Submit">
+
+</form>
+    
+<br>
+    
+<b>Your Age (Years): </b>
+<p id="age"></p>
+
+<b>Your Height (Cm): </b>
+<p id="height"></p>
+    
+<b>Your Weight (Kgs): </b>
+<p id="weight"></p>
+
+<b>Ride Duration (Hours): </b>
+<p id="time"></p>
+    
+<b>BMR: </b>
+<p id="bmr"></p>     
+    
+<b>Calories Burned: </b>
+<p id="burned"></p>
+    
+ <script>
+    function myfunc()
+    {   
+        if(document.getElementById("genderinput").value == 1) {
+            
+            var s = 5;
+        } 
+        
+        else {
+              var s = -161;
+        }
+        
+        document.getElementById("height").innerHTML = document.getElementById("inputheight").value;
+        document.getElementById("age").innerHTML = document.getElementById("inputage").value;
+        document.getElementById("weight").innerHTML = document.getElementById("inputweight").value;
+        document.getElementById("time").innerHTML = document.getElementById("inputtime").value / 60;
+        
+        document.getElementById("bmr").innerHTML = 
+            (10 * document.getElementById("weight").innerHTML) +
+            (6.25 * document.getElementById("height").innerHTML) - 
+            (5 * document.getElementById("age").innerHTML)
+            + s;
+        
+        document.getElementById("burned").innerHTML = 
+            ((document.getElementById("bmr").innerHTML * 6.8) / 24) * document.getElementById("time").innerHTML;
+        
+    } 
+</script>
+    
+
+</body>
+</html>
