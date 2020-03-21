@@ -52,7 +52,7 @@ class Application extends React.Component {
 
 		client.on('message',(topic, message) => {
 			this.setState({inc: JSON.parse(message)});
-		
+
 
 				map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
 
@@ -61,7 +61,7 @@ class Application extends React.Component {
 					'data': {
 						'type': 'FeatureCollection',
 						'features': [
-							{'type': 'Feature','geometry': 
+							{'type': 'Feature','geometry':
 								{'type': 'Point','coordinates': [this.state.inc.lastCoord[0], this.state.inc.lastCoord[1]]}
 							}
 						]
@@ -75,6 +75,7 @@ class Application extends React.Component {
 						'icon-image': 'pulsing-dot'
 					}
 				});
+				map.center([this.state.inc.lastCoord[0], this.state.inc.lastCoord[1]]);
 			}
 
 
@@ -169,11 +170,11 @@ render() {
 			Time: {time}<br />
 		Name: {name}<br />
 		Lat: {lat} &#92; Long: {long} </Alert>);
-	} 
+	}
 	return (<Alert severity="info">No incidents reported.</Alert>);
 }
 
-	// Sets default React state 
+	// Sets default React state
 	//const [mesg, setMesg] = useState(<Fragment><em>nothing heard</em></Fragment>);
 	return (
 		<div>
