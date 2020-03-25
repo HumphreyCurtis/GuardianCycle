@@ -4,13 +4,13 @@ static class Maps{
     System.out.println(urlRoute);
     float[] min = getBound(routeData.getJSONArray("coordinates"), true);
     float[] max = getBound(routeData.getJSONArray("coordinates"), false);
-    
+    String api = "YOUR API HERE";
     String url = "https://maps.googleapis.com/maps/api/staticmap";
     url += "?center=" + (min[1] + max[1]) / 2  + "," + (min[0] + max[0]) / 2;
     url += "&zoom=17";
     url += "&size=600x600";
     url += "&path=color:0xff0000ff|weight:5|enc:" + urlRoute;
-    url += "&key=AIzaSyCIv2s7IL71Z46Iq1pBmEIYoxf0aJATgbQ";
+    url += "&key=" + api;
     
     System.out.println(url);
     return url;
