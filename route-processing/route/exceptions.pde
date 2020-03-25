@@ -3,3 +3,8 @@ class NotInDatabaseException extends Exception{
     super(message);
   }
 }
+class InvalidDataException extends Exception{
+  InvalidDataException(String message){
+   super(message);
+  }
+}
