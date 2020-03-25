@@ -1,11 +1,19 @@
 private class Database{
   HashMap<Integer, JSONObject> data;
+  JSONObject userData;
   Database(){
     data = new HashMap<Integer, JSONObject>();
+    userData = null;
   }
+  
   private void addToDB(JSONObject obj){
     data.put(obj.getInt("id"), obj);
   }
+  
+  private void setUserData(JSONObject userData){
+     this.userData = userData; 
+  }
+  
   private JSONObject getJSONById(int id) throws NotInDatabaseException{
     JSONObject json = data.get(id);
     if(json == null){
@@ -20,10 +28,31 @@ public class DataHandler{
   DataHandler(){
     idList = new ArrayList<Integer>();
   }  
-  public void addJsonObject(JSONObject obj){
+  
+  public void addRouteObject(JSONObject obj) throws InvalidDataException{
     if(obj == null) return;
     data.addToDB(obj);
+    if(obj.getInt("id", -1) == -1) throw new InvalidDataException("----Object doesn't contain ID----");
+    if(obj.getInt("time", -1) == -1) throw new InvalidDataException("----Object doesn't contain Time information----");
     idList.add(obj.getInt("id"));
+  }
+  
+  public void addUserData(JSONObject userData) throws InvalidDataException{
+    /*Checks userData json contains all necessary info*/
+    if(userData == null) throw new InvalidDataException("Data is null");
+    if(userData.getInt("height", -1) == -1) throw new InvalidDataException("----User data doesn't contain height----");
+    if(userData.getInt("age", -1) == -1) throw new InvalidDataException("----User data doesn't contain age----");
+    if(userData.getInt("weight", -1) == -1) throw new InvalidDataException("----User data doesn't contain weight----");
+    if(userData.getInt("gender", -1) == -1) throw new InvalidDataException("----User data doesn't contain gender----");
+    data.setUserData(userData);
+  }
+  
+  public JSONObject getUserData(){
+    return data.userData; 
+  }
+  
+  public int getNextId(){
+    return idList.size(); 
   }
   
   public Boolean JsonInDatabase(int id){
@@ -63,6 +92,20 @@ public class DataHandler{
     catch(NotInDatabaseException e){
       System.err.println(e);
       return 0;
+    }
+  }
+  public String getStringAttrib(String attrib, int id){
+    try{
+      JSONObject json = data.getJSONById(id);
+      return json.getString(attrib);
+    }
+    catch(RuntimeException e){
+      System.err.println(attrib + " not in JSON file");
+      return ""; 
+    }
+    catch(NotInDatabaseException e){
+      System.err.println(e);
+      return "";
     }
   }
 }
