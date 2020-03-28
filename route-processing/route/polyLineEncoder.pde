@@ -1,6 +1,6 @@
 import java.util.*;
 
-static class polyLineEncoder{
+static class PolyLineEncoder{
   static public String encodePoints(JSONArray points){  
       String encoded = "";
       float prevLat = 0;

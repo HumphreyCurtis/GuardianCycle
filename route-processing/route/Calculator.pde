@@ -62,7 +62,6 @@ public class Calculator{
             
             sum = d+sum;
         }
-      System.out.println(sum);
         return sum;
     }
     

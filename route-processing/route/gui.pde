@@ -1,5 +1,5 @@
 public class Gui{
-   ControlP5 cp5J;
+   ControlP5 cp5;
    ControlFont cf1, cf2;
 
    Gui(processing.core.PApplet main){
@@ -11,6 +11,15 @@ public class Gui{
              .setFont(cf2);
    }
    
+   public void updateRoutes(){
+     int x = 0;
+     int y = 200;
+     for(int i = 0; i < handler.currentId; i++){
+       gui.addRoute(i, x, y);
+       y += 800;
+     }
+   }
+   
    public void addRoute(int JsonId, int x, int y){
      int yOffSet = 60;
      try{
@@ -18,7 +27,7 @@ public class Gui{
        title.setPosition(x, y);
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
-       PImage map = loadImage(url, "png");
+         PImage map = loadImage(url, "png");
          image(map, x + 600, y);
        }
        Textlabel calories = addLabel("Calories " + JsonId, "Calories - " + handler.getFloatAttrib("calories", JsonId).toString()); 

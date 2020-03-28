@@ -1,18 +1,15 @@
 static class Maps{
   static public String makeUrl(JSONObject routeData){
-    String urlRoute = polyLineEncoder.encodePoints(routeData.getJSONArray("coordinates"));
-    System.out.println(urlRoute);
+    String urlRoute = PolyLineEncoder.encodePoints(routeData.getJSONArray("coordinates"));
     float[] min = getBound(routeData.getJSONArray("coordinates"), true);
     float[] max = getBound(routeData.getJSONArray("coordinates"), false);
-    String api = "YOUR API HERE";
+    String api = "AIzaSyCIv2s7IL71Z46Iq1pBmEIYoxf0aJATgbQ";
     String url = "https://maps.googleapis.com/maps/api/staticmap";
     url += "?center=" + (min[1] + max[1]) / 2  + "," + (min[0] + max[0]) / 2;
     url += "&zoom=17";
     url += "&size=600x600";
     url += "&path=color:0xff0000ff|weight:5|enc:" + urlRoute;
     url += "&key=" + api;
-    
-    System.out.println(url);
     return url;
   }
   

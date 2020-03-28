@@ -1,7 +1,5 @@
 import mqtt.*;
 import controlP5.*;
-import org.gicentre.geomap.*;
-
 
 ControlP5 cp5;
 MQTTClient client;
@@ -11,23 +9,31 @@ Gui gui;
 Calculator calculator;
 
 void setup() {
-  setUpUserData();
-  testAddRouteFromJson();
-  testGui();
-
-  /*testDB();
-  testMap();*/
+  gui = new Gui(this);
   size(2000, 2000); 
+  initCalcWithUserData();
+  initMqtt();  
+  testMQTT();
+  /*testAddRouteFromJson();
+  testDB();
+  testMap();*/
 }
 
 void draw() {
 }
 
-private void setUpUserData(){
-  JSONObject userData = new JSONObject();
+private void initCalcWithUserData(){
+    JSONObject userData = new JSONObject();
     userData.setInt("height", 178);
     userData.setInt("age", 7);
     userData.setInt("weight", 70);
     userData.setInt("gender", 0);
     calculator = new Calculator(userData);
+}
+
+private void initMqtt(){
+    client = new MQTTClient(this);
+    client.connect("mqtt://try:try@broker.hivemq.com", "processing_desktop" + str(random(3)));
+    client.subscribe("guardiancycle");
+    delay(100);
 }

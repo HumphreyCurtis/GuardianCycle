@@ -45,18 +45,16 @@ void testAddRouteFromJson(){
     }
 }
 
+void testMQTT(){
+    JSONObject geoJSON = loadJSONObject("data/test.geojson");
+    sendMessage(geoJSON);
+}
 
 void testGui(){
-    gui = new Gui(this);
-    int x = 0;
-    int y = 200;
-    for(int i = 0; i < handler.idList.size(); i++){
-      gui.addRoute(i, x, y);
-      y += 800;
-    }
+  
 }
 
 void testMap(){
   JSONObject geojson = loadJSONObject("data/test.geojson");
-  polyLineEncoder.encodePoints(geojson.getJSONArray("coordinates"));
+  PolyLineEncoder.encodePoints(geojson.getJSONArray("coordinates"));
 }

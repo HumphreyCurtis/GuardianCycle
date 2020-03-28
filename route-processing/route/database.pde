@@ -24,17 +24,17 @@ private class Database{
 }
 
 public class DataHandler{
-  ArrayList<Integer> idList;
+  int currentId;
   DataHandler(){
-    idList = new ArrayList<Integer>();
+    currentId = 0;
   }  
   
   public void addRouteObject(JSONObject obj) throws InvalidDataException{
     if(obj == null) return;
-    data.addToDB(obj);
     if(obj.getInt("id", -1) == -1) throw new InvalidDataException("----Object doesn't contain ID----");
     if(obj.getInt("time", -1) == -1) throw new InvalidDataException("----Object doesn't contain Time information----");
-    idList.add(obj.getInt("id"));
+    data.addToDB(obj);
+    currentId++;
   }
   
   public void addUserData(JSONObject userData) throws InvalidDataException{
@@ -52,7 +52,7 @@ public class DataHandler{
   }
   
   public int getNextId(){
-    return idList.size(); 
+    return currentId; 
   }
   
   public Boolean JsonInDatabase(int id){
