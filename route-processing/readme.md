@@ -16,6 +16,14 @@ Gui is handled using cp5, public functions listed below.-
 	public void addRoute(int JsonId, int x, int y);
    
 Addroute loops through every JsonId in the datahandler class, finds calorie, time and dist info, then adds labels for each.
+
+### Calculator
+Based on the route co-ordinates, calculates foremost:
+1. Distance travelled.
+2. Average speed (based on time and distance travelled).
+
+From this data and provided user data, an estimate of the amount of calories burned is then calculated.
+
 ## TODO
 1. Confirm what JSON data needs to be displayed in the viewer
 2. Add more gui features to the route objects and overall display such as App title and description.
