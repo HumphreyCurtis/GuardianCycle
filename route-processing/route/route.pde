@@ -10,13 +10,13 @@ Calculator calculator;
 
 void setup() {
   gui = new Gui(this);
-  size(2000, 2000); 
+  size(1230, 800); 
   initCalcWithUserData();
-  testDB();
+  //testDB();
   testAddRouteFromJson();
   testGui();
   initMqtt();  
-  testMQTT();
+  //testMQTT();
 }
 
 void draw() {

@@ -4,40 +4,50 @@ public class Gui{
 
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
-     cf1 = new ControlFont(createFont("Arial", 64));
-     cf2 = new ControlFont(createFont("Arial", 46));
+     cf1 = new ControlFont(createFont("Ubuntu Condensed", 50));
+     cf2 = new ControlFont(createFont("Ubuntu Condensed", 30));
+     
+     noStroke();
+     rect(0, 70, 1230, 420);
+     
      addLabel("AppTitle", "GuardianCycle")
              .setPosition(0, 0)
              .setFont(cf1);
    }
    
    public void updateRoutes(){
-     int x = 100, y = 100;
+     int x = 10, y = 80;
      for(int i = 0; i < handler.currentId; i++){
        removeRoute(i);
        addRoute(i, x, y);
-       y +=400;
+       x += 405;
      }
    }
    
    private void addRoute(int JsonId, int x, int y){
-     int yOffSet = 60;
+     int yOffSet = 50;
+     int textSetY = y+410;
      try{
        addLabel("Title " + JsonId, "Route " + JsonId)
-       .setPosition(x, y);
+       .setPosition(x, textSetY);
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
          PImage map = loadImage(url, "png");
-         image(map, x + 600, y);
+         map.resize(400, 400);
+         image(map, x, y);
        }
+       
        addLabel("Calories " + JsonId, "Calories - " + handler.getFloatAttrib("calories", JsonId))
-       .setPosition(x, y += yOffSet);
+       .setPosition(x, textSetY += yOffSet);
+       
        addLabel("Time "+ JsonId, "Time - " + handler.getIntAttrib("time", JsonId))
-       .setPosition(x, y += yOffSet);
+       .setPosition(x, textSetY += yOffSet);
+       
        addLabel("Distance "+ JsonId, "Distance - " + handler.getFloatAttrib("dist", JsonId))
-       .setPosition(x, y += yOffSet);
+       .setPosition(x, textSetY += yOffSet);
+       
        addLabel("Speed "+ JsonId, "kMh - " + handler.getFloatAttrib("speed", JsonId))
-       .setPosition(x, y += yOffSet);
+       .setPosition(x, textSetY += yOffSet);
        }
        catch(Exception e){
           System.err.println(e.getMessage()); 
