@@ -14,12 +14,17 @@ void setup() {
   initCalcWithUserData();
   //testDB();
   testAddRouteFromJson();
-  testGui();
+  
   initMqtt();  
   //testMQTT();
 }
 
 void draw() {
+  background(120);
+  noStroke();
+  rect(0, 70, 1230, 420);
+  testGui();
+
 }
 
 private void initCalcWithUserData(){

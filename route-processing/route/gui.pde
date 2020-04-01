@@ -1,35 +1,36 @@
 public class Gui{
    ControlP5 cp5;
-   ControlFont cf1, cf2;
+   ControlFont cf1, cf2, cf3;
 
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
-     cf1 = new ControlFont(createFont("Ubuntu Condensed", 50));
+     cf1 = new ControlFont(createFont("Ubuntu", 55));
      cf2 = new ControlFont(createFont("Ubuntu Condensed", 30));
-     
-     noStroke();
-     rect(0, 70, 1230, 420);
-     
+     cf3 = new ControlFont(createFont("Ubuntu", 40));
+          
      addLabel("AppTitle", "GuardianCycle")
-             .setPosition(0, 0)
+             .setPosition(10, 0)
              .setFont(cf1);
-   }
+     }
    
    public void updateRoutes(){
      int x = 10, y = 80;
+     
      for(int i = 0; i < handler.currentId; i++){
        removeRoute(i);
        addRoute(i, x, y);
        x += 405;
      }
    }
-   
+
    private void addRoute(int JsonId, int x, int y){
      int yOffSet = 50;
      int textSetY = y+410;
      try{
-       addLabel("Title " + JsonId, "Route " + JsonId)
+       int routeNumber = JsonId+1;
+       addTitle("Title " + JsonId, "Route " + routeNumber)
        .setPosition(x, textSetY);
+       
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
          PImage map = loadImage(url, "png");
@@ -65,8 +66,17 @@ public class Gui{
      Textlabel l = cp5.addTextlabel(labelName)
                       .setText(text)
                       .setColor(255)
-                      .setFont(cf2);   
+                      .setFont(cf2);
      return l;
    }
+   
+   private Textlabel addTitle(String labelName, String text){
+     Textlabel l = cp5.addTextlabel(labelName)
+                      .setText(text)
+                      .setColor(255)
+                      .setFont(cf3);
+     return l;
+   }
+  
 
  }
