@@ -8,15 +8,15 @@ public class Calculator{
  public JSONObject createDataJson(JSONObject routeData){
    JSONObject routeStats = new JSONObject();
    routeStats.setInt("id", handler.getNextId())
-             .setFloat("calories", caloriesCounted(routeData))
              .setFloat("dist", calcDistance(routeData))
+             .setFloat("calories", caloriesCounted(routeData, calcDistance(routeData)))
              .setFloat("time", routeData.getFloat("time"))
              .setFloat("speed", (routeStats.getFloat("dist") / (routeData.getFloat("time") / 60)))
              .setString("url", Maps.makeUrl(routeData));
    return routeStats;
  }
 
- private float caloriesCounted(JSONObject routeData)
+ private float caloriesCounted(JSONObject routeData, float distance)
     {   
       
         int height = userData.getInt("height");
@@ -25,6 +25,9 @@ public class Calculator{
         int gender = userData.getInt("gender");
         
         float time = routeData.getFloat("time");
+        float mph = distance/(time/60);
+        float mets = calcMets(mph); 
+        
         float s;
         if(gender == 1) {
             s = 5;
@@ -40,8 +43,33 @@ public class Calculator{
             (5 * age) + s;
         
         float calories = 
-            (bmr * 6.8) / 24 * time;
+            (bmr * mets) / 24 * time;
         return calories;
+    }
+    
+    float calcMets(float mph)
+    {
+      if(mph < 10.0){
+        return 4.0;
+      }
+      
+      if(mph > 10.0 && mph < 12.0){
+        return 6.8;
+      }
+      
+      if(mph > 12.0 && mph < 14.0){
+        return 10.0;
+      }
+      
+      if(mph > 16.0 && mph < 20.0){
+        return 12.0;
+      }
+      
+      if(mph > 20.0){
+        return 15.8;
+      }
+      
+      return 6.8;
     }
     
     float calcDistance(JSONObject routeData)
