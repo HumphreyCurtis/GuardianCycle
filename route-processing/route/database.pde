@@ -31,8 +31,10 @@ public class DataHandler{
   
   public void addRouteObject(JSONObject obj) throws InvalidDataException{
     if(obj == null) return;
-    if(obj.getInt("id", -1) == -1) throw new InvalidDataException("----Object doesn't contain ID----");
-    if(obj.getInt("time", -1) == -1) throw new InvalidDataException("----Object doesn't contain Time information----");
+    if(obj.isNull("id")) throw new InvalidDataException("----Route doesn't contain ID----");
+    if(obj.isNull("time")) throw new InvalidDataException("----Route doesn't contain Time information----");
+    if(obj.isNull("calories")) throw new InvalidDataException("----Route doesn't contain Calories information----");
+    if(obj.isNull("dist")) throw new InvalidDataException("----Route doesn't contain Distance information----");
     data.addToDB(obj);
     currentId++;
   }
@@ -40,15 +42,11 @@ public class DataHandler{
   public void addUserData(JSONObject userData) throws InvalidDataException{
     /*Checks userData json contains all necessary info*/
     if(userData == null) throw new InvalidDataException("Data is null");
-    if(userData.getInt("height", -1) == -1) throw new InvalidDataException("----User data doesn't contain height----");
-    if(userData.getInt("age", -1) == -1) throw new InvalidDataException("----User data doesn't contain age----");
-    if(userData.getInt("weight", -1) == -1) throw new InvalidDataException("----User data doesn't contain weight----");
-    if(userData.getInt("gender", -1) == -1) throw new InvalidDataException("----User data doesn't contain gender----");
+    if(userData.isNull("height")) throw new InvalidDataException("----User data doesn't contain height----");
+    if(userData.isNull("age")) throw new InvalidDataException("----User data doesn't contain age----");
+    if(userData.isNull("weight")) throw new InvalidDataException("----User data doesn't contain weight----");
+    if(userData.isNull("gender")) throw new InvalidDataException("----User data doesn't contain gender----");
     data.setUserData(userData);
-  }
-  
-  public JSONObject getUserData(){
-    return data.userData; 
   }
   
   public int getNextId(){

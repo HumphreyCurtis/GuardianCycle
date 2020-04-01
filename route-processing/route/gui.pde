@@ -4,43 +4,50 @@ public class Gui{
 
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
-     cf1 = new ControlFont(createFont("Arial", 46));
-     cf2 = new ControlFont(createFont("Arial", 64));
+     cf1 = new ControlFont(createFont("Arial", 64));
+     cf2 = new ControlFont(createFont("Arial", 46));
      addLabel("AppTitle", "GuardianCycle")
              .setPosition(0, 0)
-             .setFont(cf2);
+             .setFont(cf1);
    }
    
    public void updateRoutes(){
-     int x = 0;
-     int y = 200;
+     int x = 100, y = 100;
      for(int i = 0; i < handler.currentId; i++){
-       gui.addRoute(i, x, y);
-       y += 800;
+       removeRoute(i);
+       addRoute(i, x, y);
+       y +=400;
      }
    }
    
-   public void addRoute(int JsonId, int x, int y){
+   private void addRoute(int JsonId, int x, int y){
      int yOffSet = 60;
      try{
-       Textlabel title = addLabel("Title "+ JsonId + 1, "Route " + (JsonId + 1));
-       title.setPosition(x, y);
+       addLabel("Title " + JsonId, "Route " + JsonId)
+       .setPosition(x, y);
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
          PImage map = loadImage(url, "png");
          image(map, x + 600, y);
        }
-       Textlabel calories = addLabel("Calories " + JsonId, "Calories - " + handler.getFloatAttrib("calories", JsonId).toString()); 
-       calories.setPosition(x, y += yOffSet);
-       Textlabel time = addLabel("Time "+ JsonId, "Time - " + handler.getIntAttrib("time", JsonId)); 
-       time.setPosition(x, y += yOffSet);
-       Textlabel dist = addLabel("Distance "+ JsonId, "Distance - " + handler.getFloatAttrib("dist", JsonId)); 
-       dist.setPosition(x, y += yOffSet);
-       Textlabel speed = addLabel("speed "+ JsonId, "kMh - " + handler.getFloatAttrib("speed", JsonId)); 
-       speed.setPosition(x, y += yOffSet);
+       addLabel("Calories " + JsonId, "Calories - " + handler.getFloatAttrib("calories", JsonId))
+       .setPosition(x, y += yOffSet);
+       addLabel("Time "+ JsonId, "Time - " + handler.getIntAttrib("time", JsonId))
+       .setPosition(x, y += yOffSet);
+       addLabel("Distance "+ JsonId, "Distance - " + handler.getFloatAttrib("dist", JsonId))
+       .setPosition(x, y += yOffSet);
+       addLabel("Speed "+ JsonId, "kMh - " + handler.getFloatAttrib("speed", JsonId))
+       .setPosition(x, y += yOffSet);
        }
        catch(Exception e){
           System.err.println(e.getMessage()); 
+       }
+   }
+   
+   private void removeRoute(int id){
+       String[] labels = {"Title", "Calories", "Time", "Distance", "Speed"};
+       for(String label: labels){
+          cp5.remove(label + " " + id);
        }
    }
    
@@ -48,7 +55,7 @@ public class Gui{
      Textlabel l = cp5.addTextlabel(labelName)
                       .setText(text)
                       .setColor(255)
-                      .setFont(cf1);   
+                      .setFont(cf2);   
      return l;
    }
 

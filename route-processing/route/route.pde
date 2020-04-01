@@ -12,11 +12,11 @@ void setup() {
   gui = new Gui(this);
   size(2000, 2000); 
   initCalcWithUserData();
+  testDB();
+  testAddRouteFromJson();
+  testGui();
   initMqtt();  
   testMQTT();
-  /*testAddRouteFromJson();
-  testDB();
-  testMap();*/
 }
 
 void draw() {
@@ -35,5 +35,4 @@ private void initMqtt(){
     client = new MQTTClient(this);
     client.connect("mqtt://try:try@broker.hivemq.com", "processing_desktop" + str(random(3)));
     client.subscribe("guardiancycle");
-    delay(100);
 }

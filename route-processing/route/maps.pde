@@ -3,11 +3,11 @@ static class Maps{
     String urlRoute = PolyLineEncoder.encodePoints(routeData.getJSONArray("coordinates"));
     float[] min = getBound(routeData.getJSONArray("coordinates"), true);
     float[] max = getBound(routeData.getJSONArray("coordinates"), false);
-    String api = "AIzaSyCIv2s7IL71Z46Iq1pBmEIYoxf0aJATgbQ";
+    String api = "YOUR API HERE";
     String url = "https://maps.googleapis.com/maps/api/staticmap";
     url += "?center=" + (min[1] + max[1]) / 2  + "," + (min[0] + max[0]) / 2;
     url += "&zoom=17";
-    url += "&size=600x600";
+    url += "&size=600x500";
     url += "&path=color:0xff0000ff|weight:5|enc:" + urlRoute;
     url += "&key=" + api;
     return url;
