@@ -4,9 +4,9 @@ public class Gui{
 
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
-     cf1 = new ControlFont(createFont("Ubuntu", 55));
-     cf2 = new ControlFont(createFont("Ubuntu Condensed", 30));
-     cf3 = new ControlFont(createFont("Ubuntu", 40));
+     cf1 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 55));
+     cf2 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 30));
+     cf3 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 40));
           
      addLabel("AppTitle", "GuardianCycle")
              .setPosition(10, 0)
@@ -27,14 +27,12 @@ public class Gui{
      int yOffSet = 50;
      int textSetY = y+410;
      try{
-       int routeNumber = JsonId+1;
-       addTitle("Title " + JsonId, "Route " + routeNumber)
+       addTitle("Title " + JsonId, "Route " + (JsonId + 1))
        .setPosition(x, textSetY);
        
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
          PImage map = loadImage(url, "png");
-         map.resize(400, 400);
          image(map, x, y);
        }
        

@@ -10,13 +10,13 @@ Calculator calculator;
 
 void setup() {
   gui = new Gui(this);
-  size(1230, 800); 
-  initCalcWithUserData();
-  //testDB();
+  size(2000, 800); 
+  /*Add user data in this function*/
+  initCalcWithUserData(new JSONObject());
+  testDB();
   testAddRouteFromJson();
-  
   initMqtt();  
-  //testMQTT();
+  testMQTT();
 }
 
 void draw() {
@@ -27,13 +27,22 @@ void draw() {
 
 }
 
-private void initCalcWithUserData(){
-    JSONObject userData = new JSONObject();
-    userData.setInt("height", 178);
-    userData.setInt("age", 7);
-    userData.setInt("weight", 70);
-    userData.setInt("gender", 0);
+private void initCalcWithUserData(JSONObject userData){
+
+    try{
     calculator = new Calculator(userData);
+    }
+    catch(InvalidDataException e){
+      /*Sets calculator using default values*/
+      JSONObject defaultData = new JSONObject();
+      defaultData.setInt("height", 178);
+      defaultData.setInt("age", 7);
+      defaultData.setInt("weight", 70);
+      defaultData.setInt("gender", 0);
+      try{calculator = new Calculator(defaultData);} catch(Exception neverCalled){}
+      System.err.print(e.getMessage());
+      System.err.println("Setting to defaultValues");
+    }
 }
 
 private void initMqtt(){

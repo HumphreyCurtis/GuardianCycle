@@ -1,11 +1,17 @@
 public class Calculator{
   JSONObject userData;
   
-  Calculator(JSONObject userData){
+  Calculator(JSONObject userData) throws InvalidDataException{
+    /*Checks userData json contains all necessary info*/
+    if(userData == null) throw new InvalidDataException("Data is null");
+    if(userData.isNull("height")) throw new InvalidDataException("----User data doesn't contain height----");
+    if(userData.isNull("age")) throw new InvalidDataException("----User data doesn't contain age----");
+    if(userData.isNull("weight")) throw new InvalidDataException("----User data doesn't contain weight----");
+    if(userData.isNull("gender")) throw new InvalidDataException("----User data doesn't contain gender----");
    this.userData = userData; 
   }
   
- public JSONObject createDataJson(JSONObject routeData){
+ public JSONObject createDataJson(JSONObject routeData){   
    JSONObject routeStats = new JSONObject();
    routeStats.setInt("id", handler.getNextId())
              .setFloat("dist", calcDistance(routeData))

@@ -1,19 +1,13 @@
 private class Database{
   HashMap<Integer, JSONObject> data;
-  JSONObject userData;
   Database(){
     data = new HashMap<Integer, JSONObject>();
-    userData = null;
   }
   
   private void addToDB(JSONObject obj){
     data.put(obj.getInt("id"), obj);
   }
-  
-  private void setUserData(JSONObject userData){
-     this.userData = userData; 
-  }
-  
+    
   private JSONObject getJSONById(int id) throws NotInDatabaseException{
     JSONObject json = data.get(id);
     if(json == null){
@@ -37,16 +31,6 @@ public class DataHandler{
     if(obj.isNull("dist")) throw new InvalidDataException("----Route doesn't contain Distance information----");
     data.addToDB(obj);
     currentId++;
-  }
-  
-  public void addUserData(JSONObject userData) throws InvalidDataException{
-    /*Checks userData json contains all necessary info*/
-    if(userData == null) throw new InvalidDataException("Data is null");
-    if(userData.isNull("height")) throw new InvalidDataException("----User data doesn't contain height----");
-    if(userData.isNull("age")) throw new InvalidDataException("----User data doesn't contain age----");
-    if(userData.isNull("weight")) throw new InvalidDataException("----User data doesn't contain weight----");
-    if(userData.isNull("gender")) throw new InvalidDataException("----User data doesn't contain gender----");
-    data.setUserData(userData);
   }
   
   public int getNextId(){
