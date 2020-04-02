@@ -36,17 +36,17 @@ PubSubClient ps_client( wifi_client );
 // - on Linux/MAC, open the command line and type ifconfig.
 // - on Windows, open command line and type ipconfig
 // - On your phone, I have no idea (but it is possible)
-uint8_t guestMacAddress[6] = {0x2c, 0x59, 0x8a, 0x6d, 0xad, 0xd7};
+uint8_t guestMacAddress[6] = {0x84, 0xad, 0x8d, 0xc6, 0x83, 0x9c};
 
 // Wifi settings
-const char* ssid = "UoB Guest";                 // Set name of Wifi Network
-const char* password = "";                      // No password for UoB Guest
+const char* ssid = "Curtis_Network_2";                 // Set name of Wifi Network
+const char* password = "CapeTown123";                      // No password for UoB Guest
 
 
 // MQTT Settings
-const char* MQTT_clientname = "evy_name"; // Make up a short name
-const char* MQTT_sub_topic = "bicycle_helmet"; // pub/sub topics
-const char* MQTT_pub_topic = "bicycle_helmet"; // You might want to create your own
+const char* MQTT_clientname = "M5Stack"; // Make up a short name
+const char* MQTT_sub_topic = "guardiancycle"; // pub/sub topics
+const char* MQTT_pub_topic = "guardiancycle"; // You might want to create your own
 
 // Please leave this alone - to connect to HiveMQ
 const char* server = "broker.mqttdashboard.com";
@@ -123,19 +123,20 @@ void loop() {
     reconnect();
   }
   ps_client.loop();
-
+  Serial.println( "button pressed 0" ); 
 
   // This is an example of using our timer class to
   // publish a message every 2000 milliseconds, as
   // set when we initalised the class above.
-  if( M5.BtnA.wasPressed() ) {
-
+  if( M5.BtnC.wasPressed() ) {
+      Serial.println( "before publish message" ); 
       // Prepare a string to send.
       // Here we include millis() so that we can
       // tell when new messages are arrive in hiveMQ
       String new_string = "hello?";
       new_string += millis();
       publishMessage( new_string );
+      Serial.println( "button pressed 1" ); 
 
       // Remember to reset your timer when you have
       // used it. This starts the clock again.
@@ -143,7 +144,7 @@ void loop() {
   }
 
 
-
+  M5.update();
 
   // Just incase we print so much text we run off the
   // screen!  Clear screen, set cursor back to the top.
@@ -188,7 +189,7 @@ void publishMessage( String message ) {
 
       M5.Lcd.print(">> Tx: ");
       M5.Lcd.println( message );
-
+      Serial.println( "button pressed 2" ); 
       // Send
       ps_client.publish( MQTT_pub_topic, msg );
     }

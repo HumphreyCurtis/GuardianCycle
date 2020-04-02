@@ -41,16 +41,14 @@ void loop() {
     M5.Lcd.fillScreen(BLACK); 
   } else if (M5.BtnC.wasPressed()){ /*Indicator Right Triggered*/
     M5.Lcd.fillScreen(BLACK); 
-    //digitalWrite(3, HIGH); 
     M5.update();
     rightIndicator(); 
     M5.update(); 
-//    delay(6000); 
     M5.Lcd.fillScreen(BLACK); 
   } else if (M5.BtnB.wasPressed()){
     M5.Lcd.fillCircle(160, 120, 80, ConsoleColour); 
     //digitalWrite(3, HIGH); 
-  } else if (M5.BtnA.pressedFor(1000)){ /*Emergency Signal Triggered*/
+  } else if (M5.BtnA.pressedFor(500)){ /*Emergency Signal Triggered*/
     M5.Lcd.fillScreen(BLACK); 
     emergencyButton(); 
     M5.update(); 
@@ -118,8 +116,7 @@ void leftIndicator()
     M5.Lcd.setCursor(0, 215); 
     M5.Lcd.printf("<<<LEFT");
     
-        for(int a = 0; a < 4; a++) /* Loop determines length of indicator */
-      {
+      for(int a = 0; a < 4; a++) { /* Loop determines length of indicator */
         matrix.drawPixel(4, 7, BRIGHT);
         matrix.drawPixel(5, 8, BRIGHT);
         matrix.drawPixel(3, 8, BRIGHT);
@@ -131,7 +128,7 @@ void leftIndicator()
         matrix.drawPixel(3, 8, 0);
         matrix.drawPixel(12, 7, 0);
         matrix.drawPixel(8, 0, 0);
-        delay(1000);
+        delay(1000); /*Enable blinking with delay*/
       }
 }
 
@@ -142,8 +139,7 @@ void rightIndicator()
     M5.Lcd.setCursor(17, 215);
     M5.Lcd.printf("RIGHT>>>"); 
     
-      for(int b = 0; b < 4; b++)
-      {
+      for(int b = 0; b < 4; b++){
         matrix.drawPixel(4, 7, BRIGHT);
         matrix.drawPixel(0, 7, BRIGHT);
         matrix.drawPixel(15, 7, BRIGHT);
@@ -166,8 +162,7 @@ void emergencyButton()
     M5.Lcd.setCursor(0, 215); 
     M5.Lcd.printf("!!!!EMERGENCY!!!!"); 
 
-        for(int d = 0; d<4; d++)
-       {
+      for(int d = 0; d<4; d++){
         matrix.fillRect(0, 0, 50, 50,  RECTON);
         delay(500);
         matrix.fillRect(0, 0, 50, 50, RECTOFF);
