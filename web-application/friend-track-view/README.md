@@ -1,16 +1,21 @@
-# GuardianCycle Emergency Services View
+# GuardianCycle Friend Track View
 
-This component of the GuardianCycle application is intended to alert the Emergency Services to incidents it has created.
+This component of the GuardianCycle application is intended for users to allow friends and family to see their current location (once they have started the application).
 
-It is written using the React framework, is fed data from Hive MQ MQTT and uses mapbox for mapping services.
+It is written using the React framework, is fed data from Mosquitto MQTT and uses mapbox for mapping services.
 
 The live website can be viewed at:
 
-[guardiancycle.preciouschicken.com](https://guardiancycle.preciouschicken.com)
+[friend-track-view.preciouschicken.now.sh](https://friend-track-view.preciouschicken.now.sh)
 
-Unfortunately due to a web-sockets issue the site does not display initially (you get a blank page) until you have allowed 'unsafe' elements - this is possible via an icon in the URL bar of the browser (tested on Vivaldi broswer, so others - Chrome / Firefox / Safari may vary).
+The websockets issue originally present has been corrected by using a different broker, but this requires some configuration.
 
-to activate an incident use the HiveMQ broker using the topic `guardiancycle` and the following message:
+Ensure that the [HiveMQ broker](http://www.hivemq.com/demos/websocket-client/) has the following variables when connecting:
+
+- host: test.mosquitto.org
+- port: 8081
+
+then use the topic `guardiancycle` and the following message:
 
 ```json
 {
@@ -20,7 +25,7 @@ to activate an incident use the HiveMQ broker using the topic `guardiancycle` an
    ],
    "name":"John Doe",
    "timeSent":"2020-03-04T18:25:43.511Z",
-   "isIncident":true
+   "isIncident":false
 }
 ```
 
@@ -38,7 +43,7 @@ To run locally:
 
 Installed using `npm install mqtt`.
 
-The [mqtt.js](https://www.hivemq.com/blog/mqtt-client-library-mqtt-js/) library was used for the website client to capture MQTT messages.  I found the documentation for this so difficult I ended up creating my own: [A taste of MQTT in React](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/).
+The [mqtt.js](https://www.hivemq.com/blog/mqtt-client-library-mqtt-js/) library was used for the website client to capture MQTT messages.  I found the documentation for this so difficult I ended up creating my own: [A taste of MQTT in React](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/) - now updated to solve websocket issue.
 
 ### mapbox
 
