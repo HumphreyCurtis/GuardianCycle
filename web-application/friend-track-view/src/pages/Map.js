@@ -147,6 +147,12 @@ componentWillUnmount() {
 	client.end();
 }
 render() {
+	const img = {
+		width: 50,
+		height: 50,
+		float: 'left',
+		'margin-right': 10,
+	}
 	var time = this.state.inc.timeSent;
 	var name = this.state.inc.name;
 	var lat = this.state.inc.lastCoord[0];
@@ -166,6 +172,7 @@ render() {
 	return (
 		<div>
 		<div className='infopane'>
+		<img style={img} src='/helmetLogo.png' alt="Logo" />
 		<h1>GuardianCycle Friend Locator</h1>
 		{alertIncident(this.state.inc.isIncident)}
 		</div>
