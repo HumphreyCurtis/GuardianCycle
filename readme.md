@@ -1,6 +1,6 @@
 # GuardianCycle
 
-Team Members: NC, HC, J 'Gene' Hackman (kq18265), AR, ET and Andrew Thomas (vz19513).
+Team Members: NC, HC, J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), ET and Andrew Thomas (vz19513).
 
 Protecting heads since 2020!
 
