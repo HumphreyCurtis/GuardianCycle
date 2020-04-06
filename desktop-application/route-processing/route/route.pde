@@ -10,21 +10,17 @@ Calculator calculator;
 
 void setup() {
   gui = new Gui(this);
-  size(2000, 800); 
+  size(1600, 800); 
   /*Add user data in this function*/
   initCalcWithUserData(new JSONObject());
   testDB();
   testAddRouteFromJson();
   initMqtt();  
   testMQTT();
+  testGui();
 }
 
 void draw() {
-  background(120);
-  noStroke();
-  rect(0, 70, 1230, 420);
-  testGui();
-
 }
 
 private void initCalcWithUserData(JSONObject userData){

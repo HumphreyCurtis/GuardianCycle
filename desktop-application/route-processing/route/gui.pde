@@ -1,28 +1,72 @@
 public class Gui{
    ControlP5 cp5;
    ControlFont cf1, cf2, cf3;
-
+   int currentPage, toDisplayPerPage;
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
      cf1 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 55));
      cf2 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 30));
      cf3 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 40));
-          
+     currentPage = 0;
+     toDisplayPerPage = 3;
      addLabel("AppTitle", "GuardianCycle")
              .setPosition(10, 0)
-             .setFont(cf1);
+             .setFont(cf1);     
+     addButtons();
      }
-   
-   public void updateRoutes(){
-     int x = 10, y = 80;
      
-     for(int i = 0; i < handler.currentId; i++){
-       removeRoute(i);
-       addRoute(i, x, y);
+   public void updateRoutes(){
+     background(0);
+     int x = 10, y = 80;
+     for(int i = currentPage * toDisplayPerPage; i < (currentPage * toDisplayPerPage) + toDisplayPerPage; i++){
+       if(handler.JsonInDatabase(i)){
+         removeRoute(i);
+         addRoute(i, x, y);
+       }
        x += 405;
      }
    }
-
+   
+   public void changePage(int pageNumber){
+      for(int i = currentPage * toDisplayPerPage; i < (currentPage * toDisplayPerPage) + toDisplayPerPage; i++){
+         removeRoute(i);
+      }
+      currentPage = pageNumber;
+      updateRoutes();
+   }
+   
+   private void addButtons(){
+     Bang left = cp5.addBang("left");
+     Bang right = cp5.addBang("right");
+     
+     left.setPosition(20, height / 2)
+     .setSize(50, 50)
+     .setFont(cf2)
+     .onPress(new CallbackListener() {
+       public void controlEvent(CallbackEvent theEvent){
+         buttonPressed(theEvent);
+       }
+     });
+     
+     right.setPosition(width - 120, height / 2)
+     .setSize(50, 50)
+     .setFont(cf2)
+     .onPress(new CallbackListener() {
+       public void controlEvent(CallbackEvent theEvent){
+         buttonPressed(theEvent);
+       }
+     });
+   }
+   
+   private void buttonPressed(CallbackEvent theEvent){
+     if(theEvent.getController().getName().equals("left")){
+         changePage(currentPage - 1);
+     }
+     else if(theEvent.getController().getName().equals("right")){
+         changePage(currentPage + 1);
+     }
+   }
+   
    private void addRoute(int JsonId, int x, int y){
      int yOffSet = 50;
      int textSetY = y+410;

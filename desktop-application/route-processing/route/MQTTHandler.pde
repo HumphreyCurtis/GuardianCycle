@@ -11,7 +11,6 @@ public void connectionLost() {
 }
 
 public void messageReceived(String topic, byte[] payload) {
-  System.out.println(checkIncomingPayload(payload));
   if(!checkIncomingPayload(payload)) return;
   JSONObject geoJSON = parseJSONObject(new String(payload));
   JSONObject dataJSON = calculator.createDataJson(geoJSON);

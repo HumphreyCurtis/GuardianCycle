@@ -60,6 +60,7 @@ void testGui(){
       System.out.println(e.getMessage()); 
     }
     gui.updateRoutes();
+    gui.changePage(1);
 }
 
 void testMQTT(){
