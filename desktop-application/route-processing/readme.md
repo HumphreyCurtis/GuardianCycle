@@ -31,7 +31,7 @@ Based on the route co-ordinates, calculates foremost:
 This is calculating by totalling the distance between each set of co-ordinates within the JSON file. The distance between each set of co-ordinates is calculating using the [Haversine formula.](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula)
 2. Average speed (in kms/per hour based on time and distance travelled).
 
-From this data and provided user data, an estimate of the amount of calories burned is then calculated. The calorie calculator follows the logic from the online calculator at [Keisan.](https://keisan.casio.com/exec/system/1350958587). 
+From this data and provided user data, an estimate of the amount of calories burned is then calculated. The calorie calculator follows the logic from the online calculator at [Keisan.](https://keisan.casio.com/exec/system/1350958587) 
 
 The data is then fed back into the GUI where it is display alongside the respective route.
 
