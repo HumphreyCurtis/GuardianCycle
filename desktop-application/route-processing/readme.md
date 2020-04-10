@@ -27,10 +27,14 @@ updateRoutes removes all routes displayed currently then adds them back, spacing
 Needs to be changed to wrap when the edge of the screen is reached. Or only load 5 or so at a time.
 ### Calculator
 Based on the route co-ordinates, calculates foremost:
-1. Distance travelled.
-2. Average speed (based on time and distance travelled).
+1. Distance travelled (in kilometres).
+This is calculating by totalling the distance between each set of co-ordinates within the JSON file. The distance between each set of co-ordinates is calculating using the [Haversine formula.](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula)
+2. Average speed (in kms/per hour based on time and distance travelled).
 
-From this data and provided user data, an estimate of the amount of calories burned is then calculated.
+From this data and provided user data, an estimate of the amount of calories burned is then calculated. The calorie calculator follows the logic from the online calculator at [Keisan.](https://keisan.casio.com/exec/system/1350958587) 
+
+The data is then fed back into the GUI where it is display alongside the respective route.
+
 ### MQTTHandler
 This file contains mqtt callback functions, this is where mqtt messages are received and dealt with.
 

@@ -1,16 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import { Alert, AlertTitle } from '@material-ui/lab';
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJlY2lvdXNjaGlja2VuIiwiYSI6ImNrN2Q3NmZoZTA3MDUzZXFrMHVobHd3M3QifQ.HrOK0FBAshntXxrelA49yg';
 var mqtt    = require('mqtt');
-var client  = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt');
+var options = {
+	protocol: 'mqtts',
+	// clientId uniquely identifies client
+	// choose any string you wish
+	clientId: 'b0908853' 	
+};
+var client  = mqtt.connect('mqtt://test.mosquitto.org:8081', options);
 // preciouschicken.com is the MQTT topic
 client.subscribe('guardiancycle');
 var size = 200;
 // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
 // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
-class Application extends React.Component {
+class Map extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -108,7 +113,7 @@ class Application extends React.Component {
 					0,
 					Math.PI * 2
 				);
-				context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+				context.fillStyle = 'rgba(0, 72, 186,' + (1 - t) + ')';
 				context.fill();
 				// draw inner circle
 				context.beginPath();
@@ -119,7 +124,7 @@ class Application extends React.Component {
 					0,
 					Math.PI * 2
 				);
-				context.fillStyle = 'rgba(255, 100, 100, 1)';
+				context.fillStyle = 'rgba(0, 72, 186, 1)';
 				context.strokeStyle = 'white';
 				context.lineWidth = 2 + 4 * (1 - t);
 				context.fill();
@@ -142,26 +147,33 @@ componentWillUnmount() {
 	client.end();
 }
 render() {
+	const img = {
+		width: 50,
+		height: 50,
+		float: 'left',
+		'margin-right': 10,
+	}
 	var time = this.state.inc.timeSent;
 	var name = this.state.inc.name;
 	var lat = this.state.inc.lastCoord[0];
 	var long = this.state.inc.lastCoord[1];
 	const alertIncident = function(incident) {
-	if (incident === true) {
-	return (<Alert severity="error">
-			<AlertTitle>Incident</AlertTitle>
+	if (time != null) {
+	return (<Alert severity="info">
+			<AlertTitle>Location:</AlertTitle>
 			Time: {time}<br />
 		Name: {name}<br />
 		Lat: {lat} &#92; Long: {long} </Alert>);
 	} 
-	return (<Alert severity="info">No incidents reported.</Alert>);
+	return (<Alert severity="info">No location data found.</Alert>);
 }
 	// Sets default React state 
 	//const [mesg, setMesg] = useState(<Fragment><em>nothing heard</em></Fragment>);
 	return (
 		<div>
 		<div className='infopane'>
-		<h1>Avon &amp; Somerset GuardianCycle Alert</h1>
+		<img style={img} src='/helmetLogo.png' alt="Logo" />
+		<h1>GuardianCycle Friend Locator</h1>
 		{alertIncident(this.state.inc.isIncident)}
 		</div>
 		<div className='sidebarStyle'>
@@ -172,5 +184,6 @@ render() {
 	)
 }
 }
-ReactDOM.render(<Application />, document.getElementById('app'));
+
+export default Map;
 
