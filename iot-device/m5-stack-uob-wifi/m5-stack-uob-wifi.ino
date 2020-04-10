@@ -96,12 +96,12 @@ void setup() {
 
     // Use this with no wifi password set.
     // e.g., UoB Guest network.
-    setupWifi();
+    //setupWifi();
 
     // If you are using your own Wifi access
     // point, you might need to use this call
     // for a password protected connection.
-    //setupWifiWithPassword();
+    setupWifiWithPassword();
 
     // Sets up a connection to hiveMQ.
     // Sets up a call back function to run
@@ -123,24 +123,21 @@ void loop() {
     reconnect();
   }
   ps_client.loop();
-  Serial.println( "button pressed 0" ); 
 
   // This is an example of using our timer class to
   // publish a message every 2000 milliseconds, as
   // set when we initalised the class above.
   if( M5.BtnC.wasPressed() ) {
-      Serial.println( "before publish message" ); 
       // Prepare a string to send.
       // Here we include millis() so that we can
       // tell when new messages are arrive in hiveMQ
-      String new_string = "hello?";
-      new_string += millis();
+      String new_string = "ov_yH|dzN??j@qVw@q@kNMVxHr@pFDpD`LxA "; 
+    
       publishMessage( new_string );
-      Serial.println( "button pressed 1" ); 
 
-      // Remember to reset your timer when you have
-      // used it. This starts the clock again.
-      publishing_timer.reset();
+//      // Remember to reset your timer when you have
+//      // used it. This starts the clock again.
+//      publishing_timer.reset();
   }
 
 
@@ -182,14 +179,11 @@ void publishMessage( String message ) {
 
     // Make sure the message isn't blank.
     if( message.length() > 0 ) {
-
       // Convert to char array
       char msg[ message.length() ];
       message.toCharArray( msg, message.length() );
 
       M5.Lcd.print(">> Tx: ");
-      M5.Lcd.println( message );
-      Serial.println( "button pressed 2" ); 
       // Send
       ps_client.publish( MQTT_pub_topic, msg );
     }
@@ -277,8 +271,6 @@ void setupWifiWithPassword( ) {
     Serial.println("IP address allocated: " + String(WiFi.localIP()));
 
 }
-
-
 
 void reconnect() {
 

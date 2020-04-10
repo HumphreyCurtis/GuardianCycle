@@ -58,7 +58,7 @@ void setup()
   boolean startPressed = false; 
   while(!startPressed){
      startUp(); 
-     if (M5.BtnB.wasPressed()){
+     if (M5.BtnB.wasPressed()) {
         M5.Lcd.fillScreen(BLACK); 
         startPressed=true; 
      }
