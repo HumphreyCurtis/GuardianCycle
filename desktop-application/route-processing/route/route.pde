@@ -16,7 +16,7 @@ void setup() {
   testDB();
   testAddRouteFromJson();
   initMqtt();  
-  testMQTT();
+  //testMQTT();
   testGui();
 }
 
