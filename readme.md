@@ -1,6 +1,6 @@
 # GuardianCycle
 
-Team Members: NC(ka19493), Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
+Team Members: Nathan Cubitt (ka19493), Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
 
 Protecting heads since 2020!
 
