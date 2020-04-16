@@ -1,6 +1,8 @@
 # GuardianCycle
 
-Team Members: NC, Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), ET and Andrew Thomas (vz19513).
+<img src="https://friend-track-view.preciouschicken.now.sh/helmetLogo.png" alt="GuardianCycle Logo" width="150" height="150">
+
+Team Members: Nathan Cubitt (ka19493), Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
 
 Protecting heads since 2020!
 
