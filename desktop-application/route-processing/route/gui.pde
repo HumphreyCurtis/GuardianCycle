@@ -1,18 +1,19 @@
 public class Gui{
    ControlP5 cp5;
    ControlFont cf1, cf2, cf3;
-   int currentPage, toDisplayPerPage;
+   int currentPage, numRoutesDisplayed, toDisplayPerPage;
    Gui(processing.core.PApplet main){
      cp5 = new ControlP5(main);
      cf1 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 55));
      cf2 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 30));
      cf3 = new ControlFont(createFont("UbuntuCondensed-Regular.ttf", 40));
-     currentPage = 0;
+     currentPage = numRoutesDisplayed = 0;
      toDisplayPerPage = 3;
      addLabel("AppTitle", "GuardianCycle")
              .setPosition(10, 0)
              .setFont(cf1);     
      addButtons();
+     background(0);
      }
      
    public void updateRoutes(){
@@ -36,8 +37,8 @@ public class Gui{
    }
    
    private void addButtons(){
-     Bang left = cp5.addBang("left");
-     Bang right = cp5.addBang("right");
+     Bang left = cp5.addBang("Previous");
+     Bang right = cp5.addBang("Next");
      
      left.setPosition(20, height / 2)
      .setSize(50, 50)
@@ -59,10 +60,10 @@ public class Gui{
    }
    
    private void buttonPressed(CallbackEvent theEvent){
-     if(theEvent.getController().getName().equals("left")){
+     if(theEvent.getController().getName().equals("Previous") && currentPage > 0){
          changePage(currentPage - 1);
      }
-     else if(theEvent.getController().getName().equals("right")){
+     else if(theEvent.getController().getName().equals("Next")){
          changePage(currentPage + 1);
      }
    }

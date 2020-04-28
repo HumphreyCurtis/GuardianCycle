@@ -7,20 +7,24 @@ Database data = new Database();
 DataHandler handler = new DataHandler();
 Gui gui;
 Calculator calculator;
+String dataDirectory;
 
 void setup() {
+  dataDirectory = sketchPath() + File.separator + "JSONs";
   gui = new Gui(this);
   size(1600, 800); 
   /*Add user data in this function*/
   initCalcWithUserData(new JSONObject());
-  testDB();
-  testAddRouteFromJson();
+  getAllFromFile();
+  /*testDB();
+  testAddRouteFromJson();*/
   initMqtt();  
-  testMQTT();
-  testGui();
+  /*testMQTT();
+  testGui();*/
 }
 
 void draw() {
+
 }
 
 private void initCalcWithUserData(JSONObject userData){

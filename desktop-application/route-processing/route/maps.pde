@@ -4,7 +4,7 @@ static class Maps{
     float[] min = getBound(routeData.getJSONArray("coordinates"), true);
     float[] max = getBound(routeData.getJSONArray("coordinates"), false);
     String api = "ENTER API HERE";
-    if(api == null) System.err.println("Please add your api key to maps.pde");
+    if(api == "ENTER API HERE") System.err.println("Please add your api key to maps.pde");
     String url = "https://maps.googleapis.com/maps/api/staticmap";
     url += "?center=" + (min[1] + max[1]) / 2  + "," + (min[0] + max[0]) / 2;
     url += "&zoom=16.5";
