@@ -6,4 +6,5 @@ The small size of the screen on the M5 stick was very limiting and I realised an
 
 With this in mind, I created a minimalist user interface that consisted of colours to indicate the state of the device.
 
-(Insert FSM diagram here)
+![M5Stick FSM](images/M5Stick-FSM.png)
+
