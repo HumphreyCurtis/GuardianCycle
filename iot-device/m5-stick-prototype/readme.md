@@ -8,8 +8,6 @@ With this in mind, I created a minimalist user interface that consisted of colou
 
 I have included a basic diagram of the interface functionality. The colours named refer to the background of the device.
 
-![M5Stick FSM](images/M5Stick-FSM.png)
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/iot-device/m5-stick-prototype/images/M5Stick-FSM.png" alt="centered"/>
 </p>
