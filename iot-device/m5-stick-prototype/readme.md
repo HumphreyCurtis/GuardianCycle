@@ -10,3 +10,7 @@ I have included a basic diagram of the interface functionality. The colours name
 
 ![M5Stick FSM](images/M5Stick-FSM.png)
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/iot-device/m5-stick-prototype/images/M5Stick-FSM.png" alt="centered"/>
+</p>
+
