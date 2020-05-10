@@ -1,7 +1,12 @@
 # M5 Stick Prototype
+The M5 stick used as the interface which would trigger the alert on the concerned persons/emergency services view on our website.
 
-We intended the M5 stick to be used as the interface which would trigger the alert on the concerned persons/emergency services view on our website.
+## Conception
+There was some debate as to whether we should utilise the M5 Stick due to its limited functionality and the fact all the key functionality could easily be stored within the M5 Stack.
 
+Eventually, we agreed the M5 Stick would be used as the alert trigger. The benefits of having the trigger as a seperate piece of hardware is that this can be kept in a safer location to the Stack which needs to be in a visible location (to benefit from the LED indicators). Therefore, if an accident did occur, the M5 Stick would be less likely to be damaged or lost and the rider would still be able to trigger the alarm.
+
+## Design
 The small size of the screen and the limited input methods on the M5 stick was very limiting and I realised any complicated user interface loaded onto the stick would likely not be properly visible to the user.
 
 With this in mind, I created a minimalist user interface that consisted of colours to indicate the state of the device.
