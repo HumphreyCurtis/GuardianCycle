@@ -22,6 +22,7 @@ After this was implemented, I identified a flaw with the design whereby the devi
 <p align="center">
   <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/iot-device/m5-stick-prototype/images/M5Stick-FSM-Updated.png" alt="centered"/>
 </p>
+
 ## Alarm Triggered
 When the alarm is triggered, a JSON containing the co-ordinates of the incident is sent out via MQTT. This data is then extracted by the web client in order to display the location to the end-user.
 
