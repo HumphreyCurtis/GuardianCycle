@@ -7,7 +7,6 @@
 // M5 Stack system.
 #include <M5StickC.h>
 
-
 // M5 Stack Wifi connection.
 #include <WiFi.h>
 #include <esp_wifi.h>
@@ -40,7 +39,7 @@ PubSubClient ps_client( wifi_client );
 // - On your phone, I have no idea (but it is possible)
 uint8_t guestMacAddress[6] = {0x44, 0x5e, 0xcd, 0x90, 0x3d, 0x3d};
 
-// Wifi Settings:
+// Wifi Settings (Currently Set to Home Wifi):
 const char* ssid = "VM1598567";                 // Set name of Wifi Network
 const char* password = "ddv7ffjkBxxj";                      // No password for UoB Guest
 
@@ -59,8 +58,10 @@ const int port = 1883;
 // it used in Loop().
 // See Timer.h for more details.
 // Argument = millisecond period to schedule
-// task.  Here, 2 seconds.
-Timer publishing_timer(2000);
+// task.  
+
+// Alarm will time out after six seconds.
+Timer publishing_timer(6000);
 
 int buttonPresses = 0;
 
@@ -107,9 +108,6 @@ void setup() {
     // which checks for new messages.
     setupMQTT();
 
-
-    // Maybe you need to write your own
-    // setup code after this...
 }
 
 
@@ -124,13 +122,26 @@ void loop() {
   ps_client.loop();
 
 
+// Alarm Time Out
+  if( publishing_timer.isReady() && buttonPresses == 1 ) {
+      publishMessage( "CANCEL ALERT" );
+      M5.Lcd.fillScreen( BLACK );
+      M5.Lcd.setCursor( 10, 20 );
+      M5.Lcd.println("ALARM");
+      M5.Lcd.setCursor( 10, 40 );
+      M5.Lcd.println("CANCELLED.");
+      buttonPresses = 0;
+      publishing_timer.reset();
+      }
+
+
   // This is an example of using our timer class to
   // publish a message every 2000 milliseconds, as
   // set when we initalised the class above.
   if( M5.BtnA.wasPressed() ) {
 
       buttonPresses++;
-    
+      
       // Prepare a string to send.
       // Here we include millis() so that we can
       // tell when new messages are arrive in hiveMQ
@@ -138,10 +149,19 @@ void loop() {
       
       if(buttonPresses == 1)
       {
+          publishing_timer.reset();
           M5.Lcd.fillScreen(TFT_ORANGE);
           M5.Lcd.setCursor( 0, 10 );
-          M5.Lcd.println("ALARM ABOUT TO BE RAISED.");
-          M5.Lcd.println("Press to confirm.");
+          M5.Lcd.setCursor( 10, 20 );
+          M5.Lcd.println("ALARM");
+          M5.Lcd.setCursor( 10, 40 );
+          M5.Lcd.println("ABOUT TO BE");
+          M5.Lcd.setCursor( 10, 60 );
+          M5.Lcd.println("RAISED");
+          M5.Lcd.setCursor( 10, 90 );
+          M5.Lcd.println("Press to");
+          M5.Lcd.setCursor( 10, 110 );
+          M5.Lcd.println("confirm. \n");
       }
       
       if(buttonPresses == 2)
@@ -154,7 +174,9 @@ void loop() {
           M5.Lcd.setCursor( 10, 40 );
           M5.Lcd.println("RAISED.");
           M5.Lcd.setCursor( 10, 60 );
-          M5.Lcd.println("Press again to cancel the alarm.");
+          M5.Lcd.println("Press to");
+          M5.Lcd.setCursor( 10, 80 );
+          M5.Lcd.println("cancel.");
       }
 
       if(buttonPresses == 3)
@@ -345,8 +367,11 @@ void reconnect() {
       delay(5000);
     }
   }
-  M5.Lcd.println(" - Success!  Connected to HiveMQ\n\n");
+  
+  M5.Lcd.println("\n  Success! \n\n");
+  M5.Lcd.println("\nDevice is connected.\n\n");
   M5.Lcd.println("Press button to trigger alert! \n\n");
+
 }
 
 String generateID() {

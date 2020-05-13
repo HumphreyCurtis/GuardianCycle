@@ -11,21 +11,21 @@ public void connectionLost() {
 }
 
 public void messageReceived(String topic, byte[] payload) {
-  if(!checkIncomingPayload(payload)) return;
   JSONObject geoJSON = parseJSONObject(new String(payload));
+  if(!checkIncomingPayload(geoJSON)) return;
   JSONObject dataJSON = calculator.createDataJson(geoJSON);
   try{
      handler.addRouteObject(dataJSON);
      gui.updateRoutes();
+     saveJSONObject(dataJSON, dataDirectory + File.separator + str(random(3)));
   }
   catch(InvalidDataException e){
     System.out.println(e.getMessage()); 
   }
 }
 
-private boolean checkIncomingPayload(byte[] payload){
+private boolean checkIncomingPayload(JSONObject obj){
   try{
-   JSONObject obj = parseJSONObject(new String(payload)); 
    if(obj.isNull("coordinates")) throw new InvalidDataException("----Object doesn't contain coordinates----");
    if(obj.isNull("time")) throw new InvalidDataException("----Object doesn't contain coordinates----");
    if(obj.getJSONArray("coordinates").size() < 2) throw new InvalidDataException("----Not enough coordinate points----");
