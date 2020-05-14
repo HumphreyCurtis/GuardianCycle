@@ -1,7 +1,7 @@
 # GuardianCycle
-
+<p align="center">
 <img src="https://friend-track-view.preciouschicken.now.sh/helmetLogo.png" alt="GuardianCycle Logo" width="150" height="150">
-
+</p>
 Team Members: Nathan Cubitt (ka19493), Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
 
 Protecting heads since 2020!
@@ -18,9 +18,10 @@ Protecting heads since 2020!
 
 <p align="center">
   <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/photos/paper-prototype-gif.gif?raw=true">
+  A sample section of the paper prototype video.
 </p>
 
-A sample section of the paper prototype video.
+
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 
