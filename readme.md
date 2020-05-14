@@ -18,10 +18,10 @@ Protecting heads since 2020!
 
 <p align="center">
   <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/photos/paper-prototype-gif.gif?raw=true">
+</p>
+<p align="center">
   A sample section of the paper prototype video.
 </p>
-
-
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 
