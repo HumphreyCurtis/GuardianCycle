@@ -18,7 +18,7 @@ public class Gui{
      
    public void updateRoutes(){
      background(0);
-     int x = 10, y = 80;
+     int x = 200, y = 80;
      for(int i = currentPage * toDisplayPerPage; i < (currentPage * toDisplayPerPage) + toDisplayPerPage; i++){
        if(handler.JsonInDatabase(i)){
          removeRoute(i);
@@ -77,8 +77,8 @@ public class Gui{
        
        String url = handler.getStringAttrib("url", JsonId);
        if(url != null){
-         PImage map = loadImage(url, "png");
-         image(map, x, y);
+           PImage map = loadImage(url, "png");
+           if(map != null) image(map, x, y);
        }
        
        addLabel("Calories " + JsonId, "Calories - " + handler.getFloatAttrib("calories", JsonId))

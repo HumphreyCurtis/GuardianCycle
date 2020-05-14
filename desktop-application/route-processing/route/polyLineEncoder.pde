@@ -18,19 +18,19 @@ static class PolyLineEncoder{
   } 
     static private String encodePoint(double coord){
         String encodedCoordinate = "";
-        boolean hasNext = true;
         coord *= 100000;
         int val = (int)round((float)coord);
         val <<= 1;
+        boolean hasNext = true;
         if(coord < 0) val = ~val;
         while(hasNext){
-          int next = (val >> 5);
-          hasNext = (next > 0);
-          int encVal = val & 0x1f;
-          if(hasNext) encVal |= 0x20;
-          encVal += 0x3f;
-          val = next;
-          encodedCoordinate += char(encVal);
+          int val2 = (val >> 5);
+          hasNext = (val2 > 0);
+          int encodedValue = val & 0x1f;
+          if(hasNext) encodedValue |= 0x20;
+          encodedValue += 0x3f;
+          val = val2;
+          encodedCoordinate += char(encodedValue);
         }
         return encodedCoordinate;
     }

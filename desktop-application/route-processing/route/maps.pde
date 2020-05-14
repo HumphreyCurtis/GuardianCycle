@@ -3,8 +3,8 @@ static class Maps{
     String urlRoute = PolyLineEncoder.encodePoints(routeData.getJSONArray("coordinates"));
     float[] min = getBound(routeData.getJSONArray("coordinates"), true);
     float[] max = getBound(routeData.getJSONArray("coordinates"), false);
-    String api = "ENTER API HERE";
-    if(api == "ENTER API HERE") System.err.println("Please add your api key to maps.pde");
+    String api = "AIzaSyDhR-pxEV6nwEcHxAiefmz7HNHTcHa2-y4";
+    if(api.equals("ENTER API HERE")) System.err.println("Please add your api key to maps.pde");
     String url = "https://maps.googleapis.com/maps/api/staticmap";
     url += "?center=" + (min[1] + max[1]) / 2  + "," + (min[0] + max[0]) / 2;
     url += "&zoom=16.5";

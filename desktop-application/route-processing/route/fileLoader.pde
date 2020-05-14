@@ -1,16 +1,15 @@
-void getAllFromFile(){
+public void getAllFromFile(){
   String jsonPath = sketchPath() + File.separator + "JSONs";
   String[] filenames = listFileNames(jsonPath);
   for(String file: filenames){
       JSONObject json = loadJSONObject(jsonPath + File.separator + file);
       try{
-        handler.addRouteObject(json);
+        handler.addRouteObject(calculator.createDataJson(json));
       } catch (InvalidDataException e){
         System.out.print(e);
       }
   }
   gui.updateRoutes();
-  printArray(filenames);
 }
 
 String[] listFileNames(String dir){

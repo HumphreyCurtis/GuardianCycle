@@ -13,11 +13,11 @@ public void connectionLost() {
 public void messageReceived(String topic, byte[] payload) {
   JSONObject geoJSON = parseJSONObject(new String(payload));
   if(!checkIncomingPayload(geoJSON)) return;
+  saveJSONObject(geoJSON, dataDirectory + File.separator + str(random(3)) + ".json");
   JSONObject dataJSON = calculator.createDataJson(geoJSON);
   try{
      handler.addRouteObject(dataJSON);
      gui.updateRoutes();
-     saveJSONObject(dataJSON, dataDirectory + File.separator + str(random(3)));
   }
   catch(InvalidDataException e){
     System.out.println(e.getMessage()); 
