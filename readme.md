@@ -16,7 +16,11 @@ Protecting heads since 2020!
 
 ### d. The evolution of UI wireframes for key sub-systems
 
-[![Demo Doccou alpha](http://share.gifyoutube.com/pQB2KODAerY.gif)](https://www.youtube.com/watch?v=pQB2KODAerY)
+<p align="center">
+  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/photos/paper-prototype-gif.gif?raw=true">
+</p>
+
+A sample section of the paper prototype video.
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 
