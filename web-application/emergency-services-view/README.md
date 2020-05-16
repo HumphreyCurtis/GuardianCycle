@@ -1,16 +1,25 @@
 # GuardianCycle Emergency Services View
 
-This component of the GuardianCycle application is intended to alert the Emergency Services to incidents it has created.
+This component of the GuardianCycle application is intended for the emergency services to view incidents created by the device.  Once the cyclist has started tracking their ride should the device detect an incident (logged by the gyroscope) then relevant details (name, location, time) will be passed to the relevant emergency services.  The representative view shown is in a standard web browser, but ultimately it would be proposed that the data produced by GuardianCycle is fed directly into the systems used by emergency services control rooms.
 
-It is written using the React framework, is fed data from Hive MQ MQTT and uses mapbox for mapping services.
+A user has the option of turning this functionality on or off within GuardianCycle, and data is only sent to the emergency services if a fall is detected (i.e. not during usual activity).  The device will give the user 60 seconds to cancel an incident after detection before alerting the emergency services, and an incident can also be cancelled any time after that.  The incident can also be cleared by the emergency services (not implemented within current representation).
 
-The live website can be viewed at:
 
-[guardiancycle.preciouschicken.com](https://guardiancycle.preciouschicken.com)
+A demonstration of this functionality can be viewed at:
 
-Unfortunately due to a web-sockets issue the site does not display initially (you get a blank page) until you have allowed 'unsafe' elements - this is possible via an icon in the URL bar of the browser (tested on Vivaldi broswer, so others - Chrome / Firefox / Safari may vary).
+[emergency-services-view.preciouschicken.now.sh](https://emergency-services-view.preciouschicken.now.sh)
 
-to activate an incident use the HiveMQ broker using the topic `guardiancycle` and the following message:
+There is no user log in splash screen (as there is for friend-track-view) as this data is being sent to a secure intranet and is not intended to be viewable on the public web.
+
+In the absence of an IoT device, data can be fed to emergency-services-view online using 
+the [HiveMQ broker](http://www.hivemq.com/demos/websocket-client/) and the following variables when connecting:
+
+- host: test.mosquitto.org
+- port: 8081
+
+(NB - This is a change from the default host, which does not feature WSS (web sockets secure) and therefore failed to negotiate modern browsers https security)
+
+then use the topic `guardiancycle` and the following message:
 
 ```json
 {
@@ -20,11 +29,13 @@ to activate an incident use the HiveMQ broker using the topic `guardiancycle` an
    ],
    "name":"John Doe",
    "timeSent":"2020-03-04T18:25:43.511Z",
-   "isIncident":true
+   "isIncident":false
 }
 ```
 
 ## Installation
+
+Friend-track-view is written using the React framework, is fed data from Mosquitto MQTT and uses mapbox for mapping services.
 
 To run locally:
 
@@ -38,13 +49,13 @@ To run locally:
 
 Installed using `npm install mqtt`.
 
-The [mqtt.js](https://www.hivemq.com/blog/mqtt-client-library-mqtt-js/) library was used for the website client to capture MQTT messages.  I found the documentation for this so difficult I ended up creating my own: [A taste of MQTT in React](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/).
+The [mqtt.js](https://www.hivemq.com/blog/mqtt-client-library-mqtt-js/) library was used for the website client to capture MQTT messages.  The documentation for this proved so difficult the GuardianCycle team ended up writing their own guide: [A taste of MQTT in React](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/).
 
 ### mapbox
 
 They have an excellent tutorial on using mapbox in React: [Use Mapbox GL JS in a React app](https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/).
 
-The animated icon was added using another good [tutorial](https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/).
+The animated icon was added using another useful mapbox tutorial: [Add an animated icon to the map](https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/).
 
 ### material-ui
 
