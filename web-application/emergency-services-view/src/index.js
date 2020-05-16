@@ -4,7 +4,13 @@ import mapboxgl from 'mapbox-gl';
 import { Alert, AlertTitle } from '@material-ui/lab';
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJlY2lvdXNjaGlja2VuIiwiYSI6ImNrN2Q3NmZoZTA3MDUzZXFrMHVobHd3M3QifQ.HrOK0FBAshntXxrelA49yg';
 var mqtt    = require('mqtt');
-var client  = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt');
+var options = {
+	protocol: 'mqtts',
+	// clientId uniquely identifies client
+	// choose any string you wish
+	clientId: 'gcesv1523' 	
+};
+var client  = mqtt.connect('mqtt://test.mosquitto.org:8081', options);
 // preciouschicken.com is the MQTT topic
 client.subscribe('guardiancycle');
 var size = 200;
