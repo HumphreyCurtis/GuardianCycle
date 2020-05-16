@@ -57,6 +57,8 @@ They have an excellent tutorial on using mapbox in React: [Use Mapbox GL JS in a
 
 The animated icon was added using another useful mapbox tutorial: [Add an animated icon to the map](https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/).
 
+Any new deployment of this application will require a new [mapbox API token](https://docs.mapbox.com/accounts/overview/tokens/).
+
 ### material-ui
 
 Installed using `npm install @material-ui/lab`.

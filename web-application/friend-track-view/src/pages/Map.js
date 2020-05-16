@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import { Alert, AlertTitle } from '@material-ui/lab';
-mapboxgl.accessToken = 'pk.eyJ1IjoicHJlY2lvdXNjaGlja2VuIiwiYSI6ImNrN2Q3NmZoZTA3MDUzZXFrMHVobHd3M3QifQ.HrOK0FBAshntXxrelA49yg';
+mapboxgl.accessToken = process.env.REACT_APP_mapboxgl.accessToken;
 var mqtt    = require('mqtt');
 var options = {
 	protocol: 'mqtts',
