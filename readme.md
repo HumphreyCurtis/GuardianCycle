@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-__Protecting heads since 2020!__
+<strong>Protecting heads since 2020!</strong>
 
 </p>
 
