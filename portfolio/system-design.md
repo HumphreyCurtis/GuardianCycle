@@ -9,7 +9,7 @@
 ### d. The evolution of UI wireframes for key sub-systems
 
 <p align="center">
-  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/photos/paper-prototype-gif.gif?raw=true">
+  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/paper-prototype-gif.gif?raw=true">
 </p>
 <p align="center">
   A sample section of the paper prototype video.
