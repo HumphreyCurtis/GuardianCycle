@@ -1,6 +1,6 @@
 # GuardianCycle Emergency Services View
 
-This component of the GuardianCycle application is intended for the emergency services to view incidents created by the device.  Once the cyclist has started tracking their ride should the device detect an incident (logged by the gyroscope) then relevant details (name, location, time) will be passed to the relevant emergency services.  The representative view shown is in a standard web browser, but ultimately it would be proposed that the data produced by GuardianCycle is fed directly into the systems used by emergency services control rooms.
+This component of the GuardianCycle application is intended for the emergency services to view incidents created by the device.  Once the cyclist has started tracking their ride should the device detect an incident (logged by the gyroscope) then relevant details (name, location, time) will be passed to the local emergency services (determined by GPS).  The representative view shown is in a standard web browser, but ultimately it would be proposed that the data produced by GuardianCycle is fed directly into the systems used by emergency services control rooms.
 
 A user has the option of turning this functionality on or off within GuardianCycle, and data is only sent to the emergency services if a fall is detected (i.e. not during usual activity).  The device will give the user 60 seconds to cancel an incident after detection before alerting the emergency services, and an incident can also be cancelled any time after that.  The incident can also be cleared by the emergency services (not implemented within current representation).
 
@@ -29,7 +29,7 @@ then use the topic `guardiancycle` and the following message:
    ],
    "name":"John Doe",
    "timeSent":"2020-03-04T18:25:43.511Z",
-   "isIncident":false
+   "isIncident":true
 }
 ```
 
