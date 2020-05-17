@@ -4,6 +4,21 @@
 
 ### b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web Application etc.)
 
+From the outset GuardianCycle endeavoured to take an object-oriented approach to the integration of key system.  That is the various components were considered as entities with encapsulated data and methods.  Consideration was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
+
+This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how myriad parts interlocked, which taking a strong object-oriented approach fostered.
+
+Indeed sketching out the use cases for this system showed the number of different stakeholders involved:
+
+![UML Use Case Diagram](media/enduser.png)
+
+Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes:
+
+![Route and Update classes](media/route_update.png)
+
+This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.
+
+
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
 ### d. The evolution of UI wireframes for key sub-systems
