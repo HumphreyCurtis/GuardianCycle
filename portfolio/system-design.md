@@ -87,7 +87,11 @@ At the same time, we also wanted our design to be clear and intuitive so we kept
 Lastly, we realised we wanted to display more routes to the user and that the most practical way to do this was through the use of buttons to allow the user to scroll through a list of routes. By implementing this, the user could view an effectively unlimited number of routes by scrolling at their leisure.
 
 #### Web Application
-In order to create the paper prototype, time was spent comparing a variety of online mapping products - Google Maps, OpenStreetMaps, OS Maps and the What's App Share Location specifically.  Once a representative sample was obtained a prototype was mocked-up of what information the emergency services or a shared contact would wish to see.  A key requirement for this it was felt was a clean interface - neither user would wish to be presented with unnecessary or distracting information; the resulting prototype is shown below
+In order to create the paper prototype, time was spent comparing a variety of online mapping products - Google Maps, OpenStreetMaps, OS Maps and the What's App Share Location specifically.  Once a representative sample was obtained a prototype was mocked-up of what information the emergency services or a shared contact would wish to see.  A key requirement for this it was felt was a clean interface - neither user would wish to be presented with unnecessary or distracting information; the resulting prototype is shown below:
+
+<p align="center">
+  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/web-esv-prototype.jpg?raw=true">
+</p>
 
 The final version of our website maintained the key features of the paper prototype above. The user interface is minimalist with the key feature, the map, featuring prominently taking up the majority of the space on the page. This is in order to make the incident location as clear as possible for the user.
 
