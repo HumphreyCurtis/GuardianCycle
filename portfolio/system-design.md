@@ -16,6 +16,11 @@
 </p>
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Communication-Diagram.png" alt="Comms Diagram">
+</p>
+
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Phoenix (for web communication).
 
 #### JSONs
