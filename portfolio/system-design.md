@@ -16,12 +16,29 @@ The complexity of interactions between these functions was further explored in a
 
 ![UML Class Venn diagram](media/initialuml.png)
 
-This early worked showed the necessity of deciding up front the interfaces between thse elements.  Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes:
+This initial work proved the necessity of deciding up front the interfaces between these  elements.  Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes, _Route_ or _Update_:
 
 ![Route and Update classes](media/route_update.png)
 
-This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.
+This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.  The components themselves however were also influenced by OOD.
 
+#### Desktop Application
+
+The desktop application was written using Processing and a UML class diagram corresponding to the source code is below:
+
+![Processing UML Class diagram](media/processing_class_uml.png)
+
+As illustrated the Processing code follows the OOD philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs this through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
+
+#### IoT Device
+
+TODO: Discuss below diagram:
+
+![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
+
+#### Web application
+
+TODO: State diagram here?
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
