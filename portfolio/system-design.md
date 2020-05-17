@@ -4,15 +4,19 @@
 
 ### b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web Application etc.)
 
-From the outset GuardianCycle endeavoured to take an object-oriented approach to the integration of key system.  That is the various components were considered as entities with encapsulated data and methods.  Consideration was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
+From the outset GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems.  That is the various components that made up the system as a whole were considered as separate entities which each had its own set of encapsulated data and methods.  Considerable attention was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
 
-This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how myriad parts interlocked, which taking a strong object-oriented approach fostered.
+This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how myriad parts interlocked.  Taking this strong object-oriented approach fostered this understanding.
 
-Indeed sketching out the use cases for this system showed the number of different stakeholders involved:
+Indeed sketching out a UML Use Case diagram for this system (under the early working title of CyberDome) showed the number of different stakeholders involved:
 
 ![UML Use Case Diagram](media/enduser.png)
 
-Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes:
+The complexity of interactions between these functions was further explored in a UML Class diagram which extended standard UML by attempting to overlay stakeholders over encapsulated methods and data:
+
+![UML Class Venn diagram](media/initialuml.png)
+
+This early worked showed the necessity of deciding up front the interfaces between thse elements.  Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes:
 
 ![Route and Update classes](media/route_update.png)
 
