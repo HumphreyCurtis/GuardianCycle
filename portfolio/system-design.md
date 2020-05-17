@@ -59,10 +59,23 @@ Whilst the initial tester feedback was positive, in as much as the system was si
 
 As a response, we agreed the finished product wo  This would enable the fundamental road safety element – that of indicator/break lights to still be used.  Unfortunately the GPS system required the website registration to be active, so the fall alert would not function in this user case.
 
-#### Paper Prototype – Key Changes
 Our user interface developed considerably from the initial paper prototype but retained some of the key features. The key features we retained include the journey analytics and the route viewer (albeit in a very different format).
 
 The most notable difference is that the paper prototype was designed with a mobile application in mind (as evidenced by the phone screen background). However we later learned that the specification involved a web application, a desktop application and an interface on the M5 devices, which all required a significant re-think in terms of design. 
+
+#### Desktop Application
+
+The key purpose of the desktop application is to display the previous routes the user has taken. The secondary purpose is to display back to the user.
+
+For the initial stages, the user interface was not a primary concern. Our main focus was ensuring the required functionality was attainable so initial wireframes simply involved one static map.
+
+Once this was established, we merged this interface with the analytics function which would display the statistics for the displayed route.
+
+<One of my grey shots>
+
+We then decided we could be utilising the screen space more efficiently. Most notably, that we could fit multiple routes onto the page without it being overcrowded. At this stage, we experimented with a mulitude of different views to determine a best fit. This involved striking the right balance between displaying as much information as possible and the screen being too overcrowded. 
+
+At the same time, we also wanted our design to be clear and intuitive so we kept the main features aligned and centralised. The font was also updated from the default font to a more modern font we felt was more in-line with our brand image. 
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
