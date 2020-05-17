@@ -19,7 +19,8 @@ We were keen to add further user customisation into our desktop application but 
 The function which calculates calories burned is intended to rely on user data which in our implementation is hardcoded. The ideal implementation of this would involve the user submitting this data upon account creation therefore ensuring the calculation is accurate for that particular user.
 
 Another small feature would be for the user to display distances in Imperial units, rather than metric as certain users would feel more comfortable with this. While this was on the cards for some time, ultimately it was never actioned as it was not a key feature and there were more pressing design concerns (notably creating an optimal UI layout).
-Implementing Social Networking Features
+
+#### Implementing Social Networking Features
 We discussed the long-term goal of introducing or integrating social networking features. This could involve the ability to upload routes to social media websites such as Facebook or cycling apps such as Strava. This could allow users to share routes with their friends or challenge each other, for example to complete a route in a faster time. Social networking elements could also be integrated within desktop application as well. For example, messaging between riders or leaderboards with who has burned the most calories in that particular month.
 
 #### Hardware Improvements
