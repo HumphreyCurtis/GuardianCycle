@@ -16,12 +16,11 @@
 </p>
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
+The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Phoenix (for web communication).
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Communication-Diagram.png" alt="Comms Diagram">
 </p>
-
-The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Phoenix (for web communication).
 
 #### JSONs
 We decided on using the JSON format as firstly, it could be sent in a simple text format and secondly, could contain key details our program required such as geo co-ordinates. The details of the JSON structures we utilised are explained in more detail [on our data communication page.](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication)
