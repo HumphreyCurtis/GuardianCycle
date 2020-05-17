@@ -35,7 +35,7 @@ This ensured that all developers on the team understood exactly what data they c
 </p>
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
-The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Phoenix (for web communication).
+The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
 
 I have included a simple diagram below to illustrate how the data is communicated between the devices to the website and desktop application:
 
