@@ -75,7 +75,11 @@ Once this was established, we merged this interface with the analytics function 
 
 We then decided we could be utilising the screen space more efficiently. Most notably, that we could fit multiple routes onto the page without it being overcrowded. At this stage, we experimented with a mulitude of different views to determine a best fit. This involved striking the right balance between displaying as much information as possible and the screen being too overcrowded. 
 
-At the same time, we also wanted our design to be clear and intuitive so we kept the main features aligned and centralised. The font was also updated from the default font to a more modern font we felt was more in-line with our brand image. 
+At the same time, we also wanted our design to be clear and intuitive so we kept the main features aligned and centralised. The font was also updated from the default font to a more modern font we felt was more in-line with our brand image.
+
+<p align="center">
+  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/final-ui-desktop.png?raw=true">
+</p>
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
