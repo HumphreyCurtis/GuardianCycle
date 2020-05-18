@@ -1,6 +1,18 @@
 ## 3. Project Evaluation
 
 ### a. Reflective discussion of the success of the project
+This project has overall been a success and demonstrated a good proof of concept for an IOT bike safety system. The team worked well together to complete the project ahead of the deadline and continously improve the design and implementation of the system. Although the Covid-19 pandemic meant we were unable to fully test the system, we did implement functionality to partially complete all of our user stories. It is clear that our user stories could be fully completed by the system, if development was to continute after this proof of concept. 
+
+The website fulfilled all relevant user stories in this project. No major changes would be required for it to be used in a final version of this project. The UI was an important focus for the website, and we feel that it is one of the best features of the website, it clearly shows the location of an accident. It's minimal design helps draw attention to the accident and makes it very easy to use. 
+
+In the desktop application, a lot of care was taken to ensure that entries into the database would not be corrupt. Before adding any route JSONs to the database they are checked to contain all the necessary information. This allows easy modification to the database at a later stage. Although Processing files do not act like regular Java classes, the program is split up into logical files which allows easy reading and editing of code. This project structure could be improved however, to more closely fit software architecture standards such as the SOLID principles. 
+
+The project would have benefited from more rigourous testing in all of it's subsystems, especially integration testing. Testing the full system has been difficult to arrange, as due to the coronavirus pandemic all testing has to take place on line. Unit testing could have played a more prominent role, especially in the early stages of development. Unit tests could have been written before coding even began, to ensure that each sub-system is free of bugs and is fully functional. 
+
+The final system communicates between the website application and IOT device, and desktop application and IOT device. Between the website and IOT, very small packets of data are being sent, the JSON files only contain a few parameters for displaying the last know location. With the desktop application the JSON file could become very large, depending on the length of the route, as the system will keep adding coordinate points to the JSON file. To mitigate this issue we used polyline encoding to reduce the size of the coordinates, and transfer them from a JSONArray to an encoded string. 
+
+There are some issues with the system that may not be possible to solve through adding and improving code, one issue is that IOT devices need to be connected to WiFi to operate in this system. For this project this severely limits the effectiveness of the system, especially for sending emergency signals. The IOT devices could be connected to a mobile phone to send data, but this means the IOT devices are redundant for sending an alert or GPS coordinates, as all their functionality could be implemented by the phone. Although, the IOT devices could still be used to trigger the LED lights. This issue could be solved by adding a SIM card to the M5Stack, allowing the device to always be connected to the internet. We also noticed that the battery life was quite short with the Stack, this would be frustrating for users. The only way to solve this might be to choose a new IOT device to use in this system.
+
 
 ### b. Discussion of future work (in terms of design, development and evaluation)
 
