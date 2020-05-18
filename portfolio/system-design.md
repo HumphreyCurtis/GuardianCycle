@@ -42,11 +42,17 @@ As is illustrated the MD5 Stick can be used to alert the emergency services to a
 
 #### Web application
 
-An examination of the web site makes best sense in relation to the activity of the system as a whole, this UML Activity State diagram illustrates this:
+A UML Class diagram of the friend-track-view web application shows some of object oriented design in work - although admittedly this was less well suited to an object oriented approach,being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
+
+![UML Class Diagram for friend-track-view](media/ftv_uml.png)
+
+Components _login_ and _map_ pages are logically separate and within the _map_ component we have a number of discrete elements dedicated which serve different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
+
+The object oriented paradigm however potentially makes the most sense when we look at the activities of all three key sub-systems together, as illustrated in this UML Activity State diagram, which visualises the finished product (with gyroscope enabled - currently on the development plan):
 
 ![Start to end UML Activity Diagram](media/whole_activity_uml.svg)
 
-
+Within the diagram white represents the IoT device, yellow the web application and blue the desktop application.  Once the user starts tracking, the gyroscope immediately enters a loop whereby it looks for incidents.  If one is found then the user has an opportunity, using the MD5 Stick, to report a false-positive and reset the alarm; if the user does not cancel however then via MQTT an _update_ object is sent to both web applications (_emergency-services-view_ and _friend-track-view_ informing them of the incident) - this continues to loop until the incident is cancelled and there is power in the device.  If the gryoscope does not detect an incident then a location update is sent to _friend-track-view_ only an a periodic basis.  This continues until the user stops tracking at which point they have an option to upload their route data, again via MQTT, to the desktop application where it can be viewed in Processing.  A rigorous separation of data between these elements by using defined interfaces, e.g. object orientated design, is necessary to manage this system effectively and safely considering the importance that users will place in it.
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
