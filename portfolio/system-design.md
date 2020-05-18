@@ -32,15 +32,21 @@ As illustrated the Processing code follows the OOD philosophy, with each class r
 
 #### IoT Device
 
-The minimum viable product devised by GuardianCycle has two components acting as IoT devices, as discussed previously: the MD5 Stick and the MD5 Stack.  Object-oriented design was again key here - primarily in ensuring that they interfaced with the rest of the system in a way that ensured encapsulation of data.  Both of these devices, and additionally the web-application, had far less complexity in their source code; so UML Class diagrams have not been prepared.  However this UML Activity Diagram describes the flow of activity within the MD5 Stick:
+The minimum viable product devised by GuardianCycle has two components acting as IoT devices, as discussed previously: the MD5 Stick and the MD5 Stack.  Object-oriented design was again key here - primarily in ensuring that they interfaced with the rest of the system in a way that ensured encapsulation of data.  
+
+The MD5 Stack performed a number of different functions, namely starting route tracking, stopping route tracking, uploading route data and activating the left/right/hazard helmet display.  Both of these devices, and additionally the web-application, had far less complexity in their source code; so UML Class diagrams have not been prepared.  However this UML Activity Diagram describes the flow of activity within the MD5 Stick:
 
 ![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
 
-As is illustrated the MD5 Stick can be used to alert the Emergency Services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is used for demonstration purposes.
+As is illustrated the MD5 Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is used for demonstration purposes.
 
 #### Web application
 
-TODO: State diagram here?
+An examination of the web site makes best sense in relation to the activity of the system as a whole, this UML Activity State diagram illustrates this:
+
+![Start to end UML Activity Diagram](media/whole_activity_uml.svg)
+
+
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
