@@ -8,11 +8,11 @@ From the outset GuardianCycle endeavoured to take an object-oriented approach to
 
 This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how myriad parts interlocked.  Taking this strong object-oriented approach fostered this understanding.
 
-Indeed sketching out a UML Use Case diagram for this system (under the early working title of CyberDome) showed the number of different stakeholders involved:
+Indeed sketching out a UML use Case diagram for this system (under the early working title of CyberDome) showed the number of different stakeholders involved:
 
 ![UML Use Case Diagram](media/enduser.png)
 
-The complexity of interactions between these functions was further explored in a UML Class diagram which extended standard UML by attempting to overlay stakeholders over encapsulated methods and data:
+The complexity of interactions between these functions was further explored in a UML class diagram which extended standard UML by attempting to overlay stakeholders over encapsulated methods and data:
 
 ![UML Class Venn diagram](media/initialuml.png)
 
@@ -28,31 +28,37 @@ The desktop application was written using Processing and a UML class diagram cor
 
 ![Processing UML Class diagram](media/processing_class_uml.svg)
 
-As illustrated the Processing code follows the OOD philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs this through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
+As illustrated the Processing code follows the OOD philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
 
 #### IoT Device
 
 The minimum viable product devised by GuardianCycle has two components acting as IoT devices, as discussed previously: the MD5 Stick and the MD5 Stack.  Object-oriented design was again key here - primarily in ensuring that they interfaced with the rest of the system in a way that ensured encapsulation of data.  
 
-The MD5 Stack performed a number of different functions, namely starting route tracking, stopping route tracking, uploading route data and activating the left/right/hazard helmet display.  Both of these devices, and additionally the web-application, had far less complexity in their source code; so UML Class diagrams have not been prepared.  However this UML Activity Diagram describes the flow of activity within the MD5 Stick:
+The MD5 Stack performed a number of different functions, namely starting route tracking, stopping route tracking, uploading route data and activating the left/right/hazard helmet display.  An example of the hazard indicator during early construction is displayed:
+
+![MD5Stack Indicator](media/MD5Stack_indicate.gif)
+
+Both of these devices had far less complexity in their source code than the desktop application; so UML class diagrams have not been prepared.  However this UML activity diagram describes the flow of activity within the MD5 Stick:
 
 ![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
 
-As is illustrated the MD5 Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is used for demonstration purposes.
+As is illustrated the MD5 Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is currently being used for demonstration purposes.
 
 #### Web application
 
-A UML Class diagram of the friend-track-view web application shows some of object oriented design in work - although admittedly this was less well suited to an object oriented approach,being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
+A UML class diagram of the friend-track-view web application shows some of object oriented design in work - although admittedly this was a more lightweight approach to object oriented design, being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
 
 ![UML Class Diagram for friend-track-view](media/ftv_uml.png)
 
-Components _login_ and _map_ pages are logically separate and within the _map_ component we have a number of discrete elements dedicated which serve different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
+Components _login_ and _map_ pages are logically separate; while within the _map_ component we have a number of discrete elements dedicated which serve different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
 
-The object oriented paradigm however potentially makes the most sense when we look at the activities of all three key sub-systems together, as illustrated in this UML Activity State diagram, which visualises the finished product (with gyroscope enabled - currently on the development plan):
+The importance of the object oriented paradigm however is potentially easiest to understand when we look at the activities of all three key sub-systems working together in harmony, as illustrated in this UML activity state diagram, which visualises a number of functions of the finished product (with gyroscope enabled - currently on the development plan):
 
 ![Start to end UML Activity Diagram](media/whole_activity_uml.svg)
 
-Within the diagram white represents the IoT device, yellow the web application and blue the desktop application.  Once the user starts tracking, the gyroscope immediately enters a loop whereby it looks for incidents.  If one is found then the user has an opportunity, using the MD5 Stick, to report a false-positive and reset the alarm; if the user does not cancel however then via MQTT an _update_ object is sent to both web applications (_emergency-services-view_ and _friend-track-view_ informing them of the incident) - this continues to loop until the incident is cancelled and there is power in the device.  If the gryoscope does not detect an incident then a location update is sent to _friend-track-view_ only an a periodic basis.  This continues until the user stops tracking at which point they have an option to upload their route data, again via MQTT, to the desktop application where it can be viewed in Processing.  A rigorous separation of data between these elements by using defined interfaces, e.g. object orientated design, is necessary to manage this system effectively and safely considering the importance that users will place in it.
+Within the diagram white represents the IoT device, yellow the web application and blue the desktop application.  Once the user starts tracking, the gyroscope immediately enters a loop whereby it looks for incidents.  If one is found then the user has an opportunity, using the MD5 Stick, to report a false-positive and reset the alarm; if the user does not cancel however then via MQTT an _update_ object is sent to both web applications (_emergency-services-view_ and _friend-track-view_ informing them of the incident) - this continues to loop as long as there is power in the device and the incident has not been cancelled.  If the gyroscope does not detect an incident then a location update is sent to _friend-track-view_ only on a periodic basis.  This continues until the user stops tracking at which point they have an option to upload their route data, again via MQTT, to the desktop application where it can be viewed in Processing.  
+
+A rigorous separation of data between these elements by using defined interfaces, e.g. object oriented design, is therefore necessary to manage this system effectively and safely considering the importance that users will place in it.
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
