@@ -2,7 +2,7 @@
 
 ### a. Architecture of the entire system
 
-### b. Object-Oriented design of key sub-systems (e.g. Desktop Application, Web Application etc.)
+### b. Object-Oriented design of key sub-systems
 
 From the outset GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems.  That is the various components that made up the system as a whole were considered as separate entities which each had its own set of encapsulated data and methods.  Considerable attention was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
 
@@ -20,7 +20,7 @@ This initial work proved the necessity of deciding up front the interfaces betwe
 
 ![Route and Update classes](media/route_update.png)
 
-This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.  The components themselves however were also influenced by OOD.
+This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.  The components themselves however were also influenced by object oriented.
 
 #### Desktop Application
 
@@ -28,7 +28,7 @@ The desktop application was written using Processing and a UML class diagram cor
 
 ![Processing UML Class diagram](media/processing_class_uml.svg)
 
-As illustrated the Processing code follows the OOD philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
+As illustrated the Processing code follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
 
 #### IoT Device
 
@@ -46,11 +46,13 @@ As is illustrated the MD5 Stick can be used to alert the emergency services to a
 
 #### Web application
 
-A UML class diagram of the friend-track-view web application shows some of object oriented design in work - although admittedly this was a more lightweight approach to object oriented design, being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
+A UML class diagram of the friend-track-view web application shows object oriented design in work - although admittedly this was a more lightweight approach, being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
 
 ![UML Class Diagram for friend-track-view](media/ftv_uml.png)
 
-Components _login_ and _map_ pages are logically separate; while within the _map_ component we have a number of discrete elements dedicated which serve different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
+Components _login_ and _map_ pages are logically separate; while within the _map_ component we have a number of discrete elements dedicated to serving different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
+
+#### Importance of object oriented design
 
 The importance of the object oriented paradigm however is potentially easiest to understand when we look at the activities of all three key sub-systems working together in harmony, as illustrated in this UML activity state diagram, which visualises a number of functions of the finished product (with gyroscope enabled - currently on the development plan):
 
