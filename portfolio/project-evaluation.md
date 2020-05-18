@@ -26,7 +26,9 @@ We discussed the long-term goal of introducing or integrating social networking 
 #### Hardware Improvements
 If the project was to be viable, this would certainly require changes to the prescribed hardware. Paramount is the need for the device to function as a GPS tracker which could be done by adding an external component. This could also be potentially achieved by bluetooth pairing the stack with a mobile device. However, this would then require the user to keep their phone with them at all times during their journey.
 
-While the M5 stick interface achieves it’s basic aims, we believe this could be improved by implementing further functionality. For example, a timer could be displayed after the alarm has been triggered to inform the user of how long they have been waiting for a response. 
+While the M5 stick interface achieves it’s basic aims, we believe this could be improved by implementing further functionality. For example, a timer could be displayed after the alarm has been triggered to inform the user of how long they have been waiting for a response.
+
+We had also planned to utilise the in-built gyroscope in some capacity but were not able to do so within the timescales. The idea was for the gyroscope to detect an impact that could have come from a crash or an accident which would then trigger the alert. We still believe this would be a useful feature to implement though further research may be required, in particular into what level to set the gyroscope at to trigger the alert.
 
 ### c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
 
