@@ -1,6 +1,23 @@
 ## 1. System Design
 
 ### a. Architecture of the entire system
+#### Overview
+GuardianCycle’s system architecture is composed of three different sub-systems: the processing desktop application, the emergency services administrator portal/website, and the IoT devices (M5Stack and M5 Stick). Each of these sub-systems is designed to fulfil three specific use cases and facilitate the full setup and use of the entire GuardianCycle system.
+
+Firstly, the processing-driven desktop application utilised a Google Maps Static API to track users route information and journey analytics delivered via JSON data file of GPS points from the M5Stack. Secondly, the emergency services website portal denoted user-wide activity and if any emergency signals were triggered by cyclists from their M5stack or M5Stick. Lastly, specifically the M5Stack tracked users route data, oriented an RGB LED indicator whilst both devices could send emergency GPS coordinates upon trigger in the form of a JSON string.
+
+Communication between the systems is centred around JSON files through MQTT’s messaging protocol with each sub-system interacting with them in different ways. Information is sent regarding GPS points of a user’s route or location of a user upon fall or emergency. Furthermore, the desktop application would utilise JSON GPS coordinate data to perform journey analytics ie. distance travelled, calories burned, and specific user goals achieved and could send this data packet as a JSON file back to the MQTT server. Finally, the emergency services portal/website would use GPS coordinates from JSON files delivered by MQTT to denote any emergency activity from Guardian Cycle users.
+
+<p align="center">
+<img src="media/Diagrams/SystemArchitecture.jpg" alt="Overview of System Architecture">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Overview of system architecture 
+  </i>
+</p>
+
+Three stakeholders - user (cyclists), friends or family (desktop application) and emergency services (website) - will interact with the GuardianCycle architecture at different stages. The IOT device is handled solely by the cyclist and primary user. The desktop application provides an interface for the user, family and friends to interact with the cyclists data collected from journeys - set personal bests, goals and provide aesthetic data interaction. Lastly, the web interface is for the emergency services to track activity from GuardianCycle users within a region and denote if any emergency signals have been triggered at any coordinates - enabling rapid response and ultimately saving GuardianCycle users' lives. 
 
 ### b. Object-Oriented design of key sub-systems
 
@@ -31,6 +48,132 @@ The desktop application was written using Processing and a UML class diagram cor
 As illustrated the Processing code follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
 
 #### IoT Device
+
+The M5Stack is a low-cost, lightweight, incredibly adaptable and internet-connected data collection device - consequently it was ideal for developing a GuardianCycle prototype. Despite these advantages the M5Stack did have some minor shortcomings. 
+
+Notably, the lack of a GPS module located within the M5Stack meant that all users route data had to be hardcoded in the form of a JSON GPS coordinates string. Furthermore the poor and short battery life of the M5Stack resulted in the LED acting a significant battery drain. These design flaws are noted and mitigated in the future approach section.
+
+The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly - offering primarily useful LED and GPS functionaity. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the emergency services website or the desktop application.  
+
+
+<p align="center">
+<img src="media/Diagrams/M5StateDiagram.jpg" alt="Overview of System Architecture">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Full state diagram of M5Stack
+  </i>
+</p>
+
+The above state diagram captures all of the states available to the user whilst using the M5Stack for cycling. Indeed, the M5Stack has been designed to perform the essential role as primary handlebar controller of the LED whilst the user is cycling. Furthermore, at the end of journey or in the case of an accident - the M5Stack will provide route coordinates as JSON data packages to either the website or desktop application. 
+
+After turning GuardianCycle on, a suitable startup sequence utilising Spiffs library to display an image sqeuence begins the M5 functionality. Before, the user is prompted to press the central button to start their respective cycling journey. 
+
+<p align="center">
+<img src="media/StackGifs/proper-intro.gif" alt="Left turn gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Start-up sequence for M5Stack
+  </i>
+</p>
+ 
+<p align="center">
+<img src="media/Photos/startjourney2.jpg" alt="Left turn gif" height=400>
+</p>
+<p align="center">
+  <i>
+  Figure ?. LED indicator prompting user to start journey
+  </i>
+</p>
+
+After departure, the User will be presented with the M5Stack primary home screen. From this homescreen the user can use the Guardian cycles interface and buttons to:
+
+* Render a route log drop down showing timer data. 
+* Coordinate three different LED displays rendered by an LED matrix on the back of the helmet to provide optimal clarity to fellow road users.
+* Terminate their journey and provide journey data to the desktop application. 
+* Send an emergency signal to emergency services - containting precise GPS coordinates of their current location. 
+
+We believed that this indicator functionality would be incredibly useful to other road users and prevent cyclists from having to rely upon arm gestures. Thus making on the road cycling easier, safer and preventing arm gestures from potentially causing cyclists to lose balance.  Here, the user has pushed button 1 to orient the LED and indicator to display left. The indicator will hold for 5 seconds – enabling ample time for the cyclist to perform the turn procedure safely:
+
+<p align="center">
+<img src="media/Photos/left2.jpg" alt="Left turn display" height=400>
+</p>
+<p align="center">
+  <i>
+  Figure ?. Button 1 press instantiating cyclist left turn 
+  </i>
+</p>
+
+<p align="center">
+<img src="media/StackGifs/left-turn.gif" alt="Left turn gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. LED indicator rendered on left turn 
+  </i>
+</p>
+
+If button 3 is pressed, the LED and UI will be orientated to perform the right-turn maneuver and indication. 
+
+<p align="center">
+<img src="media/Photos/right-turn.jpg" alt="Right turn display">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Display presented to cyclist on right turn 
+  </i>
+</p>
+<p align="center">
+<img src="media/StackGifs/right-turn.gif" alt="Right turn gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. LED indicator rendered on right turn 
+  </i>
+</p>
+
+Lastly, if button 1 is pressed and held for a duration of five seconds the LED and display will be orientated to perform an emergency sequence and a JSON GPS data package via MQTT will be sent to the website for the emergency services to view and locate the cyclists precise GPS position. Furthermore, the bright white light of the RGB LED would effectively notify fellow road users that the cyclist was in need of assistance. In much the same way, warning lights on cars are used to notify fellow road users that a car has broken down. In future development, we note that it would be ideal to have this light initated by a cyclists fall, consequently if the cyclist was unconscious or hurt this feature would be triggered automatically.
+
+<p align="center">
+<img src="media/Photos/emergency.jpg" alt="Emergency light display">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Display presented to cyclist in emergency scenario
+  </i>
+</p>
+
+<p align="center">
+<img src="media/StackGifs/emergency-light.gif" alt="Emergency light gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. LED rendered in emergency situation
+  </i>
+</p>
+
+The M5 stacks second button can then have be lightly pushed to provide route logging timer functionality before returning to the primary home page of the user interface. 
+
+<p align="center">
+<img src="media/Photos/route-log.jpg" alt="Emergency light display" height=400>
+</p>
+<p align="center">
+  <i>
+  Figure ?. Display presented to cyclist giving themroute-logging timer functionality
+  </i>
+</p>
+
+Functionality to send end of route journey data is triggered via pressing button 2 which will deliver an encoded polyline or JSON file containing route data via MQTT to be parsed and rendered by the desktop application for the user. Furthermore, in emergency scenarios the same procedure is followed but data will instead be sent to the website for the emergency services to provide assistance. This publishing of users coordinates and sending of JSON data packages from the M5Stack and stick via MQTT is displayed diagramatically as follows:
+
+<p align="center">
+<img src="media/Diagrams/StateAndLoopsOfStack.jpg" alt="State and loops of M5Stack and Stick">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Loops, sequencing and MQTT publishing diagram of M5Stack and Stick
+  </i>
+</p>
 
 The minimum viable product devised by GuardianCycle has two components acting as IoT devices, as discussed previously: the MD5 Stick and the MD5 Stack.  Object-oriented design was again key here - primarily in ensuring that they interfaced with the rest of the system in a way that ensured encapsulation of data.  
 
@@ -63,6 +206,72 @@ Within the diagram white represents the IoT device, yellow the web application a
 A rigorous separation of data between these elements by using defined interfaces, e.g. object oriented design, is therefore necessary to manage this system effectively and safely considering the importance that users will place in it.
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
+
+The user stories detail the many different interactions the three different stakeholders - users, friends or family and emergency services - will inevitably have whilst utilising the GuardianCycle architecture. Designing user stories was an invaluable tool for understanding how stakeholders would effectively utilise the system and to demonstrate how the system should be properly used. Furthermore, user stories helped orient the device to effectively determine which profile of users and target audience the device was best suited too. 
+
+##### User Story 1
+
+Dave is a keen cyclist who commutes to work everyday, and rides long distances at the weekend. He would like to keep track of his improving times and distances and share how he is progressing with friends and family. He is passionate about fitness and potentially wants to compete in an Iron Man competition next year. 
+
+##### User Story 2
+
+Hannah is trying to lead a more healthy lifestyle and is starting to cycle occasionally. She would like to know how many calories she is burning by riding her bike and track her improvement. She hopes to lose weight and improve her lifestyle. 
+
+##### User Story 3
+
+Kevin is a mountian biker who is often alone for long periods of time in the hills. He is increasingly worried about his personal safety whilst mountain biking especially when the weather is poor and would like a way to get quick and direct help if there was an accident. 
+
+##### User Story 4 
+
+Mary is a mother of three, whose eldest son rides their bike to school everyday. She would like to know her child is getting to school as safely each day - there family home is located in a busy commuter belt. Furthermore she would like to be able to track her child's location to make sure they get to school and back home.
+
+##### User Story 5
+
+John is a cycling enthusiast and experienced first responder - he has worked for the emergency services for a number of years. In his local rural area has struggled to find an effective means to track down cyclists injured in the mountains and on the road. Particularly due to the lack of local landmarks and road signs.
+
+#### Requirements of key subsystems
+
+In light of these user stories - utilising disciplined agile practices we tried to prioritise the concerns and desires raised from the user stories. As well as develop a clear profile of potential Users of the GuardianCycle. 
+
+#### Profile of users from stories
+
+<p align="center" >
+<img src="media/Diagrams/ProfileOfUsers1.jpg" alt="Hierarchy of priorities" height=700>
+</p>
+<p align="center">
+  <i>
+  Figure ?. User story pool venn diagram
+  </i>
+</p>
+
+These diagrams demostrate that from the User Story section, a wide pool of users would be potentially interested in purchasing the GuardianCycle. Indeed, users from disparate backgrounds such as non-cyclists demonstrated interest in the GuardianCycle. Furthermore, different fields of cyclists would be intersted - including Mountain and Road cyclists. Also cyclists with different levels of experience from novice to experienced. 
+
+#### Hierarchy of priorities 
+
+<p align="center" >
+<img src="media/Diagrams/UserStories2.jpg" alt="Hierarchy of priorities" height=700>
+</p>
+<p align="center">
+  <i>
+  Figure ?. Six priorities for agile design process emphasised from user stories
+  </i>
+</p>
+
+In response to these requirements we calibrated certain key requirements for developing subsystems. 
+
+#### M5 Stack
+
+* The M5Stack had to be communicative and send necessary data to the desktop application and website application - enabling tracing functionality for Guardian cycle with JSON route data sent via Hive MQTT. 
+* The Stack had to fully render an RGB LED matrix to display the cyclists state (maneuvers and emergency) to fellow road users - enabling complete safety.
+* The UI of the Stack had to be clean and clear preventing the cyclist from losing focus whilst cycling and dealing with needless distractions. 
+* The M5Stack UI had to be intuitive for all age ranges - enabling any cyclist of any level of experience to effectively use the GuardianCycle - satisfying the wide user pool of potential users. 
+* The route log functionality was developed to enable users to gain some cycling data and try and beat their own personal best times. This would satisfy user priorities for improvement. 
+
+#### Desktop Application 
+
+* @TODO - need to add these parts 
+
+#### Website  
 
 ### d. The evolution of UI wireframes for key sub-systems
 
@@ -116,6 +325,71 @@ In order to create the paper prototype, time was spent comparing a variety of on
 </p>
 
 The final version of our website maintained the key features of the paper prototype above. The user interface is minimalist with the key feature, the map, featuring prominently taking up the majority of the space on the page. This is in order to make the incident location as clear as possible for the user.
+
+#### Hardware development 
+
+Initially sufficient testing was performed on the capabilities of LED matrix utilising an arduino. After which, the M5Stack was been designed to perform the essential role as primary handlebar controller of the LED. The LED in this case a 5X5 RGB Matrix from Pimoroni is connected to the M5Stack via the GPIO pins. This is also displayed in clear diagramatic form as follows with connection on GPIO pins GND (Ground), SCL (Serial Clock), SDA (Serial Data) and 5V. 
+
+<p align="center">
+<img src="media/Photos/setup1.jpg" alt="Photo of M5stack Setup">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Picture of M5Stack-LED setup whilst in development
+  </i>
+</p>
+
+<p align="center">
+<img src="media/Diagrams/M5StackLED.jpg" alt="Diagram of M5Stack setup">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Diagram figure of M5 setup with 5x5 matrix
+  </i>
+</p>
+
+#### M5Stack UI development 
+
+The initial user interface designs for the M5Stack were basic, simply encoding button press functionality to change colours of orbs on the screen display. In order to gain familiarity with the M5Stack hardware.
+
+<p align="center">
+<img src="media/StackGifs/UI-development2.gif" alt="Emergency light gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. LED coloured orbs gaining familiarity with M5Stack hardware
+  </i>
+</p>
+
+<p align="center">
+<img src="media/StackGifs/UI-development.gif" alt="Emergency light gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Initial prototyping of M5Stack UI 
+  </i>
+</p>
+
+After this was acheived, clear colours were chosen for each command to enable clear visual clarity to the cyclist whilst in motion. Large arrows were programmed on the display and clear capital letters added to explain each maneuver: 
+
+* Large blue arrow for left indicator signals.
+* Large green arrow for right indicator signals.
+* Red to denote emergency status has been triggered.
+
+Having effectively programmed maneuvers, development moved towards a press and hold feature to enable the triggering of an emergency situation for the cyclist. Collectively, it was decided that push and hold for 5 seconds to signal the declaring of an emergency was most effective to mitigate against mistaken pushes and triggering of an emergency. Particularly as the M5Stack's gyroscope had been difficult to function properly with the RGB 5x5 LED. 
+
+Following this, we decided to present the user with a button press to initiate the start of the cycle for the sake of clarity. Followed by basic route log display on push of button 2 to provide the cyclist with journey progress data and the timings concerning progress made during their current cycle. As a later UI design change, for aesthetic purposes it was decided to create a slightly more desirable startup sequence when the M5Stack was turned on - this helped make the device a more coherent and developed product. Particularly, typography was slightly modified from small and indiscernable writing to a clear coloured and eye-catching sequence.
+
+<p align="center">
+<img src="media/StackGifs/old-intro.gif" alt="Emergency light gif">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Original intro sequence to M5Stack UI with indiscernable font
+  </i>
+</p>
+
+Throughout the design process we tried to keep the Stack's UI clean, functional and simple. We considered this desirable so as to prevent any forms of distraction for the cyclist - thus maintaining their eyes on the road at all times. This design feature has been adopted by numerous other applications - for instance, mobile phones automatically activating Do Not Disturb during car journeys. 
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
