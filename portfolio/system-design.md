@@ -26,7 +26,7 @@ This ensured that all developers on the team understood exactly what data they c
 
 The desktop application was written using Processing and a UML class diagram corresponding to the source code is below:
 
-![Processing UML Class diagram](media/processing_class_uml.png)
+![Processing UML Class diagram](media/processing_class_uml.svg)
 
 As illustrated the Processing code follows the OOD philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs this through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
 
