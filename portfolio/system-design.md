@@ -32,9 +32,11 @@ As illustrated the Processing code follows the OOD philosophy, with each class r
 
 #### IoT Device
 
-TODO: Discuss below diagram:
+The minimum viable product devised by GuardianCycle has two components acting as IoT devices, as discussed previously: the MD5 Stick and the MD5 Stack.  Object-oriented design was again key here - primarily in ensuring that they interfaced with the rest of the system in a way that ensured encapsulation of data.  Both of these devices, and additionally the web-application, had far less complexity in their source code; so UML Class diagrams have not been prepared.  However this UML Activity Diagram describes the flow of activity within the MD5 Stick:
 
 ![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
+
+As is illustrated the MD5 Stick can be used to alert the Emergency Services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is used for demonstration purposes.
 
 #### Web application
 
