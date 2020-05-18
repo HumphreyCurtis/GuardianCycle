@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-<strong>Protecting heads since 2020!</strong>
+<strong style="font-family: 'Charm', cursive;">Protecting heads since 2020!</strong>
 
 </p>
 
@@ -17,11 +17,11 @@ Team Members: ~~Nathan Cubitt (ka19493)~~, Humphrey Curtis (dr19500), J 'Gene' H
 
 ## Vision
 
-A group of Bristol Computer Scientist students frustrated by the hazards presented by Bristol's streets (link here) to cyclists have teamed together to use Internet of Things technology to make the streets safe!  *TODO: GuardianCycle high lever overview blurb / possible photo...*
+A group of Bristol Computer Scientist students frustrated by the [hazards presented by Bristol's streets to cyclists](https://www.bristolpost.co.uk/news/bristol-news/bristol-among-top-five-most-1749111) have teamed together to use Internet of Things technology to make the streets safe!  *TODO: GuardianCycle high lever overview blurb / possible photo...*
 
 ## Project outline
 
-### [System Design](portfolio/system-design.md)
+### [System design](portfolio/system-design.md)
 ### [System implementation](portfolio/system-implementation.md)
 ### [Project evaluation](portfolio/project-evaluation.md)
 
