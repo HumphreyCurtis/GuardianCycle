@@ -13,10 +13,10 @@
 
 Team Members: ~~Nathan Cubitt (ka19493)~~, Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
 
-#Introduction 
+# Introduction 
 
 
-##Problem
+## Problem
 
 Data collected by [cycling.org](https://www.cyclinguk.org/blog/road-casualties-2018-vital-statistics-cycle-campaigning) found that - annually for 2018 17,550 cyclists in the UK had got injured with 99 cyclist casaulties. Furthermore, [Bristol alone](https://www.bristolpost.co.uk/news/bristol-news/bristol-among-top-five-most-1749111) is considered one of the top 5 most dangerous places to cycle in the whole of the UK. This is despite cycling having tremendous benefits to society - cyclists are [healthier](https://www.betterhealth.vic.gov.au/health/healthyliving/cycling-health-benefits), cycling is [benefitial for the environment](https://biofriendlyplanet.com/green-alternatives/transportation/environmental-reasons-to-start-riding-your-bicycle-more/), it is a fantastic [activity for children](https://www.sustrans.org.uk/our-blog/get-active/2019/everyday-walking-and-cycling/the-benefits-of-cycling-for-children-and-families/) and so much more. Furthmore, during the 2019-20 Coronavirus crisis [under government guidance](https://www.independent.co.uk/environment/coronavirus-cycling-ebikes-cars-lockdown-uk-walking-air-pollution-leeds-university-a9521451.html) - cycling has experienced an [unprecedented boom](https://www.theguardian.com/lifeandstyle/2020/may/09/coronavirus-cycling-boom-makes-a-good-bike-hard-to-find) - due to its ability to isolate individuals commuting, reopen the UK economy and ease congestion on roads. Given this, there is an urgent need for more and better applications to make cycling accessible, more enjoyable and safer. In this spirit, IoT devices and applications must be developed to enhance and improve society.
 
