@@ -411,6 +411,10 @@ Throughout the design process we tried to keep the Stack's UI clean, functional 
   </i>
 </p>
 
+The small size of the screen and the limited input methods on the M5 stick was very limiting and I realised any complicated user interface loaded onto the stick would likely not be properly visible to the user.
+
+With this in mind, I created a minimalist user interface that consisted simply of colours to indicate the state of the device and a short section of text indicating which state the device was currently at.
+
 ### e. Details of the communication protocols in use (including a rational for your choice)
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
 
