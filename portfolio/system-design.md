@@ -1,11 +1,20 @@
 ## 1. System Design
 
 <p align="center">
-<img src="media/banner1.png" alt="Overview of System Architecture">
+<img src="media/banner1.png" alt="Final - Alert">
 </p>
 <p align="center">
   <i>
   Figure ?. Overview of alert system.
+  </i>
+</p>
+
+<p align="center">
+<img src="media/banner2.png" alt="Final - Route">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Overview of route tracker system.
   </i>
 </p>
 
