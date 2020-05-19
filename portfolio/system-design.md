@@ -418,7 +418,7 @@ The small size of the screen and the limited input methods on the M5 stick was v
 </p>
 <p align="center">
   <i>
-  Figure ?. M5 Stick Intro UI 
+  Figure ?. Wireframes for M5 Stick UI
   </i>
 </p>
 
