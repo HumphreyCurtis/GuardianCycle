@@ -398,7 +398,18 @@ Following this, we decided to present the user with a button press to initiate t
   </i>
 </p>
 
-Throughout the design process we tried to keep the Stack's UI clean, functional and simple. We considered this desirable so as to prevent any forms of distraction for the cyclist - thus maintaining their eyes on the road at all times. This design feature has been adopted by numerous other applications - for instance, mobile phones automatically activating Do Not Disturb during car journeys. 
+Throughout the design process we tried to keep the Stack's UI clean, functional and simple. We considered this desirable so as to prevent any forms of distraction for the cyclist - thus maintaining their eyes on the road at all times. This design feature has been adopted by numerous other applications - for instance, mobile phones automatically activating Do Not Disturb during car journeys.
+
+#### M5Stick UI development 
+
+<p align="center">
+<img src="media/StackGifs/m5-stick.jpg" alt="M5 Stick image">
+</p>
+<p align="center">
+  <i>
+  Figure ?. M5 Stick Intro UI 
+  </i>
+</p>
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
 The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
