@@ -27,7 +27,7 @@ Firstly, the processing-driven desktop application utilised a Google Maps Static
 Communication between the systems is centred around JSON files through MQTT’s messaging protocol with each sub-system interacting with them in different ways. Information is sent regarding GPS points of a user’s route or location of a user upon fall or emergency. Furthermore, the desktop application would utilise JSON GPS coordinate data to perform journey analytics ie. distance travelled, calories burned, and specific user goals achieved and could send this data packet as a JSON file back to the MQTT server. Finally, the emergency services portal/website would use GPS coordinates from JSON files delivered by MQTT to denote any emergency activity from Guardian Cycle users.
 
 <p align="center">
-<img src="media/Diagrams/SystemArchitecture.jpg" alt="Overview of System Architecture">
+<img src="media/SystemArchitecture.jpg" alt="Overview of System Architecture">
 </p>
 <p align="center">
   <i>
@@ -75,7 +75,7 @@ The IOT device is envisaged as low-cost, low-energy, environmentally and user fr
 
 
 <p align="center">
-<img src="media/Diagrams/M5StateDiagram.jpg" alt="Overview of System Architecture">
+<img src="media/M5StateDiagram.jpg" alt="Overview of System Architecture">
 </p>
 <p align="center">
   <i>
@@ -88,7 +88,7 @@ The above state diagram captures all of the states available to the user whilst 
 After turning GuardianCycle on, a suitable startup sequence utilising Spiffs library to display an image sqeuence begins the M5 functionality. Before, the user is prompted to press the central button to start their respective cycling journey. 
 
 <p align="center">
-<img src="media/StackGifs/proper-intro.gif" alt="Left turn gif">
+<img src="media/proper-intro.gif" alt="Left turn gif">
 </p>
 <p align="center">
   <i>
@@ -97,7 +97,7 @@ After turning GuardianCycle on, a suitable startup sequence utilising Spiffs lib
 </p>
  
 <p align="center">
-<img src="media/Photos/startjourney2.jpg" alt="Left turn gif" height=400>
+<img src="media/startjourney2.jpg" alt="Left turn gif" height=400>
 </p>
 <p align="center">
   <i>
@@ -115,7 +115,7 @@ After departure, the User will be presented with the M5Stack primary home screen
 We believed that this indicator functionality would be incredibly useful to other road users and prevent cyclists from having to rely upon arm gestures. Thus making on the road cycling easier, safer and preventing arm gestures from potentially causing cyclists to lose balance.  Here, the user has pushed button 1 to orient the LED and indicator to display left. The indicator will hold for 5 seconds – enabling ample time for the cyclist to perform the turn procedure safely:
 
 <p align="center">
-<img src="media/Photos/left2.jpg" alt="Left turn display" height=400>
+<img src="media/left2.jpg" alt="Left turn display" height=400>
 </p>
 <p align="center">
   <i>
@@ -124,7 +124,7 @@ We believed that this indicator functionality would be incredibly useful to othe
 </p>
 
 <p align="center">
-<img src="media/StackGifs/left-turn.gif" alt="Left turn gif">
+<img src="media/left-turn.gif" alt="Left turn gif">
 </p>
 <p align="center">
   <i>
@@ -135,7 +135,7 @@ We believed that this indicator functionality would be incredibly useful to othe
 If button 3 is pressed, the LED and UI will be orientated to perform the right-turn maneuver and indication. 
 
 <p align="center">
-<img src="media/Photos/right-turn.jpg" alt="Right turn display">
+<img src="media/right-turn.jpg" alt="Right turn display">
 </p>
 <p align="center">
   <i>
@@ -143,7 +143,7 @@ If button 3 is pressed, the LED and UI will be orientated to perform the right-t
   </i>
 </p>
 <p align="center">
-<img src="media/StackGifs/right-turn.gif" alt="Right turn gif">
+<img src="media/right-turn.gif" alt="Right turn gif">
 </p>
 <p align="center">
   <i>
@@ -154,7 +154,7 @@ If button 3 is pressed, the LED and UI will be orientated to perform the right-t
 Lastly, if button 1 is pressed and held for a duration of five seconds the LED and display will be orientated to perform an emergency sequence and a JSON GPS data package via MQTT will be sent to the website for the emergency services to view and locate the cyclists precise GPS position. Furthermore, the bright white light of the RGB LED would effectively notify fellow road users that the cyclist was in need of assistance. In much the same way, warning lights on cars are used to notify fellow road users that a car has broken down. In future development, we note that it would be ideal to have this light initated by a cyclists fall, consequently if the cyclist was unconscious or hurt this feature would be triggered automatically.
 
 <p align="center">
-<img src="media/Photos/emergency.jpg" alt="Emergency light display">
+<img src="media/emergency.jpg" alt="Emergency light display">
 </p>
 <p align="center">
   <i>
@@ -163,7 +163,7 @@ Lastly, if button 1 is pressed and held for a duration of five seconds the LED a
 </p>
 
 <p align="center">
-<img src="media/StackGifs/emergency-light.gif" alt="Emergency light gif">
+<img src="media/emergency-light.gif" alt="Emergency light gif">
 </p>
 <p align="center">
   <i>
@@ -174,7 +174,7 @@ Lastly, if button 1 is pressed and held for a duration of five seconds the LED a
 The M5 stacks second button can then have be lightly pushed to provide route logging timer functionality before returning to the primary home page of the user interface. 
 
 <p align="center">
-<img src="media/Photos/route-log.jpg" alt="Emergency light display" height=400>
+<img src="media/route-log.jpg" alt="Emergency light display" height=400>
 </p>
 <p align="center">
   <i>
@@ -185,7 +185,7 @@ The M5 stacks second button can then have be lightly pushed to provide route log
 Functionality to send end of route journey data is triggered via pressing button 2 which will deliver an encoded polyline or JSON file containing route data via MQTT to be parsed and rendered by the desktop application for the user. Furthermore, in emergency scenarios the same procedure is followed but data will instead be sent to the website for the emergency services to provide assistance. This publishing of users coordinates and sending of JSON data packages from the M5Stack and stick via MQTT is displayed diagramatically as follows:
 
 <p align="center">
-<img src="media/Diagrams/StateAndLoopsOfStack.jpg" alt="State and loops of M5Stack and Stick">
+<img src="media/StateAndLoopsOfStack.jpg" alt="State and loops of M5Stack and Stick">
 </p>
 <p align="center">
   <i>
@@ -254,7 +254,7 @@ In light of these user stories - utilising disciplined agile practices we tried 
 #### Profile of users from stories
 
 <p align="center" >
-<img src="media/Diagrams/ProfileOfUsers1.jpg" alt="Hierarchy of priorities" height=700>
+<img src="media/ProfileOfUsers1.jpg" alt="Hierarchy of priorities" height=700>
 </p>
 <p align="center">
   <i>
@@ -267,7 +267,7 @@ These diagrams demostrate that from the User Story section, a wide pool of users
 #### Hierarchy of priorities 
 
 <p align="center" >
-<img src="media/Diagrams/UserStories2.jpg" alt="Hierarchy of priorities" height=700>
+<img src="media/UserStories2.jpg" alt="Hierarchy of priorities" height=700>
 </p>
 <p align="center">
   <i>
@@ -361,7 +361,7 @@ The final version of our website maintained the key features of the paper protot
 Initially sufficient testing was performed on the capabilities of LED matrix utilising an arduino. After which, the M5Stack was been designed to perform the essential role as primary handlebar controller of the LED. The LED in this case a 5X5 RGB Matrix from Pimoroni is connected to the M5Stack via the GPIO pins. This is also displayed in clear diagramatic form as follows with connection on GPIO pins GND (Ground), SCL (Serial Clock), SDA (Serial Data) and 5V. 
 
 <p align="center">
-<img src="media/Photos/setup1.jpg" alt="Photo of M5stack Setup">
+<img src="media/setup1.jpg" alt="Photo of M5stack Setup">
 </p>
 <p align="center">
   <i>
@@ -370,7 +370,7 @@ Initially sufficient testing was performed on the capabilities of LED matrix uti
 </p>
 
 <p align="center">
-<img src="media/Diagrams/M5StackLED.jpg" alt="Diagram of M5Stack setup">
+<img src="media/M5StackLED.jpg" alt="Diagram of M5Stack setup">
 </p>
 <p align="center">
   <i>
@@ -383,7 +383,7 @@ Initially sufficient testing was performed on the capabilities of LED matrix uti
 The initial user interface designs for the M5Stack were basic, simply encoding button press functionality to change colours of orbs on the screen display. In order to gain familiarity with the M5Stack hardware.
 
 <p align="center">
-<img src="media/StackGifs/UI-development2.gif" alt="Emergency light gif">
+<img src="media/UI-development2.gif" alt="Emergency light gif">
 </p>
 <p align="center">
   <i>
@@ -392,7 +392,7 @@ The initial user interface designs for the M5Stack were basic, simply encoding b
 </p>
 
 <p align="center">
-<img src="media/StackGifs/UI-development.gif" alt="Emergency light gif">
+<img src="media/UI-development.gif" alt="Emergency light gif">
 </p>
 <p align="center">
   <i>
@@ -411,7 +411,7 @@ Having effectively programmed maneuvers, development moved towards a press and h
 Following this, we decided to present the user with a button press to initiate the start of the cycle for the sake of clarity. Followed by basic route log display on push of button 2 to provide the cyclist with journey progress data and the timings concerning progress made during their current cycle. As a later UI design change, for aesthetic purposes it was decided to create a slightly more desirable startup sequence when the M5Stack was turned on - this helped make the device a more coherent and developed product. Particularly, typography was slightly modified from small and indiscernable writing to a clear coloured and eye-catching sequence.
 
 <p align="center">
-<img src="media/StackGifs/old-intro.gif" alt="Emergency light gif">
+<img src="media/old-intro.gif" alt="Emergency light gif">
 </p>
 <p align="center">
   <i>
