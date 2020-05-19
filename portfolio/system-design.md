@@ -403,7 +403,7 @@ Throughout the design process we tried to keep the Stack's UI clean, functional 
 #### M5Stick UI development 
 
 <p align="center">
-<img src="media/StackGifs/m5-stick.jpg" alt="M5 Stick image">
+<img src="media/m5-stick.jpg" alt="M5 Stick image">
 </p>
 <p align="center">
   <i>
