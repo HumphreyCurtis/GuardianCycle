@@ -413,6 +413,15 @@ Throughout the design process we tried to keep the Stack's UI clean, functional 
 
 The small size of the screen and the limited input methods on the M5 stick was very limiting and I realised any complicated user interface loaded onto the stick would likely not be properly visible to the user.
 
+<p align="center">
+<img src="media/basic-stick-wireframe.png" alt="M5 Stick diagram image">
+</p>
+<p align="center">
+  <i>
+  Figure ?. M5 Stick Intro UI 
+  </i>
+</p>
+
 With this in mind, I created a minimalist user interface that consisted simply of colours to indicate the state of the device and a short section of text indicating which state the device was currently at.
 
 ### e. Details of the communication protocols in use (including a rational for your choice)
