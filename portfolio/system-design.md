@@ -269,7 +269,10 @@ In response to these requirements we calibrated certain key requirements for dev
 
 #### Desktop Application 
 
-* @TODO - need to add these parts 
+* Allow users to see information about the rides they have completed. Information must include information about speed, distance and the count of calories burned to fulfil [User Story 1](#user-story-1) and [User Story 2](#user-story-2). 
+* Clearly show this information to the user in a clean and intuitive UI. Maps of previous routes were used to create a visually pleasing UI and provide more information about previous routes.
+* Save all incoming route information so that users can restart the programme and still see all completed rides.
+* Calculate all necessary route information from a set of coordinates sent from the m5Stack.
 
 #### Website 
 
