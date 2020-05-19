@@ -1,5 +1,14 @@
 ## 1. System Design
 
+<p align="center">
+<img src="media/banner1.png" alt="Overview of System Architecture">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Overview of alert system.
+  </i>
+</p>
+
 ### a. Architecture of the entire system
 #### Overview
 GuardianCycle’s system architecture is composed of three different sub-systems: the processing desktop application, the emergency services administrator portal/website, and the IoT devices (M5Stack and M5 Stick). Each of these sub-systems is designed to fulfil three specific use cases and facilitate the full setup and use of the entire GuardianCycle system.
