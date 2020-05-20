@@ -7,6 +7,15 @@
 
 ### a. Breakdown of project into sprints (showing the users stories implemented in each).
 The development was split into four main sprints. The starts and end times for these sprints align with meetings that were held to discuss how the project was going and what needed to be completed in the next sprint. Most assigned tasks were added to the project Kanban board, although some major tasks are missing on the board. For each sprint we will describe the corresponding tasks on the Kanban board for each element of the project and any other relevant tasks that were completed. 
+<p align="center">
+<img src="media/Gantt.png" alt="Gantt chart of sprints">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Gantt chart of four main sprints.
+  </i>
+</p>
+
 ### Sprint 1 - Design and Research 24th Feb - 9th March
 | Website | Desktop Application | IOT Device |
 | ------------- | ------------- | ------------- |
