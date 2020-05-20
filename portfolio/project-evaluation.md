@@ -9,7 +9,7 @@
     - [Market Research](#market-research)
     - [Improved User Customisation](#improved-user-customisation)
     - [Implementing Social Networking Features](#implementing-social-networking-features)
-      - [Hardware improvements](#hardware-improvements)
+    - [Hardware improvements](#hardware-improvements)
     - [Future prototype](#future-prototype)
   - [c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).](#c-reflect-on-the-working-practices-of-your-group-how-well-they-did-or-did-not-work-eg-management-of-issues-communication-agile-etc)
     - [Communication](#communication)
@@ -37,7 +37,7 @@ The M5Stack worked well as a prototyping device - its key functionality was to s
 
 The M5Stack UI was functional to program and produced an efficient end product for users. Furthermore the M5 could connect to MQTT after some deliberation - this was more challenging on non-University of Bristol WiFi systems post-Covid. However information was obtained and transmitted in a suitable format so that the other two systems could manipulate it. Yet ultimately the M5Stack struggled to multitask and stay connected to WiFi and dually render the LED indicators. 
 
-The LED matrix was good at reaching proof of concept. Particularly, as it could render multiple LED shapes with different colours. Furthermore it was not too large so as to drain the M5Stack battery immediately. However, it would not be practically suitable to have on the back of a helmet as it was too small in size and the brightness slightly anemic. Furthermore the wiring was completely non-functional if the M5Stack was going to be on the handlebars as wiring was far too short and relied on utilising a breadboard for sufficient connection. Therefore as discussed in future approaches - bluetooth functionality would be better to use for future designs. 
+The LED matrix was good at reaching proof of concept. Particularly, as it could render multiple LED shapes with different colours. Furthermore it was not too large so as to drain the M5Stack battery immediately. However, it would not be practically suitable to have on the back of a helmet as it was too small in size and the brightness slightly anemic. Furthermore the wiring was completely non-functional if the M5Stack was going to be on the handlebars as wiring was far too short and relied on utilising a breadboard for sufficient connection. Therefore as discussed in [future approaches](#b-discussion-of-future-work-in-terms-of-design-development-and-evaluation) - bluetooth functionality would be better to use for future designs. 
 
 
 ##### Communication protocols
@@ -70,7 +70,7 @@ Another small feature would be for the user to display distances in Imperial uni
 
 We discussed the long-term goal of introducing or integrating social networking features. This could involve the ability to upload routes to social media websites such as Facebook or cycling apps such as Strava. This could allow users to share routes with their friends or challenge each other, for example to complete a route in a faster time. Social networking elements could also be integrated within desktop application as well. For example, messaging between riders or leaderboards with who has burned the most calories in that particular month.
 
-##### Hardware improvements
+#### Hardware improvements
 
 If the project was to be viable, this would certainly require changes to the prescribed hardware. Paramount is the need for the device to function as a GPS tracker which could be done by adding an external component. This could also be potentially achieved by bluetooth pairing the stack with a mobile device. However, this would then require the user to keep their phone with them at all times during their journey. 
 
@@ -100,7 +100,7 @@ While the M5 stick interface achieves it’s basic aims, we believe this could b
 </p>
 <p align="center">
   <i>
-  Figure ?. Prototypes of future LED designs
+  Figure ?. Prototypes of future GuardianCycle designs
   </i>
 </p>
 
@@ -157,8 +157,8 @@ Due to unforseen circumstances we unforutnately lost a team member Nathan Cubbit
 
 His withdrawal had a challenging and large impact on our team as it meant responsibilities for the hardware and research reporting on hardware devolved from two people to one. Indeed, Nathan would have certainly offered fantastic expertise in reporting particularly as a former University of Cambridge humanities undergraduate - he had plenty of expertise and experience writing research papers. Consequently, as a team we had to quickly devise effective strategies to best mitigate this situation - without any preparation and in the midst of a long-distance induced Coronavirus pandemic:
 
-* Strategy 1 - We decided to retract more ambitious goals regarding hardware development. The desire to have a more immersive UI for the M5Stack was dropped entirely. Consequently, proof of concept was merely acheived before moving onto report writing. 
+* Strategy 1 - We decided to retract more ambitious goals regarding hardware development. The desire to have a more immersive UI for the M5Stack was redrawn. Consequently, proof of concept was merely acheived before moving onto report writing. 
 * Strategy 2 - Writing on the IoT device was devolved to just one team-member and they were not expected to contribute masssively to other sections of the report. 
 * Strategy 3 - The M5Stick development was coordinated to another team-member who had been originally working on the desktop application. Thereby reducing pressure on M5Stack development.
 
-These three strategies were ultimately effective in getting us through a difficult circumstance. Our initial team-strategy in which Nathan was central to helping write and draft the research report perhaps backfired and we should have had more contingency plans in place for potential team-member departures. However, our response ultimately enabled us to acheive proof of concept albeit at a slightly less polished hardware end-product than other teams. Nonetheless, the redrafted Coronaviorus Assignment Brief placed greater emphasis on high-concept design rather than technical implementation. Therefore, we have coped very well and maturely as a team to meet this new assignment brief.  
+These three strategies were ultimately effective in getting us through a difficult circumstance. Our initial team-strategy in which Nathan was central to helping write and draft the research report perhaps backfired and we should have had more contingency plans in place for potential team-member departures. However, our response ultimately enabled us to acheive proof of concept albeit at a slightly less polished hardware end-product than originally invisaged. Nonetheless, the redrafted Coronaviorus Assignment Brief placed greater emphasis on high-concept design rather than technical implementation. Therefore, we have coped very well and maturely as a team to meet this new assignment brief.  
