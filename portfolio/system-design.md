@@ -485,6 +485,13 @@ Example of an update JSON for an incident.
 **"timeSent"** Date and time of the incident.   
 **"isIncident"** The incident status (boolean). True is an active incident.   
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/JSON-route.png" alt="Route JSON">
+</p>
+<p align="center">
+Example of a route JSON for a short journey.
+</p>
+
 #### Rational for using Mosquitto over MQTT
 While implementing our website, we had difficulty integrating the functionality with MQTT. Specifically, there were issues whereby the browser would flag the site as being insecure and which could only be remedied by modifying the browser settings to allow insecure content. We realised this was not a reasonable expectation for most users so we decided to change the network protocol across to Mosquitto. 
 
