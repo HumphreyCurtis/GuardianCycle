@@ -10,10 +10,13 @@ Error checking is done in the handler and database to make sure the accessed jso
 
     public void addRouteObject(JSONObject obj);
     Checks JSON contains all necessary fields then adds to database.
+   
     public void addUserData(JSONObject userData);
     Again checks fields are valid then updates the user data in the database.
+    
     public int getNextId();
     Gets next valid id from the database, maybe change ids to strings?
+    
     public Boolean JsonInDatabase(int id);
     public Float getFloatAttrib(String attrib, int id);
     public int getIntAttrib(String attrib, int id);
