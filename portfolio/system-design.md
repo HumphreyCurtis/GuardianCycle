@@ -298,7 +298,7 @@ In response to these requirements we calibrated certain key requirements for dev
 
 * Differentiate to friends and family between normal activity and whether an incident had occurred (either detected automatically by gyroscope or manually initiated).  
 
-* Alert friends and family by SMS or email in the even of an accident (functionality is not included in the minimum viable product).  
+* Alert friends and family by SMS or email in the event of an accident (functionality is not included in the minimum viable product).  
 
 * Ensure sensitive location data was only shared with authorised parties by the use of secure authentication.
 
