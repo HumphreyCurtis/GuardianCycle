@@ -292,11 +292,17 @@ In response to these requirements we calibrated certain key requirements for dev
 * Save all incoming route information so that users can restart the programme and still see all completed rides.
 * Calculate all necessary route information from a set of coordinates sent from the m5Stack.
 
-#### Website 
+#### Web application 
 
-* The website-application had to provide an up to date and clear indication as to where the cyclist was to selected friends and family (such as the mother Mary in [User Story 4](#user-story-4)).  The information presented to friends and family had to differentiate between normal activity and whether an incident had occurred (either detected automatically by gyroscope or manually initiated).  In case of an incident friends and family would also be alerted by a SMS or email - though this functionality is not included in the minimum viable product.  Lastly the website needed secure authentication to ensure sensitive location data was only shared with authorised parties.
+* Provide an up to date and clear indication of a cyclist's location to selected friends and family (such as the mother Mary in [User Story 4](#user-story-4)).  
 
-* The website-application also had to provide up to date and clear indication of where a cyclist was to the emergency services in the event of an incident (as per John in [User Story 5](#user-story-5)).  Although this functionality is demonstrated as part of the minimum viable product, for roll out GuardianCycle envisages incident data being sent by the IoT device directly into systems owned and operated by emergency services control rooms as an encrypted feed.
+* Differentiate to friends and family between normal activity and whether an incident had occurred (either detected automatically by gyroscope or manually initiated).  
+
+* Alert friends and family by SMS or email in the even of an accident (functionality is not included in the minimum viable product).  
+
+* Ensure sensitive location data was only shared with authorised parties by the use of secure authentication.
+
+* Provide up to date and clear indication of a cyclist's location to the emergency services in the event of an incident (as per John in [User Story 5](#user-story-5)) - noting that in the final product it is envisaged incident data being sent by the IoT device directly into systems owned and operated by emergency services control rooms.
 
 ### d. The evolution of UI wireframes for key sub-systems
 
