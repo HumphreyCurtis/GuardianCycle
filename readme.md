@@ -5,13 +5,27 @@
 
 <p align="center">
 <strong style="font-family: 'Charm', cursive;">Protecting heads since 2020!</strong>
+</p>
 
+<p align="center">
+<img src="/portfolio/media/Advert_1.jpg" alt="GuardianCycle Advert 1" height=400>
+<img src="/portfolio/media/advert2.jpg" alt="GuardianCycle Advert 2" height=300>
+<img src="/portfolio/media/advert3.jpg" alt="GuardianCycle Advert 2" height=300>
+<p align="center">
+  <i>
+  Future marketing campaigns for the GuardianCycle operating throughout Bristol
+  </i>
 </p>
 
 
 
-
-Team Members: ~~Nathan Cubitt (ka19493)~~, Humphrey Curtis (dr19500), J 'Gene' Hackman (kq18265), Alex Rycroft (zw19555), Evy Tang (yt15896) and Andrew Thomas (vz19513).
+#### Team Members: 
+Humphrey Curtis dr19500@bristol.ac.uk
+J 'Gene' Hackman kq18265@bristol.ac.uk 
+Alex Rycroft zw19555@bristol.ac.uk 
+Evy Tang yt15896@bristol.ac.uk
+Andrew Thomas vz19513@bristol.ac.uk
+Nathan Cubitt ka19493@bristol.ac.uk* (withdrawn from project for more see: [Nathan's departure](portfolio/project-evaluation.md/#nathans-departure))
 
 # Introduction 
 
@@ -24,21 +38,19 @@ Data collected by [cycling.org](https://www.cyclinguk.org/blog/road-casualties-2
 
 The GuardianCycle has be deliberately designed to meet this problem and offer all cycling users far more safety, accessibility and satisfication. Firstly, provide an adjustable LED indicator to provide optimum clarity of cycling maneuvers to fellow road users. Secondly, utilising GPS tracing - the GuardianCycle enables emergency services and friends or family the ability to trace cyclists on the road and provide immediate assistance for any emergencies or unintended problems. Thirdly, the GuardianCycle makes cycling more fun and interesting by offering users unparallelled accessibility to their cycling data - including calories burned and distance travelled - with the view to share this data, challenge friends and set new personal best goals!
 
-GuardianCycle as a multimodal computer architecture offers so much more than just these initial benefits, which are thoroughly explored within the body of our report. Architecturally, GuardianCycle consists of three main components: 
+GuardianCycle as a multimodal computer architecture offers so much more than just these initial benefits, which are thoroughly explored within the body of our report. Architecturally, GuardianCycle will operate efficiently across three key stakeholders (1) the cyclist via the IoT device, (2) friends or family via the desktop application (3) emergency services and family via the website. 
 
-#### An IoT device and RGB LED hardware
+#### The IoT device and RGB LED hardware
 
 The GuardianCycle IoT device is clearly prototyped using an M5Stack - it transmits GPS data in JSON files - both route data gathered or emergency notifications and renders an RGB LED matrix to perform manoeuvres. All operable through an easy and optimum user interface. 
 
-#### A desktop application
+#### Desktop application
 
 A desktop application has been developed using Processing, to display GPS data sent from the IoT device. Routes are displayed as a line on a map, and helpful statistics are calculated about the route. 
 
-#### A web application
+#### Web application
 
-To cater for two different sets of external stakeholders, two single page applications have been developed using the React framework:
-- friend-track-view which allows the cyclist to share their location with friends and family and
-- emergency-services-view which alerts the emergency services to incidents detected by GuardianCycle.
+To cater for two different sets of external stakeholders, two single page applications have been developed using the React framework. Friend-track-view endables the cyclist to share their location with friends and family. Additionally, the emergency-services-view immediately alerts the emergency services to incidents detected by GuardianCycle.
 
 ## Advantages
 
@@ -55,6 +67,14 @@ The desktop application explores achievements made by the cyclist day-to-day - d
 #### User focused interfaces
 
 All three interfaces, the M5Stack, desktop application and website offer incredible accessibility to potential stakeholders. The three interfaces have been configured to be as clear and effective as possible. Thus providing a wholesome service for all cyclist users - from novice to veteran cyclists. As noted, within the user stories section GuardianCycle's interface and system even benefits non-cyclists. 
+
+## Learning Experience
+
+As first-year MSc Computer Science students at the University of Bristol, GuardianCycle presented a fantastic opportunity for the team to gain exposure and learn a number of key Software Engineering practices. Most notably: 
+* Firstly, coming to grips with agile-software development. Including, utilising Git effectively and cooperating properly whilst developing software. 
+* Secondly working under the demands of the multiple different subsystems, which meant entirely different programming practices from OOP development within Processing, website engineering in React to even C++ hardware development utilising an M5Stack and RGB LED matrix. This was coupled with even exposure to MQTT communication protocols to make the systems communicative. 
+* Thirdly, the team had to learn to cope with mitigating utterly unforseen circumstances. Notably, the pressures of long-distance agile software-engineering during the global Coronavirus pandemic and the withdrawal of a key team-member. 
+
 
 ## Project outline
 
