@@ -277,15 +277,17 @@ These diagrams demostrate that from the User Story section, a wide pool of users
 
 In response to these requirements we calibrated certain key requirements for developing subsystems. 
 
-#### M5 Stack
+#### IoT device
 
 * The M5Stack had to be communicative and send necessary data to the desktop application and website application - enabling tracing functionality for Guardian cycle with JSON route data sent via Hive MQTT. 
-* The Stack had to fully render an RGB LED matrix to display the cyclists state (maneuvers and emergency) to fellow road users - enabling complete safety.
+* The Stack had to fully render an RGB LED matrix to display the cyclists state (manoeuvres and emergency) to fellow road users - enabling complete safety.
 * The UI of the Stack had to be clean and clear preventing the cyclist from losing focus whilst cycling and dealing with needless distractions. 
 * The M5Stack UI had to be intuitive for all age ranges - enabling any cyclist of any level of experience to effectively use the GuardianCycle - satisfying the wide user pool of potential users. 
 * The route log functionality was developed to enable users to gain some cycling data and try and beat their own personal best times. This would satisfy user priorities for improvement. 
+* The M5 Stack had to detect incidents (using its internal gyroscope) and initiate an emergency event - functionality not included in the minimum viable product.
+* The M5 Stick had to allow users to manually initiate an emergency event, or cancel an emergency event in the event of automatic detection.
 
-#### Desktop Application 
+#### Desktop application 
 
 * Allow users to see information about the rides they have completed. Information must include information about speed, distance and the count of calories burned to fulfil [User Story 1](#user-story-1) and [User Story 2](#user-story-2). 
 * Clearly show this information to the user in a clean and intuitive UI. Maps of previous routes were used to create a visually pleasing UI and provide more information about previous routes.
@@ -298,7 +300,7 @@ In response to these requirements we calibrated certain key requirements for dev
 
 * Differentiate to friends and family between normal activity and whether an incident had occurred (either detected automatically by gyroscope or manually initiated).  
 
-* Alert friends and family by SMS or email in the event of an accident (functionality is not included in the minimum viable product).  
+* Alert friends and family by SMS or email in the event of an accident - functionality not included in the minimum viable product.  
 
 * Ensure sensitive location data was only shared with authorised parties by the use of secure authentication.
 
