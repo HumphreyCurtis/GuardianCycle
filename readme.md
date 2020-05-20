@@ -9,8 +9,8 @@
 
 <p align="center">
 <img src="/portfolio/media/Advert_1.jpg" alt="GuardianCycle Advert 1" height=400>
-<!-- <img src="/portfolio/media/advert2.jpg" alt="GuardianCycle Advert 2" height=300>
-<img src="/portfolio/media/advert3.jpg" alt="GuardianCycle Advert 2" height=300> -->
+<img src="/portfolio/media/advert2.jpg" alt="GuardianCycle Advert 2" height=300>
+<img src="/portfolio/media/advert3.jpg" alt="GuardianCycle Advert 3" height=300>
 <p align="center">
   <i>
   Future marketing campaigns for the GuardianCycle operating throughout Bristol
