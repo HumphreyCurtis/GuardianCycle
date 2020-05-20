@@ -32,6 +32,8 @@ The GuardianCycle IoT device is clearly prototyped using an M5Stack - it transmi
 
 #### A desktop application
 
+A desktop application has been developed using Processing, to display GPS data sent from the IoT device. Routes are displayed as a line on a map, and helpful statistics are calculated about the route. 
+
 #### A web application
 
 To cater for two different sets of external stakeholders, two single page applications have been developed using the React framework:
