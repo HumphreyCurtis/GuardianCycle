@@ -276,11 +276,11 @@ Hannah is trying to lead a more healthy lifestyle and is starting to cycle occas
 
 ##### User Story 3
 
-Kevin is a mountian biker who is often alone for long periods of time in the hills. He is increasingly worried about his personal safety whilst mountain biking especially when the weather is poor and would like a way to get quick and direct help if there was an accident. 
+Kevin is a mountain biker who is often alone for long periods of time in the hills. He is increasingly worried about his personal safety whilst mountain biking especially when the weather is poor and would like a way to get quick and direct help if there was an accident. 
 
 ##### User Story 4 
 
-Mary is a mother of three, whose eldest son rides their bike to school everyday. She would like to know her child is getting to school as safely each day - there family home is located in a busy commuter belt. Furthermore she would like to be able to track her child's location to make sure they get to school and back home.
+Mary is a mother of three, whose eldest son rides their bike to school everyday. She would like to know her child is getting to school safely each day, and is concerned that other road users do not see him signalling when he is in traffic - their family home is located in a busy commuter belt. Furthermore she would like to be able to track her child's location to make sure he gets to school and back home.
 
 ##### User Story 5
 
@@ -319,7 +319,7 @@ In response to these requirements we calibrated certain key requirements for dev
 #### IoT device
 
 * The M5Stack had to be communicative and send necessary data to the desktop application and website application - enabling tracing functionality for Guardian cycle with JSON route data sent via Hive MQTT. 
-* The Stack had to fully render an RGB LED matrix to display the cyclists state (manoeuvres and emergency) to fellow road users - enabling complete safety.
+* The Stack had to fully render an RGB LED matrix to display the cyclists state (manoeuvres and emergency) to fellow road users - enabling complete safety as desired in [User Story 5](#user-story-5).
 * The UI of the Stack had to be clean and clear preventing the cyclist from losing focus whilst cycling and dealing with needless distractions. 
 * The M5Stack UI had to be intuitive for all age ranges - enabling any cyclist of any level of experience to effectively use the GuardianCycle - satisfying the wide user pool of potential users. 
 * The route log functionality was developed to enable users to gain some cycling data and try and beat their own personal best times. This would satisfy user priorities for improvement. 
