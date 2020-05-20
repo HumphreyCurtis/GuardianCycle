@@ -56,7 +56,8 @@ class Map extends React.Component {
 			center: [this.state.lng, this.state.lat],
 			zoom: this.state.zoom
 		});
-		map.on('move', function centrMap()  {
+
+		map.on('move', () => {
 			this.setState({
 				lng: map.getCenter().lng.toFixed(4),
 				lat: map.getCenter().lat.toFixed(4),
