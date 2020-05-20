@@ -477,10 +477,10 @@ We decided on using the JSON format as firstly, it could be sent in a simple tex
 <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/json-incident.png" alt="Update JSON">
 </p>
 
-   **"lastCoord"**  The geo-coordinates of the incident.
-   **"name"** Name of the user.
-   **"timeSent"** Date and time of the incident.
-   **"isIncident"** The incident status (boolean). True is an active incident.
+**"lastCoord"**  The geo-coordinates of the incident. \n
+**"name"** Name of the user. \n
+**"timeSent"** Date and time of the incident. \n
+**"isIncident"** The incident status (boolean). True is an active incident. \n
 
 #### Rational for using Mosquitto over MQTT
 While implementing our website, we had difficulty integrating the functionality with MQTT. Specifically, there were issues whereby the browser would flag the site as being insecure and which could only be remedied by modifying the browser settings to allow insecure content. We realised this was not a reasonable expectation for most users so we decided to change the network protocol across to Mosquitto. 
