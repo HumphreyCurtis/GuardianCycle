@@ -515,3 +515,11 @@ For connecting the website to the MQTT protocol, the [MQTT.js](https://github.co
 
 Hosting was achieved using [Vercel](https://vercel.com) (formerly Zeit) which allows command line deployment of React/node.js web applications in a frictionless manner, and also features a free tier pricing model.  Vercel also provides robust solutions and good documentation to ensure private API keys (which were required for mapbox) are not publicly viewable once deployed, which was required for the pilot.
 
+### h. Reflective Summary
+The initial paper prototype allowed us to develop a basic understanding of what we wished to achieve as well as enabled us to perform some basic user testing. This initial design had to evolve in order to accommodate the limitations of the M5 stack as well as course requirement for the project to be spread across multiple mediums. 
+
+Once this had been refined, the creation of UML diagrams provided a more detailed overview of what we needed to build to ensure our project was a success. In addition, these diagrams helped us understand how the stakeholders would interact with the end product as well as ensure the entire team was on the same page in regards to what we would be producing.
+
+We selected the JSON file format for communication and storage as it was easy to understand, could be sent via text-based messaging system like MQTT and had facilities (like Geo-JSON) that could easily accommodate route data.
+
+In summary, our design changed considerably from our initial paper prototype as we encountered challenges and added new features. In addition, the design process aided our implementation by allowing us to allocate tasks and giving us a framework to track our progress.
