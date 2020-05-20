@@ -142,15 +142,6 @@ Although resolution was achieved this would have definitely been a less time con
 
 Finally, it almost goes without explicitly saying that [GitHub](https://github.com/HumphreyCurtis/GuardianCycle), was invaluable for the team’s ability to co-work whilst working apart from each other as it enabled us to pull and run code written by other group members. We have all gained much from using GitHub as a commutative and for many of us, this was the first time working as part of a team that used GitHub. In reflection, we ought to have set up individual repositories instead of using one Master branch. This oversight certainly was partially due to our inexperience using GitHub as a team and would have proved useful for better collaboration if individuals had been able to push what they were working on and other team members take a look at changes before deciding what would be pushed to the master branch. Moving forward, we know to set up individual repositories early on but otherwise, we managed to work together very well despite the remote-working practises we had to unexpectedly adapt to. 
 
-#### Conclusion
-
-We used Slack to communicate ideas, arranging meetings on Skype and general discussion on particular components and used GitHub to share those components. There certainly was room for improvement on communication all around however this was certainly due to the sudden transition to remote working from home and general uncertainty and changes made in light of COVID-19 which we will reflect upon in more depth in the next section. Overall, the group worked well together and in a professional manner. It was clear what aspect of the project each were tasked with and how that would fit together with the other components and all were open to constructive criticism which certainly enabled us to progress nicely. 
-
-
-### d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
-The unexpected coronavirus pandemic and subsequent lockdown had a significant effect on our working pratices. The most significant being the inability to engage in regular face-to-face meetings as we had before. We quickly adapted to this new environment however by instead engaging in regular teleconferences via Skype. We also extended our use of the messaging service Slack for communication and shared workspaces such as Google drive in order to track our progress.
-
-
 #### Nathan's departure 
 
 Due to unforseen circumstances we unforutnately lost a team member Nathan Cubbitt - because he personally decided to postpone his MSc Computer Science for the following academic year. Nathan had been crucial to efforts in developing the GuardianCycle hardware - in particular LED and M5Stack research, development and media. For example, Nathan had purchased and initially tested the 5x5 LED matrix. Additionally, Nathan had helped design some of GuardianCycle's media and advertising. 
@@ -162,3 +153,29 @@ His withdrawal had a challenging and large impact on our team as it meant respon
 * Strategy 3 - The M5Stick development was coordinated to another team-member who had been originally working on the desktop application. Thereby reducing pressure on M5Stack development.
 
 These three strategies were ultimately effective in getting us through a difficult circumstance. Our initial team-strategy in which Nathan was central to helping write and draft the research report perhaps backfired and we should have had more contingency plans in place for potential team-member departures. However, our response ultimately enabled us to acheive proof of concept albeit at a slightly less polished hardware end-product than originally invisaged. Nonetheless, the redrafted Coronaviorus Assignment Brief placed greater emphasis on high-concept design rather than technical implementation. Therefore, we have coped very well and maturely as a team to meet this new assignment brief.  
+
+
+#### Conclusion
+
+We used Slack to communicate ideas, arranging meetings on Skype and general discussion on particular components and used GitHub to share those components. There certainly was room for improvement on communication all around however this was certainly due to the sudden transition to remote working from home and general uncertainty and changes made in light of COVID-19 which we will reflect upon in more depth in the next section. Overall, the group worked well together and in a professional manner. It was clear what aspect of the project each were tasked with and how that would fit together with the other components and all were open to constructive criticism which certainly enabled us to progress nicely. The departure of Nathan highlighted that we should have better organised distribution of workload from the beginning of the project and whilst it was sad to see him go, the rest of us came to terms with this quickly and dealt with it professionally. 
+
+
+### d. This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
+
+#### Online transition
+
+The unexpected coronavirus pandemic and subsequent lockdown had a significant effect on our working practices. The most significant being the inability to engage in regular face-to-face meetings as we had before. We quickly adapted to this new environment however by instead engaging in regular teleconferences via Skype. We also extended our use of the messaging service Slack for communication and shared workspaces such as Google drive in order to track our progress. 
+
+#### Effect on schedulding 
+
+A major difficulty has been the spread of workload over the weeks because of the numerous deadlines for this project and others. Furthermore, whilst some group members worked to original deadlines for different modules, others made use of the two week extension policy, meaning that group members were juggling different workloads which naturally made finding a time that suited all trickier than it otherwise would have been. 
+
+It is difficult to truly measure the impact that _COVID-19_ had on the success and outcome of this project as it is impossible to compare two two different scenarios. The pandemic not only caused the obvious issue of not being able to work as a team in person, but also administrative complications as a result of the university having to adapt quickly to moving online. One issue in particular that has affected how well we were able to undertake this project was the miscommunications surrounding the hand-in date of the project with the deadline changing and this being communicated on different platforms causing widespread confusion on what information was reliable. 
+
+#### Conclusion 
+
+The disruption to the sudden closure of university and subsequent lockdown definitely threw a spanner in the works in terms of workflow and ability to work harmoniously together. However, thanks to softwares such as Skype, Slack and GitHub, we were able to find our feet (in our slippers), and adjust to a very new working environment. For some of us, being at home also meant childcare responsibilities; one of our group members has a toddler whilst another found themselves caring for a 10-year-old sibling  and homeschooling them in the mornings. Overall, this did not have a severe impact on the groups ability to meet on skype or get on with work on the project. 
+
+
+
+
