@@ -1,5 +1,9 @@
 ## 3. Project Evaluation
-
+### Contents
+-[a. Reflective discussion of the success of the project](#a-reflective-discussion-of-the-success-of-the-project)
+-[b. Discussion of future work](#b-discussion-of-future-work-in-terms-of-design-development-and-evaluation)
+-[c. Reflect on the working practices of your group](#c-reflect-on-the-working-practices-of-your-group-how-well-they-did-or-did-not-work-eg-management-of-issues-communication-agile-etc)
+-[d. This is a chance to reflect on how coronavirus has affected your project ](#d-this-is-a-chance-to-reflect-on-how-coronavirus-has-affected-your-project-remote-working-practices-etc)
 ### a. Reflective discussion of the success of the project
 This project has overall been a success and demonstrated a good proof of concept for an IOT bike safety system. The team worked well together to complete the project ahead of the deadline and continously improve the design and implementation of the system. Although the Covid-19 pandemic meant we were unable to fully test the system, we did implement functionality to partially complete all of our user stories. It is clear that our user stories could be fully completed by the system, if development was to continute after this proof of concept. 
 
