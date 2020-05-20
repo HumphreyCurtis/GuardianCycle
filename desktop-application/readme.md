@@ -45,8 +45,8 @@ The data is then fed back into the GUI where it is display alongside the respect
 
 ### MQTTHandler
 This file contains mqtt callback functions, this is where mqtt messages are received and dealt with.
-    
-      public void messageReceived(String topic, byte[] payload);
+
+    public void messageReceived(String topic, byte[] payload);
 
 Message received callback function, parses the incoming payload, creates a datajson, then adds the json to the database and create gui object.
 ### Maps
