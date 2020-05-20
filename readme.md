@@ -28,11 +28,15 @@ GuardianCycle as a multimodal computer architecture offers so much more than jus
 
 #### An IoT device and RGB LED hardware
 
-The GuardianCycle IoT device is clearly prototyped using an M5Stack - it transmits GPS data in JSON files - both route data gathered or emergency notifications and renders an RGB LED matrix to perform maneuvers. All operable through an easy and optimum user interface. 
+The GuardianCycle IoT device is clearly prototyped using an M5Stack - it transmits GPS data in JSON files - both route data gathered or emergency notifications and renders an RGB LED matrix to perform manoeuvres. All operable through an easy and optimum user interface. 
 
 #### A desktop application
 
-#### A website
+#### A web application
+
+To cater for two different sets of external stakeholders, two single page applications have been developed using the React framework:
+- friend-track-view which allows the cyclist to share their location with friends and family and
+- emergency-services-view which alerts the emergency services to incidents detected by GuardianCycle.
 
 ## Advantages
 
@@ -40,15 +44,15 @@ The Guardian Cycle offers a number of key benefits to society and across multipl
 
 #### Safety 
 
-In short, the GuardianCycle maximises road safety for cyclists as it will help minimise cycling fatalities and accident occurence on and off road. Through GPS tracing the GuardianCycle can trigger immediate emergency assistance as well as enable friends or family to trace journeys. This benefits a vast array of potential cyclists from cyclists mountain biking solo in the hills to cyclists commuting to work on busy streets. Furthermore, as cycling accidents are most common on the road, we have developed an LED indicator system to clearly notify maneuvers to fellow road users.
+In short, the GuardianCycle maximises road safety for cyclists as it will help minimise cycling fatalities and accident occurrence on and off road. Through GPS tracing the GuardianCycle can trigger immediate emergency assistance as well as enable friends or family to trace journeys. This benefits a vast array of potential cyclists from cyclists mountain biking solo in the hills to cyclists commuting to work on busy streets. Furthermore, as cycling accidents are most common on the road, we have developed an LED indicator system to clearly notify manoeuvres to fellow road users.
 
 #### Accessible cycling data 
 
-The desktop application explores acheivements made by the cyclist day-to-day - dramatically improving their cycling experience. In particular, GuardianCycle data collected focuses on routes gathered, distance travelled and calories burned. Immeasurably improving the cycling experience and inspiring cyclists to get fitter and healthier via setting goals, personal bests and challenging friends. 
+The desktop application explores achievements made by the cyclist day-to-day - dramatically improving their cycling experience. In particular, GuardianCycle data collected focuses on routes gathered, distance travelled and calories burned. Immeasurably improving the cycling experience and inspiring cyclists to get fitter and healthier via setting goals, personal bests and challenging friends. 
 
 #### User focused interfaces
 
-All three interfaces, the M5Stack, desktop application and website offer incredible accessibility to potential stakeholders. The three interfaces have been configured to be as clear and effective as possible. Thus providing a wholesome service for all cyclist users - from novice to veteran cyclists. As noted, within the user stories section Guardian Cycle's interface and system even benefits non-cyclists. 
+All three interfaces, the M5Stack, desktop application and website offer incredible accessibility to potential stakeholders. The three interfaces have been configured to be as clear and effective as possible. Thus providing a wholesome service for all cyclist users - from novice to veteran cyclists. As noted, within the user stories section GuardianCycle's interface and system even benefits non-cyclists. 
 
 ## Project outline
 
