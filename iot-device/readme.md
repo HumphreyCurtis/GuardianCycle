@@ -8,12 +8,12 @@ A key component of GuardianCycle is the IoT device, which is comprised of three 
   
 - [M5Stack user interface development](m5-UI-testing) - early prototyping of the eventual user interface.
 
-* [RGB LED Testing](m5-LED-testing) - testing of the M5Stack and its ability to orient the RGB LED to display the performance of certain maneuvers by the cyclist: 
+- [RGB LED Testing](m5-LED-testing) - testing of the M5Stack and its ability to orient the RGB LED to display the performance of certain maneuvers by the cyclist: 
   * White flash warning light.
   * Red arrow left light.
   * Red arrow right light.  
 
-GuardianCycleStackUI: 
+## Step-by-step GuardianCycleStackUI
 
 * Press to turn M5Stack on: 
 
@@ -23,7 +23,7 @@ GuardianCycleStackUI:
 
 * Press button B for route log: 
   
-* Press and hold button B to end journey:
+* Press and hold button B to end journey and send route data as encoded polyline:
   
-* Press and hold button A - trigger emergency: 
+* Press and hold button A to trigger emergency and send JSON data: 
 
