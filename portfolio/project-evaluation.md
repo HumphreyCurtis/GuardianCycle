@@ -77,11 +77,11 @@ If the project was to be viable, this would certainly require changes to the pre
 Indeed, the M5Stack buttons would perhaps be difficult and non-natural to press whilst cycling to render the coherent LED indication. Initial prototyping of a second design would perhaps use a more traditional cycling trigger system to render the RGB LED indicator - this would be a more natural movement for the cyclist whilst in motion. Furthemore, instead of wiring bluetooth would definitely be used to keep the LED connected to its controller. 
 
 <p align="center" >
-<img src="media/Diagrams/ProfileOfUsers1.jpg" alt="Hierarchy of priorities" height=700>
+<img src="media/GenericTriggerShifter.jpg" alt="Trigger Shifter" height=300>
 </p>
 <p align="center">
   <i>
-  Figure ?. Picture of traditional bike trigger shifter
+  Figure ?. Picture of traditional bike trigger shifter.
   </i>
 </p>
 
@@ -95,17 +95,18 @@ While the M5 stick interface achieves it’s basic aims, we believe this could b
 #### Future prototype 
 
 <p align="center" >
-<img src="media/Diagrams/ProfileOfUsers1.jpg" alt="Hierarchy of priorities" height=700>
+<img src="media/LEDproto2.jpg" alt="LED Prototype 1" height=400>
+<img src="media/LEDproto3.jpg" alt="LED Prototype 1" height=400>
 </p>
 <p align="center">
   <i>
-  Figure ?. Prototype of future LED deisgns
+  Figure ?. Prototypes of future LED designs
   </i>
 </p>
 
-The prototype device itself needed to be a lightbox, carrying the LEDs and battery. If it was the genuine final device it would need to incorporate a micro-USB port for charging (and attaching to a computer), and a SIM card port.  There would also need to be room for accelerometers, GPS, WiFi etc. Ultimately it was envisaged that the back of the box would have the Guardian Cycle logo engraved in it, and the area around the diffused (white) light panel would be engraved with the model number and/or the Guardian Cycle name. This prototype would be controlled via a handheld trigger-controller connected to the handlebars as discussed in the previous section.
+ The  prototype device itself needed to be a lightbox, carrying the LEDs and battery. If it was the genuine final device it would need to incorporate a micro-USB port for charging (and attaching to a computer), and a SIM card port.  There would also need to be room for accelerometers, GPS, WiFi etc. Ultimately it was envisaged that the back of the box would have the Guardian Cycle logo engraved in it, and the area around the diffused (white) light panel would be engraved with the model number and/or the Guardian Cycle name. This prototype would be controlled via a handheld trigger-controller connected to the handlebars as discussed in the previous section.
 
-The advantage of building this in 3D within Blender was that the device could be sent to a 3D printer to be manufactured - to do this the light panel would be removed from the model, and that area would be extruded all the way down.  Interior fittings would have been devised to hold the LEDs etc in place. At this stage a 3D printed prototype would only have consisted of the working lighting states – all other functions would have been provided by the M5Stack. Unfortunately at this point the Covid-19 pandemic meant that a physical presentation was no longer required.  Therefore the LED RGB strip system was not built, nor indeed was there a need to 3D print the device. However, the 3D model could be used to create product advertising, as shown overleaf with a first draft of a technical specifications.
+The advantage of building this in 3D within [blender](https://www.blender.org/) was that the device could be sent to a 3D printer to be manufactured - to do this the light panel would be removed from the model, and that area would be extruded all the way down.  Interior fittings would have been devised to hold the LEDs etc in place. At this stage a 3D printed prototype would only have consisted of the working lighting states – all other functions would have been provided by the M5Stack. Unfortunately at this point the Covid-19 pandemic meant that a physical presentation was no longer required.  Therefore the LED RGB strip system was not built, nor indeed was there a need to 3D print the device. However, the 3D model could be used to create product advertising, as shown overleaf with a first draft of a technical specifications.
 
 
 ### c. Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
