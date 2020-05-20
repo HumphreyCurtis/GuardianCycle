@@ -25,6 +25,7 @@
 - [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use-including-a-rational-for-your-choice)
 - [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use-including-a-rational-for-your-choice)
 - [g. Details of web technologies in use](#g-details-of-web-technologies-in-use)
+- [h. Reflective summary](#h-reflective-summary)
 
 ### a. Architecture of the entire system
 #### Overview
@@ -51,17 +52,32 @@ From the outset GuardianCycle endeavoured to take an object-oriented approach to
 
 This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how myriad parts interlocked.  Taking this strong object-oriented approach fostered this understanding.
 
-Indeed sketching out a UML use Case diagram for this system (under the early working title of CyberDome) showed the number of different stakeholders involved:
+Indeed sketching out a UML use case diagram for this system (under the early working title of CyberDome) showed the number of different stakeholders involved:
 
 ![UML Use Case Diagram](media/enduser.png)
+<p align="center">
+  <i>
+  Figure ?. UML use case for GuardianCycle 
+  </i>
+</p>
 
 The complexity of interactions between these functions was further explored in a UML class diagram which extended standard UML by attempting to overlay stakeholders over encapsulated methods and data:
 
 ![UML Class Venn diagram](media/initialuml.png)
+<p align="center">
+  <i>
+  Figure ?. UML class venn diagram for GuardianCycle 
+  </i>
+</p>
 
 This initial work proved the necessity of deciding up front the interfaces between these  elements.  Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes, _Route_ or _Update_:
 
+<p align="center">
 ![Route and Update classes](media/route_update.png)
+  <i>
+  Figure ?. Route and Update classes 
+  </i>
+</p>
 
 This ensured that all developers on the team understood exactly what data they could expect to send and receive from their individual components.  The components themselves however were also influenced by object oriented.
 
@@ -70,6 +86,11 @@ This ensured that all developers on the team understood exactly what data they c
 The desktop application was written using Processing and a UML class diagram corresponding to the source code is below:
 
 ![Processing UML Class diagram](media/processing_class_uml.svg)
+<p align="center">
+  <i>
+  Figure ?. UML class diagram for desktop application
+  </i>
+</p>
 
 As illustrated the Processing code follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly.  Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network).
 
@@ -210,6 +231,11 @@ The MD5 Stack performed a number of different functions, namely starting route t
 Both of these devices had far less complexity in their source code than the desktop application; so UML class diagrams have not been prepared.  However this UML activity diagram describes the flow of activity within the MD5 Stick:
 
 ![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
+<p align="center">
+  <i>
+  Figure ?. UML state diagram for MD5 Stick.
+  </i>
+</p>
 
 As is illustrated the MD5 Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert; with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert.  This is a secondary method for alarm activation - the primary one being the automatic fall detection present in the MD5 Stack gyroscope; however this has not been developed within the minimum viable product, instead the MD5 Stick is currently being used for demonstration purposes.
 
@@ -218,8 +244,13 @@ As is illustrated the MD5 Stick can be used to alert the emergency services to a
 A UML class diagram of the friend-track-view web application shows object oriented design in work - although admittedly this was a more lightweight approach, being a relatively simple JavaScript React application, then the Java driven Processing desktop application: 
 
 ![UML Class Diagram for friend-track-view](media/ftv_uml.png)
+<p align="center">
+  <i>
+  Figure ?. UML class diagram for friend-track-view
+  </i>
+</p>
 
-Components _login_ and _map_ pages are logically separate; while within the _map_ component we have a number of discrete elements dedicated to serving different functions e.g. _alertIncident_, _removeMapLayer_, etc.  
+The use of the React framework (as discussed in [web technologies](#g-details-of-web-technologies-in-use) allowed an extent of object oriented thinking within the design.  As the above figure shows components were used to encapsulate functionally different areas within the single page application.  _SignInSide_ and _Map_ were used for the two primary 'pages', while the _AlrtIncident_ class displayed details of location, alerting for an incident if necessary.  Within all the components we have a number of discrete elements dedicated to serving different functions e.g. _RemoveMapLayer_, _componentDidMount_, etc.
 
 #### Importance of object oriented design
 
@@ -515,7 +546,7 @@ For connecting the website to the MQTT protocol, the [MQTT.js](https://github.co
 
 Hosting was achieved using [Vercel](https://vercel.com) (formerly Zeit) which allows command line deployment of React/node.js web applications in a frictionless manner, and also features a free tier pricing model.  Vercel also provides robust solutions and good documentation to ensure private API keys (which were required for mapbox) are not publicly viewable once deployed, which was required for the pilot.
 
-### h. Reflective Summary
+### h. Reflective summary
 The initial paper prototype allowed us to develop a basic understanding of what we wished to achieve as well as enabled us to perform some basic user testing. This initial design had to evolve in order to accommodate the limitations of the M5 stack as well as course requirement for the project to be spread across multiple mediums. 
 
 Once this had been refined, the creation of UML diagrams provided a more detailed overview of what we needed to build to ensure our project was a success. In addition, these diagrams helped us understand how the stakeholders would interact with the end product as well as ensure the entire team was on the same page in regards to what we would be producing.
