@@ -504,8 +504,20 @@ I have included a simple diagram below to illustrate how the data is communicate
 #### JSONs
 We decided on using the JSON format as firstly, it could be sent in a simple text format and secondly, could contain key details our program required such as geo co-ordinates. The details of the JSON structures we utilised are explained in more detail [on our data communication page.](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication)
 
+
+```json
+{
+   "lastCoord": [
+      -2.5906169414520264,
+      51.45326480293432
+   ],
+   "name": "John Doe",
+   "timeSent": "2020-03-04T18:25:43.511Z",
+   "isIncident": true
+}
+```
 <p align="center">
-<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/json-incident.png" alt="Update JSON">
+<!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/json-incident.png" alt="Update JSON">--->
 </p>
 <p align="center">
 Example of an update JSON for an incident.
@@ -516,8 +528,29 @@ Example of an update JSON for an incident.
 **"timeSent"**   Date and time of the incident.   
 **"isIncident"**   The incident status (boolean). True is an active incident.   
 
+```json
+{
+"time": 15,
+"coordinates": [
+          [
+            -2.583932876586914,
+            51.454240905300445
+          ],
+          [
+            -2.585182785987854,
+            51.45422084861252
+          ],
+          [
+            -2.5838953256607056,
+            51.454247590861115
+          ]
+	]
+}
+```
+
+
 <p align="center">
-<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/JSON-route.png" alt="Route JSON">
+<!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/JSON-route.png" alt="Route JSON">--->
 </p>
 <p align="center">
 Example of a route JSON for a journey.
