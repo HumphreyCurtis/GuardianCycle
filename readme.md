@@ -21,10 +21,13 @@
 
 #### Team Members: 
 Humphrey Curtis dr19500@bristol.ac.uk
+
 J 'Gene' Hackman kq18265@bristol.ac.uk 
+
 Alex Rycroft zw19555@bristol.ac.uk 
+
 Evy Tang yt15896@bristol.ac.uk
-Andrew Thomas vz19513@bristol.ac.uk
+
 Nathan Cubitt ka19493@bristol.ac.uk* (withdrawn from project for more see: [Nathan's departure](portfolio/project-evaluation.md/#nathans-departure))
 
 # Introduction 
