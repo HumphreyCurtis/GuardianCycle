@@ -50,15 +50,15 @@ We had also planned to utilise the in-built gyroscope in some capacity but were 
 
 #### Communication 
 
-Early on in the project, we established a Whatsapp group as a temporary chat platform before properly setting up a Slack workspace once establishing a group name. We used Slack as the primary platform for communications as the channel feature allowed us to easily discuss different aspects of our project in the different threads within our Software Engineering workspace. [Slack] (https://slack.com/intl/en-gb/) is also tailored for group and collaborative projects, so we viewed it as a superior forum through which we could discuss the different parts of our project. Slack was particularly useful in keeping organisation clear and concise and ensured that messages would not get lost like they often do in single platform group chats. One key feature that we found useful was “Mentions & Reactions”, as it ensured that we could find messages relevant to us individually and to react to acknowledge we had seen the message. 
+Early on in the project, we established a Whatsapp group as a temporary chat platform before properly setting up a Slack workspace once establishing a group name. We used Slack as the primary platform for communications as the channel feature allowed us to easily discuss different aspects of our project in the different threads within our Software Engineering workspace. [Slack](https://slack.com/intl/en-gb/) is also tailored for group and collaborative projects, so we viewed it as a superior forum through which we could discuss the different parts of our project. Slack was particularly useful in keeping organisation clear and concise and ensured that messages would not get lost like they often do in single platform group chats. One key feature that we found useful was “Mentions & Reactions”, as it ensured that we could find messages relevant to us individually and to react to acknowledge we had seen the message. 
 This was helpful as it meant people did not have to be messaging at the same time to have assurance that specific group members would see messages relevant to them. 
 
 The main channels that we all frequently engaged with were:
-#general
-#portfolio
-#arrange-meetings
+- #general
+- #portfolio
+- #arrange-meetings
 
-![alt text] (https://www.github.com/HumphreyCurtis/GuardianCycle/)
+![Example Slack screenshot](https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Slack-Screenshot.png)
 
 However different group members used, #gui and #website depending on what aspect they were working on within the group. At the end of Sprints, our group utilised the #arrange-meetings thread to organise a time to meet on Skype to discuss what each of us had accomplished thus far and the difficulties with that, and where we thought we were headed next. Before moving onto or implementing any significant changes, we would first discuss as a group and talk about ideas or potential issues before deciding on how to proceed. 
 
@@ -77,7 +77,7 @@ Although resolution was achieved this would have definitely been a less time con
 
 #### Working Practices
 
-Finally, it almost goes without explicitly saying that [GitHub] (https://github.com/HumphreyCurtis/GuardianCycle), was invaluable for the team’s ability to co-work whilst working apart from each other as it enabled us to pull and run code written by other group members. We have all gained much from using GitHub as a commutative and for many of us, this was the first time working as part of a team that used GitHub. In reflection, we ought to have set up individual repositories instead of using one Master branch. This oversight certainly was partially due to our inexperience using GitHub as a team and would have proved useful for better collaboration if individuals had been able to push what they were working on and other team members take a look at changes before deciding what would be pushed to the master branch. Moving forward, we know to set up individual repositories early on but otherwise, we managed to work together very well despite the remote-working practises we had to unexpectedly adapt to. 
+Finally, it almost goes without explicitly saying that [GitHub](https://github.com/HumphreyCurtis/GuardianCycle), was invaluable for the team’s ability to co-work whilst working apart from each other as it enabled us to pull and run code written by other group members. We have all gained much from using GitHub as a commutative and for many of us, this was the first time working as part of a team that used GitHub. In reflection, we ought to have set up individual repositories instead of using one Master branch. This oversight certainly was partially due to our inexperience using GitHub as a team and would have proved useful for better collaboration if individuals had been able to push what they were working on and other team members take a look at changes before deciding what would be pushed to the master branch. Moving forward, we know to set up individual repositories early on but otherwise, we managed to work together very well despite the remote-working practises we had to unexpectedly adapt to. 
 
 #### Conclusion
 
