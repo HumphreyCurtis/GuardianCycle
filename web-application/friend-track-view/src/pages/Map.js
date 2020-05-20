@@ -13,7 +13,6 @@ var options = {
 var client  = mqtt.connect('mqtt://test.mosquitto.org:8081', options);
 client.subscribe('guardiancycle');
 
-
 // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
 // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
 class Map extends React.Component {
@@ -41,18 +40,15 @@ class Map extends React.Component {
 			} else {
 				map.removeLayer('points');
 			}
-
 			var mpSource = map.getSource('points');
 			if (typeof mpSource === 'undefined') {
 				// No Source
 			} else {
 				map.removeSource('points');
 			}
-
 			if (map.hasImage('pulsing-dot')) {
 				map.removeImage('pulsing-dot');	
 			}
-
 		}
 		const map = new mapboxgl.Map({
 			container: this.mapContainer,
@@ -60,14 +56,14 @@ class Map extends React.Component {
 			center: [this.state.lng, this.state.lat],
 			zoom: this.state.zoom
 		});
-		map.on('move', () => {
+		map.on('move', function centrMap()  {
 			this.setState({
 				lng: map.getCenter().lng.toFixed(4),
 				lat: map.getCenter().lat.toFixed(4),
 				zoom: map.getZoom().toFixed(2)
 			});
 		});
-		client.on('message',(topic, message) => {
+		client.on('message', (topic, message) => {
 			this.setState({inc: JSON.parse(message)});
 			if (this.state.inc.isIncident === false) {
 				dotInnerColour = 'rgba(0, 72, 186,';
