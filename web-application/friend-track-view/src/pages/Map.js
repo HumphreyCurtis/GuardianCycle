@@ -1,6 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import AlrtIncident from '../components/AlrtIncident';
+
 mapboxgl.accessToken = process.env.REACT_APP_mapboxgl.accessToken;
 var mqtt    = require('mqtt');
 var options = {
@@ -10,9 +11,9 @@ var options = {
 	clientId: 'b0908853' 	
 };
 var client  = mqtt.connect('mqtt://test.mosquitto.org:8081', options);
-// preciouschicken.com is the MQTT topic
 client.subscribe('guardiancycle');
-var size = 200;
+
+
 // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
 // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
 class Map extends React.Component {
@@ -26,9 +27,11 @@ class Map extends React.Component {
 				lastCoord: [0,0]}
 		};
 	}
-	
-	componentDidMount() {
 
+	componentDidMount() {
+		var size = 200;
+		var dotInnerColour;
+		var dotOuterColour;
 		// As per https://stackoverflow.com/a/55286301/6333825
 		// ensures layer removed before new one in place
 		function RemoveMapLayer() {
@@ -45,6 +48,11 @@ class Map extends React.Component {
 			} else {
 				map.removeSource('points');
 			}
+
+			if (map.hasImage('pulsing-dot')) {
+				map.removeImage('pulsing-dot');	
+			}
+
 		}
 		const map = new mapboxgl.Map({
 			container: this.mapContainer,
@@ -61,8 +69,14 @@ class Map extends React.Component {
 		});
 		client.on('message',(topic, message) => {
 			this.setState({inc: JSON.parse(message)});
+			if (this.state.inc.isIncident === false) {
+				dotInnerColour = 'rgba(0, 72, 186,';
+				dotOuterColour = 'rgba(0, 72, 186,';
+			} else {
+				dotOuterColour = 'rgba(255, 200, 200,';
+				dotInnerColour = 'rgba(255, 100, 100,';
+			}
 			RemoveMapLayer();
-
 			map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
 			map.addSource('points', {
 				'type': 'geojson',
@@ -90,14 +104,14 @@ class Map extends React.Component {
 			height: size,
 			data: new Uint8Array(size * size * 4),
 			// get rendering context for the map canvas when layer is added to the map
-			onAdd: function() {
+			onAdd: function onAdd() {
 				var canvas = document.createElement('canvas');
 				canvas.width = this.width;
 				canvas.height = this.height;
 				this.context = canvas.getContext('2d');
 			},
 			// called once before every frame where the icon will be used
-			render: function() {
+			render: function render() {
 				var duration = 1000;
 				var t = (performance.now() % duration) / duration;
 				var radius = (size / 2) * 0.3;
@@ -113,7 +127,7 @@ class Map extends React.Component {
 					0,
 					Math.PI * 2
 				);
-				context.fillStyle = 'rgba(0, 72, 186,' + (1 - t) + ')';
+				context.fillStyle = dotOuterColour + (1 - t) + ')';
 				context.fill();
 				// draw inner circle
 				context.beginPath();
@@ -124,7 +138,7 @@ class Map extends React.Component {
 					0,
 					Math.PI * 2
 				);
-				context.fillStyle = 'rgba(0, 72, 186, 1)';
+				context.fillStyle = dotInnerColour + ' 1)';
 				context.strokeStyle = 'white';
 				context.lineWidth = 2 + 4 * (1 - t);
 				context.fill();
@@ -142,47 +156,37 @@ class Map extends React.Component {
 				return true;
 			}
 		};
-}
-componentWillUnmount() {
-	client.end();
-}
-render() {
-	const img = {
-		width: 50,
-		height: 50,
-		float: 'left',
-		'margin-right': 10,
 	}
-	var time = this.state.inc.timeSent;
-	var name = this.state.inc.name;
-	var lat = this.state.inc.lastCoord[0];
-	var long = this.state.inc.lastCoord[1];
-	const alertIncident = function(incident) {
-	if (time != null) {
-	return (<Alert severity="info">
-			<AlertTitle>Location:</AlertTitle>
-			Time: {time}<br />
-		Name: {name}<br />
-		Lat: {lat} &#92; Long: {long} </Alert>);
-	} 
-	return (<Alert severity="info">No location data found.</Alert>);
-}
-	// Sets default React state 
-	//const [mesg, setMesg] = useState(<Fragment><em>nothing heard</em></Fragment>);
-	return (
-		<div>
-		<div className='infopane'>
-		<img style={img} src='/helmetLogo.png' alt="Logo" />
-		<h1>GuardianCycle Friend Locator</h1>
-		{alertIncident(this.state.inc.isIncident)}
-		</div>
-		<div className='sidebarStyle'>
-		<div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
-		</div>
-		<div ref={el => this.mapContainer = el} className='mapContainer' />
-		</div>
-	)
-}
+	componentWillUnmount() {
+		client.end();
+	}
+	render() {
+		const img = {
+			width: 50,
+			height: 50,
+			float: 'left',
+			'marginRight': 10,
+		}
+		var time = this.state.inc.timeSent;
+		var name = this.state.inc.name;
+		var lat = this.state.inc.lastCoord[0];
+		var long = this.state.inc.lastCoord[1];
+		var incident = this.state.inc.isIncident;
+
+		return (
+			<div>
+			<div className='infopane'>
+			<img style={img} src='/helmetLogo.png' alt="Logo" />
+			<h1>GuardianCycle Friend Locator</h1>
+			<AlrtIncident time={time} name={name} lat={lat} long={long} incident={incident} />
+			</div>
+			<div className='sidebarStyle'>
+			<div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
+			</div>
+			<div ref={el => this.mapContainer = el} className='mapContainer' />
+			</div>
+		)
+	}
 }
 
 export default Map;

@@ -2,7 +2,7 @@
 
 This component of the GuardianCycle application is intended for users to allow friends and family to see their current location, once the cyclist has started tracking their ride.  Permission would be granted to friends and family within GuardianCycle settings, nominated friends and family would then receive an email link to an URL.  Following a sign on procedure completed in the browser they would then have access to the users current location.  
 
-The users location would be updated at a set frequency (e.g. 1 min) and would be represented by a pulsing blue dot on the map.  It is intended that if an incident is detected the representation on the map would change (i.e. 'incident detected' and a pulsing red dot) - though this has not been implemented yet.
+The users location would be updated at a set frequency (e.g. 1 min) and would be represented by a pulsing blue dot on the map.  Should an incident be detected then the pulsing dot is shaded red and the information box at the top of the screen also informs the user via colour and text there has been an incident.
 
 The cyclists location would be viewable on the website for the duration of their journey - e.g. between them starting and stopping the tracking function.  A cyclist could turn off tracking for friends or family at any time.
 
@@ -33,6 +33,8 @@ then use the topic `guardiancycle` and the following message:
    "isIncident":false
 }
 ```
+
+Changing `isIncident` to `true` will switch the map to incident mode.
 
 ## Installation
 
