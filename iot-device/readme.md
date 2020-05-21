@@ -15,15 +15,35 @@ A key component of GuardianCycle is the IoT device, which is comprised of three 
 
 ## Step-by-step GuardianCycleStackUI
 
-* Press to turn M5Stack on: 
+* Press to turn M5Stack on:
+
+<p align="center" >
+<img src="./media/start-journey.jpg" alt="Start of journey" height=700>
+</p>
 
 * Home UI rendered:
+
+<p align="center" >
+<img src="./media/current-UI.jpg" alt="Current UI" height=700>
+</p>
   
-* Press button A and C to render indicators:
+* Press button A and C to render indicators.
 
 * Press button B for route log: 
+
+<p align="center" >
+<img src="media/route-log.jpg" alt="Route Log" height=700>
+</p>
   
 * Press and hold button B to end journey and send route data as encoded polyline:
+
+<p align="center" >
+<img src="media/journey-data-sent.jpg" alt="Send journey data" height=700>
+</p>
   
 * Press and hold button A to trigger emergency and send JSON data: 
+
+<p align="center" >
+<img src="media/emergency-data-sent.jpg" alt="Emergency data sent" height=700>
+</p>
 

@@ -112,6 +112,11 @@ Early on in the project, we established a Whatsapp group as a temporary chat pla
 
 
 ![Example Slack screenshot](https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Slack-Screenshot.png)
+<p align="center">
+  <i>
+  Figure ?. Image demonstrating the team utilising Slack communication
+  </i>
+</p>
 
 The main channels that we all frequently engaged with were:
 - #general
