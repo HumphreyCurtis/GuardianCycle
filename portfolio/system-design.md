@@ -64,6 +64,7 @@ This initial work proved the necessity of deciding at the outset the interfaces 
 
 <p align="center">
 <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/route_update.png" alt="Route and Update classes">
+</br>
 <i>
   Figure ?. Route and Update classes 
   </i>
@@ -92,7 +93,7 @@ The M5Stack is a low-cost, lightweight, incredibly adaptable and internet-connec
 
 The lack of a GPS module located within the M5Stack meant that, for development purposes, all users' route data had to be hardcoded in the form of a JSON GPS coordinates string. Furthermore the short battery life of the M5Stack resulted in the LED using a considerable portion of the battery. These shortcomings are noted and mitigated in the future approach section.
 
-The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly, offering useful LED and GPS functionality. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the or the [desktop](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) or [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application).  
+The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly, offering useful LED and GPS functionality. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the [desktop](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) or [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application).  
 
 
 <p align="center">
