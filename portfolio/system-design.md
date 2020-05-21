@@ -507,17 +507,21 @@ The small size of the screen and the limited input methods on the M5 stick was v
 
 With this in mind, I created a minimalist user interface that consisted simply of colours to indicate the state of the device and a short section of text indicating which state the device was currently at.
 
-### e. Details of the communication protocols in use (including a rational for your choice)
-The devices communicated with the website and desktop application by sending small JSON files (in text format) via MQTT and Mosquitto (for web communication).
+### e. Details of the communication protocols in use
 
-I have included a simple diagram below to illustrate how the data is communicated between the devices to the website and desktop application:
+The IoT device communicated with the web and desktop application using the Message Queuing Telemetry Transport (MQTT) protocol.  This is an open standard which typically runs over TCP/IP (Transmission Control Protocol / Internet Protocol) using a publish-subscribe model.  MQTT was originally designed for monitoring oil pipelines in the desert and was therefore designed with a very lightweight footprint, in terms of battery requirements, bandwidth and code.  It was these very qualities that made it perfect for a system designed to serve cyclists who typically cannot enjoy the luxuries of always on power and connectivity.
+
+This diagram describes in essence how this communication worked:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Communication-Diagram.png" alt="Comms Diagram">
 </p>
 
-#### JSONs
-We decided on using the JSON format as firstly, it could be sent in a simple text format and secondly, could contain key details our program required such as geo co-ordinates. The details of the JSON structures we utilised are explained in more detail [on our data communication page.](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication)
+#### JavaScipt Object Notation (JSON)
+
+Over this protocol the IoT device communicated with the other components using JSON packages.  JSON was a good choice as a format as it is an open standard, human readable and lightweight, that was easy to integrate with all components in the system.
+
+Two JSON structures were used, as detailed within [data communication](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication), _Route_ and _Update_ examples of which are below:
 
 
 ```json
@@ -538,10 +542,14 @@ We decided on using the JSON format as firstly, it could be sent in a simple tex
 Example of an update JSON for an incident.
 </p>
 
-**"lastCoord"** &nbsp;&nbsp;&nbsp; The geo-coordinates of the incident.   
-**"name"** &nbsp;&nbsp;&nbsp; Name of the user.   
-**"timeSent"** &nbsp;&nbsp;&nbsp; Date and time of the incident.   
-**"isIncident"** &nbsp;&nbsp;&nbsp; The incident status (boolean). True is an active incident.   
+Variable | Type | Description
+--- | --- | --- 
+lastCoord | int | Location geo-coordinates
+name | String | Cyclist name
+timeSent | Date | Date time group of last coordinate   
+isIncident | boolean | Whether incident triggered either manually or via gyro
+
+
 
 ```json
 {
@@ -571,8 +579,10 @@ Example of an update JSON for an incident.
 Example of a route JSON for a journey.
 </p>
 
-**"coordinates"** &nbsp;&nbsp;&nbsp; The geo-coordinates for the journey. To calculate the total distance, the difference between each co-ordinate is calculated and then summed.    
-**"time"** &nbsp;&nbsp;&nbsp; Duration of the journey in minutes.      
+Variable | Type | Description
+--- | --- | --- 
+time | int | Duration of journey in minutes
+coordinates | int[] | Co-ordintates of journey route, recorded at preset frequency 
 
 #### Mosquitto versus HiveMQ
 
