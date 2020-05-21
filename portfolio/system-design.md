@@ -4,7 +4,7 @@
 </p>
 <p align="center">
   <i>
-  Figure ?. Overview of GuardianCycle architecture
+  Figure 1. Overview of GuardianCycle architecture
   </i>
 </p>
 
@@ -30,7 +30,7 @@ Firstly, the Processing-driven desktop application utilised a Google Maps Static
 </p>
 <p align="center">
   <i>
-  Figure ?. Overview of system architecture 
+  Figure 2. Overview of system architecture 
   </i>
 </p>
 
@@ -47,7 +47,7 @@ This UML use case diagram for this system (under the early working title of Cybe
 ![UML Use Case Diagram](media/enduser.png)
 <p align="center">
   <i>
-  Figure ?. UML use case for GuardianCycle 
+  Figure 3. UML use case for GuardianCycle 
   </i>
 </p>
 
@@ -56,7 +56,7 @@ The complexity of interactions between these functions was further explored in a
 ![UML Class Venn diagram](media/initialuml.png)
 <p align="center">
   <i>
-  Figure ?. UML class venn diagram for GuardianCycle 
+  Figure 4. UML class venn diagram for GuardianCycle 
   </i>
 </p>
 
@@ -64,8 +64,9 @@ This initial work proved the necessity of deciding at the outset the interfaces 
 
 <p align="center">
 <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/route_update.png" alt="Route and Update classes">
+</br>
 <i>
-  Figure ?. Route and Update classes 
+  Figure 5. Route and Update classes 
   </i>
 </p>
 
@@ -78,7 +79,7 @@ The [desktop application](https://github.com/HumphreyCurtis/GuardianCycle/tree/m
 ![Processing UML Class diagram](media/processing_class_uml.svg)
 <p align="center">
   <i>
-  Figure ?. UML class diagram for desktop application
+  Figure 6. UML class diagram for desktop application
   </i>
 </p>
 
@@ -92,7 +93,7 @@ The M5Stack is a low-cost, lightweight, incredibly adaptable and internet-connec
 
 The lack of a GPS module located within the M5Stack meant that, for development purposes, all users' route data had to be hardcoded in the form of a JSON GPS coordinates string. Furthermore the short battery life of the M5Stack resulted in the LED using a considerable portion of the battery. These shortcomings are noted and mitigated in the future approach section.
 
-The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly, offering useful LED and GPS functionality. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the or the [desktop](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) or [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application).  
+The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly, offering useful LED and GPS functionality. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the [desktop](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) or [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application).  
 
 
 <p align="center">
@@ -100,7 +101,7 @@ The IOT device is envisaged as low-cost, low-energy, environmentally and user fr
 </p>
 <p align="center">
   <i>
-  Figure ?. Full state diagram of M5Stack
+  Figure 7. Full state diagram of M5Stack
   </i>
 </p>
 
@@ -113,7 +114,7 @@ After turning GuardianCycle on, a suitable startup sequence utilising Spiffs lib
 </p>
 <p align="center">
   <i>
-  Figure ?. Start-up sequence for M5Stack
+  Figure 8. Start-up sequence for M5Stack
   </i>
 </p>
  
@@ -122,7 +123,7 @@ After turning GuardianCycle on, a suitable startup sequence utilising Spiffs lib
 </p>
 <p align="center">
   <i>
-  Figure ?. LED indicator prompting user to start journey
+  Figure 9. LED indicator prompting user to start journey
   </i>
 </p>
 
@@ -140,7 +141,7 @@ We believed that this indicator functionality would be incredibly useful to othe
 </p>
 <p align="center">
   <i>
-  Figure ?. Button 1 press instantiating cyclist left turn 
+  Figure 10. Button 1 press instantiating cyclist left turn 
   </i>
 </p>
 
@@ -149,7 +150,7 @@ We believed that this indicator functionality would be incredibly useful to othe
 </p>
 <p align="center">
   <i>
-  Figure ?. LED indicator rendered on left turn 
+  Figure 11. LED indicator rendered on left turn 
   </i>
 </p>
 
@@ -160,7 +161,7 @@ If button 3 is pressed, the LED will show a right arrow.
 </p>
 <p align="center">
   <i>
-  Figure ?. Display presented to cyclist on right turn 
+  Figure 12. Display presented to cyclist on right turn 
   </i>
 </p>
 <p align="center">
@@ -168,7 +169,7 @@ If button 3 is pressed, the LED will show a right arrow.
 </p>
 <p align="center">
   <i>
-  Figure ?. LED indicator rendered on right turn 
+  Figure 13. LED indicator rendered on right turn 
   </i>
 </p>
 
@@ -179,7 +180,7 @@ Finally, if button 1 is pressed and held for a duration of five seconds the LED 
 </p>
 <p align="center">
   <i>
-  Figure ?. Display presented to cyclist in emergency scenario
+  Figure 14. Display presented to cyclist in emergency scenario
   </i>
 </p>
 
@@ -188,7 +189,7 @@ Finally, if button 1 is pressed and held for a duration of five seconds the LED 
 </p>
 <p align="center">
   <i>
-  Figure ?. LED rendered in emergency situation
+  Figure 15. LED rendered in emergency situation
   </i>
 </p>
 
@@ -199,7 +200,7 @@ The M5Stack's second button can be lightly pushed to provide route logging timer
 </p>
 <p align="center">
   <i>
-  Figure ?. Display presented to cyclist giving themroute-logging timer functionality
+  Figure 16. Display presented to cyclist giving themroute-logging timer functionality
   </i>
 </p>
 
@@ -210,7 +211,7 @@ The sending of end-of-route journey data is triggered by pressing button 2 which
 </p>
 <p align="center">
   <i>
-  Figure ?. Loops, sequencing and MQTT publishing diagram of M5Stack and Stick
+  Figure 17. Loops, sequencing and MQTT publishing diagram of M5Stack and Stick
   </i>
 </p>
 
@@ -225,7 +226,7 @@ The M5Stick, due to its inherent capacity, had far less functionality than the M
 
 <p align="center">
   <i>
-  Figure ?. UML state diagram for MD5 Stick.
+  Figure 18. UML state diagram for MD5 Stick.
   </i>
 </p>
 
@@ -242,7 +243,7 @@ A UML class diagram of the friend-track-view web application shows object orient
 ![UML Class Diagram for friend-track-view](media/ftv_uml.png)
 <p align="center">
   <i>
-  Figure ?. UML class diagram for friend-track-view
+  Figure 19. UML class diagram for friend-track-view
   </i>
 </p>
 
@@ -293,7 +294,7 @@ In light of these user stories, we used disciplined agile practices to prioritis
 </p>
 <p align="center">
   <i>
-  Figure ?. User story pool venn diagram
+  Figure 20. User story pool venn diagram
   </i>
 </p>
 
@@ -306,7 +307,7 @@ These diagrams demostrate that a wide market section would be potentially intere
 </p>
 <p align="center">
   <i>
-  Figure ?. Six priorities for agile design process emphasised from user stories
+  Figure 21. Six priorities for agile design process emphasised from user stories
   </i>
 </p>
 
@@ -411,7 +412,7 @@ Initially sufficient testing was performed on the capabilities of an LED matrix 
 </p>
 <p align="center">
   <i>
-  Figure ?. Picture of M5Stack-LED setup whilst in development
+  Figure 22. Picture of M5Stack-LED setup whilst in development
   </i>
 </p>
 
@@ -420,7 +421,7 @@ Initially sufficient testing was performed on the capabilities of an LED matrix 
 </p>
 <p align="center">
   <i>
-  Figure ?. Diagram figure of M5 setup with 5x5 matrix
+  Figure 23. Diagram figure of M5 setup with 5x5 matrix
   </i>
 </p>
 
@@ -433,7 +434,7 @@ The initial user interface designs for the M5Stack were basic, simply encoding b
 </p>
 <p align="center">
   <i>
-  Figure ?. LED coloured orbs gaining familiarity with M5Stack hardware
+  Figure 24. LED coloured orbs gaining familiarity with M5Stack hardware
   </i>
 </p>
 
@@ -442,7 +443,7 @@ The initial user interface designs for the M5Stack were basic, simply encoding b
 </p>
 <p align="center">
   <i>
-  Figure ?. Initial prototyping of M5Stack UI 
+  Figure 25. Initial prototyping of M5Stack UI 
   </i>
 </p>
 
@@ -461,7 +462,7 @@ Following this, we decided to present the user with a button press to initiate t
 </p>
 <p align="center">
   <i>
-  Figure ?. Original intro sequence to M5Stack UI with indiscernable font
+  Figure 26. Original intro sequence to M5Stack UI with indiscernable font
   </i>
 </p>
 
@@ -474,7 +475,7 @@ Throughout the design process we tried to keep the Stack's UI clean, functional 
 </p>
 <p align="center">
   <i>
-  Figure ?. M5 Stick Intro UI 
+  Figure 27. M5 Stick Intro UI 
   </i>
 </p>
 
@@ -485,7 +486,7 @@ The small size of the screen and the limited input methods on the M5 stick was v
 </p>
 <p align="center">
   <i>
-  Figure ?. Wireframes for M5 Stick UI
+  Figure 28. Wireframes for M5 Stick UI
   </i>
 </p>
 
@@ -585,7 +586,7 @@ However it soon became apparent that there were serious shortcomings as regards 
 </p>
 <p align="center">
   <i>
-  Figure ?. Blocked content warning.
+  Figure 29. Blocked content warning.
   </i>
 </p>
 
