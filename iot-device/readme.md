@@ -12,18 +12,3 @@ A key component of GuardianCycle is the IoT device, which is comprised of three 
   * White flash warning light.
   * Red arrow left light.
   * Red arrow right light.  
-
-## Step-by-step GuardianCycleStackUI
-
-* Press to turn M5Stack on: 
-
-* Home UI rendered:
-  
-* Press button A and C to render indicators:
-
-* Press button B for route log: 
-  
-* Press and hold button B to end journey and send route data as encoded polyline:
-  
-* Press and hold button A to trigger emergency and send JSON data: 
-
