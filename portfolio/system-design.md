@@ -22,7 +22,7 @@
 - [b. Object-Oriented design of key sub-systems](#b-object-oriented-design-of-key-sub-systems)
 - [c. Requirements of key sub-systems](#c-requirements-of-key-sub-systems-in-the-form-of-selected-user-stories)
 - [d. The evolution of UI wireframes for key sub-systems](#d-the-evolution-of-ui-wireframes-for-key-sub-systems)
-- [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use-including-a-rational-for-your-choice)
+- [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use)
 - [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use)
 - [g. Details of web technologies in use](#g-details-of-web-technologies-in-use)
 - [h. Reflective summary](#h-reflective-summary)
@@ -540,14 +540,14 @@ Two JSON structures were used, as detailed within [data communication](https://g
 <!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/json-incident.png" alt="Update JSON">--->
 </p>
 <p align="center">
-Example of an update JSON for an incident.
+Example of Update JSON
 </p>
 
 _Update_ variables consist of:
 
 Variable | Type | Description
 --- | --- | --- 
-lastCoord | int | Location geo-coordinates
+lastCoord |  int [ ] | Location geo-coordinates
 name | String | Cyclist name
 timeSent | Date | Date time group of last coordinate   
 isIncident | boolean | Whether incident triggered either manually or via gyro
@@ -580,7 +580,7 @@ isIncident | boolean | Whether incident triggered either manually or via gyro
 <!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/JSON-route.png" alt="Route JSON">--->
 </p>
 <p align="center">
-Example of a route JSON for a journey.
+Example of Route JSON
 </p>
 
 _Route_ variables consist of:
@@ -588,7 +588,7 @@ _Route_ variables consist of:
 Variable | Type | Description
 --- | --- | --- 
 time | int | Duration of journey in minutes
-coordinates | int[] | Co-ordintates of journey route, recorded at preset frequency 
+coordinates | int [ ]  | Co-ordintates of journey route, recorded at preset frequency 
 
 #### Mosquitto versus HiveMQ
 
@@ -613,7 +613,8 @@ The answer was clearly to use WSS within HTTPS, however the mechanism to do this
 
 At the end of the process the team felt that they had made considerable progress on understanding how MQTT can be integrated with a React single page application, and due to the dearth of information on this online, decided to contribute to wider community understanding by blogging some [concise documentation](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/) for others seeking to replicate this.
 
-### f. Details of the data persistence mechanisms in use (including a rational for your choice)
+### f. Details of the data persistence mechanisms in use
+
 The only data persistence mechanism used in this system is flat file saving in the desktop application. This saves any incoming JSON files to the application computer as JSON files, with a random string of numbers as the file name. When the application is loaded, the program looks through the data folder and reads every JSON file, creating a route object for each file. In a final application an online database would be used instead of flat files, so the information could be loaded by multiple devices. For this project it was enough to just save flat files as it mimicked the functionality of an online database. A local database could have been created instead of saving flat files, but the files are fairly simple, only containing two columns for coordinates and time. Therefore it made sense to save it simply as a JSON file and not try and split the information up into tables. 
 
 For the website and M5Stack parts of the system no data persistence was implemented. In a final version of the system it would make sense for both of these sections to have data persistence. Perhaps the website could save every incoming JSON in a similar way to the desktop application, for keeping records about any accidents that occur. In the m5Stack it might be a good to automatically save the coordinate information while the device is recording a ride. If the device ran out of battery while it was tracking the ride, all information would be lost. This is not a huge drawback for the M5Stack part of the system however. In a final version the stack would include a sim card so it could be uploading the information to a server constantly during a ride, and would therefore not need to save the coordinate information on board.
