@@ -23,7 +23,7 @@
 - [c. Requirements of key sub-systems](#c-requirements-of-key-sub-systems-in-the-form-of-selected-user-stories)
 - [d. The evolution of UI wireframes for key sub-systems](#d-the-evolution-of-ui-wireframes-for-key-sub-systems)
 - [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use-including-a-rational-for-your-choice)
-- [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use-including-a-rational-for-your-choice)
+- [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use)
 - [g. Details of web technologies in use](#g-details-of-web-technologies-in-use)
 - [h. Reflective summary](#h-reflective-summary)
 
@@ -517,12 +517,13 @@ This diagram describes in essence how this communication worked:
 <img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/Communication-Diagram.png" alt="Comms Diagram">
 </p>
 
-#### JavaScipt Object Notation (JSON)
+#### JavaScript Object Notation (JSON)
 
 Over this protocol the IoT device communicated with the other components using JSON packages.  JSON was a good choice as a format as it is an open standard, human readable and lightweight, that was easy to integrate with all components in the system.
 
-Two JSON structures were used, as detailed within [data communication](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication), _Route_ and _Update_ examples of which are below:
+Two JSON structures were used, as detailed within [data communication](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-communication), _Route_ and _Update_ examples of which follow.
 
+##### Update
 
 ```json
 {
@@ -542,6 +543,8 @@ Two JSON structures were used, as detailed within [data communication](https://g
 Example of an update JSON for an incident.
 </p>
 
+_Update_ variables consist of:
+
 Variable | Type | Description
 --- | --- | --- 
 lastCoord | int | Location geo-coordinates
@@ -550,6 +553,7 @@ timeSent | Date | Date time group of last coordinate
 isIncident | boolean | Whether incident triggered either manually or via gyro
 
 
+##### Route
 
 ```json
 {
@@ -578,6 +582,8 @@ isIncident | boolean | Whether incident triggered either manually or via gyro
 <p align="center">
 Example of a route JSON for a journey.
 </p>
+
+_Route_ variables consist of:
 
 Variable | Type | Description
 --- | --- | --- 
