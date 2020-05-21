@@ -31,7 +31,7 @@
 #### Overview
 GuardianCycle’s system architecture is composed of three different sub-systems: the processing desktop application, the emergency services administrator portal/website, and the IoT devices (M5Stack and M5 Stick). Each of these sub-systems is designed to fulfil three specific use cases and facilitate the full setup and use of the entire GuardianCycle system.
 
-Firstly, the processing-driven desktop application utilised a Google Maps Static API to track users route information and journey analytics delivered via JSON data file of GPS points from the M5Stack. Secondly, the emergency services website portal denoted user-wide activity and if any emergency signals were triggered by cyclists from their M5stack or M5Stick. Lastly, specifically the M5Stack tracked users route data, oriented an RGB LED indicator whilst both devices could send emergency GPS coordinates upon trigger in the form of a JSON string.
+Firstly, the processing-driven desktop application utilised a Google Maps Static API to track users' route information and journey analytics delivered via JSON data file of GPS points from the M5Stack. Secondly, the emergency services website portal denoted user-wide activity and if any emergency signals were triggered by cyclists from their M5Stack or M5Stick. Lastly, the M5Stack tracked users' route data, oriented an RGB LED indicator whilst both devices could send emergency GPS coordinates upon trigger in the form of a JSON string.
 
 ALEX COMMENT - Maybe just delete this entire paragraph? Don't think it's saying anything that isn't written above
 
@@ -46,15 +46,15 @@ ALEX COMMENT - Maybe just delete this entire paragraph? Don't think it's saying 
   </i>
 </p>
 
-Three stakeholders - user (cyclists), friends or family (desktop application) and emergency services (website) - can interact with the GuardianCycle architecture at different stages. The IOT device is handled solely by the cyclist and primary user. The desktop application provides an interface for the user, family and friends to interact with the cyclists data collected from journeys - set personal bests, goals and provide aesthetic data interaction. Lastly, the web interface is for the emergency services to track activity from GuardianCycle users within a region and denote if any emergency signals have been triggered at any coordinates - enabling rapid response and ultimately saving GuardianCycle users' lives. 
+Three stakeholders, the user (cyclist), friends or family `(Next of Kin?)` (desktop application) and emergency services (website), can interact with the GuardianCycle architecture at different stages. The IOT device is handled solely by the cyclist who is the primary user. The desktop application provides an interface for the user and family and friends to interact with the cyclist's data collected from journeys. It also allows users to note personal bests, goals and provide aesthetic data interaction. Lastly, the web interface is for the emergency services to track activity from GuardianCycle users within a region and denote if any emergency signals have been triggered at any coordinates, enabling rapid response and ultimately saving GuardianCycle users' lives. 
 
 ### b. Object-Oriented design of key sub-systems
 
-From the outset GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems. That is the various components that made up the system as a whole were considered as separate entities which each had its own set of encapsulated data and methods. Considerable attention was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
+From the outset, GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems. This means that the various components that made up the system as a whole were considered as separate entities, each with their own set of encapsulated data and methods. Considerable attention was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
 
-This was all the more important given what was the ambition of the project - GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms; which meant that the team as a whole needed to understand how the myriad parts interlocked. Taking this strong object-oriented approach fostered this understanding.
+This was all the more important given our aims and ambition for the project. GuardianCycle strove to provide a whole suite of functionality to the user, across a number of different platforms. This meant that the team as a whole needed to understand how the myriad parts interlocked. Taking this strong object-oriented approach fostered this understanding.
 
-UML use case diagram for this system (under the early working title of CyberDome) shows the number of different stakeholders involved:
+UML use case diagram for this system (under the early working title of CyberDome) shows the number of different stakeholders involved and how they interact:
 
 ![UML Use Case Diagram](media/enduser.png)
 <p align="center">
@@ -72,7 +72,7 @@ The complexity of interactions between these functions was further explored in a
   </i>
 </p>
 
-This initial work proved the necessity of deciding up front the interfaces between these elements. Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes, _Route_ or _Update_:
+`This initial work proved the necessity of deciding up front the interfaces between these elements.`_(Could this please be re-worded at all?)_ Therefore it was an early design decision to ensure that all data passing between entities would belong to one of two classes, _Route_ or _Update_:
 
 <p align="center">
 ![Route and Update classes](media/route_update.png)
@@ -94,15 +94,15 @@ The desktop application was written using Processing and a UML class diagram cor
   </i>
 </p>
 
-This diagram shows that the Processing application follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly. Lastly the Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly then place that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network and to easily request data from the Google maps api).
+This diagram shows that the Processing application follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly. The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly places that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network and to easily request data from the Google maps api).
 
 #### IoT Device
 
-The M5Stack is a low-cost, lightweight, incredibly adaptable and internet-connected data collection device - consequently it was ideal for developing a GuardianCycle prototype. Despite these advantages the M5Stack did have some minor shortcomings. 
+The M5Stack is a low-cost, lightweight, incredibly adaptable and internet-connected data collection device. Therefore, it was ideal for developing a GuardianCycle prototype. Despite these advantages the M5Stack did have some minor shortcomings. 
 
-Notably, the lack of a GPS module located within the M5Stack meant that all users route data had to be hardcoded in the form of a JSON GPS coordinates string. Furthermore the short battery life of the M5Stack resulted in the LED using a considerable portion of the battery. These design flaws are noted and mitigated in the future approach section.
+The lack of a GPS module located within the M5Stack meant that all users' route data had to be hardcoded in the form of a JSON GPS coordinates string. Furthermore the short battery life of the M5Stack resulted in the LED using a considerable portion of the battery. These design flaws are noted and mitigated in the future approach section.
 
-The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly - offering primarily useful LED and GPS functionaity. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the emergency services website or the desktop application.  
+The IOT device is envisaged as low-cost, low-energy, environmentally and user friendly, offering useful LED and GPS functionaity. Collectively, we wanted the device to be durable, effective and safe for road use. Data was dually transmitted to either the emergency services website or the desktop application.  
 
 
 <p align="center">
@@ -114,9 +114,9 @@ The IOT device is envisaged as low-cost, low-energy, environmentally and user fr
   </i>
 </p>
 
-The above state diagram captures all of the states available to the user whilst using the M5Stack for cycling. Indeed, the M5Stack has been designed to perform the essential role as primary handlebar controller of the LED whilst the user is cycling. Furthermore, at the end of journey or in the case of an accident - the M5Stack will provide route coordinates as JSON data packages to either the website or desktop application. 
+The above state diagram captures all of the states available to the user whilst using the M5Stack for cycling. The M5Stack has been designed so that users can easily indicate left or right by pushing the corresponding button on the M5Stack which sits on the handlbars. At the end of journey or in the case of an accident, the M5Stack will provide route coordinates as JSON data packages to either the website or desktop application. 
 
-After turning GuardianCycle on, a suitable startup sequence utilising Spiffs library to display an image sqeuence begins the M5 functionality. Before, the user is prompted to press the central button to start their respective cycling journey. 
+After turning GuardianCycle on, a suitable startup sequence utilising Spiffs library to display an image sequence begins the M5 functionality. At the start of their journey, the user is prompted to press the central button to begin. 
 
 <p align="center">
 <img src="media/proper-intro.gif" alt="Left turn gif">
