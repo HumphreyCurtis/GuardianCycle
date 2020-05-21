@@ -10,14 +10,42 @@
 
 
 ### Contents
-- [a. Architecture of the Entire System](#a-architecture-of-the-entire-system)
-- [b. Object-Oriented design of key sub-systems](#b-object-oriented-design-of-key-sub-systems)
-- [c. Requirements of key sub-systems](#c-requirements-of-key-sub-systems-in-the-form-of-selected-user-stories)
-- [d. The evolution of UI wireframes for key sub-systems](#d-the-evolution-of-ui-wireframes-for-key-sub-systems)
-- [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use)
-- [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use)
-- [g. Details of web technologies in use](#g-details-of-web-technologies-in-use)
-- [h. Reflective summary](#h-reflective-summary)
+- [1. System Design](#1-system-design)
+  - [Contents](#contents)
+  - [a. Architecture of the entire system](#a-architecture-of-the-entire-system)
+    - [Overview](#overview)
+  - [b. Object-Oriented design of key sub-systems](#b-object-oriented-design-of-key-sub-systems)
+    - [Desktop Application](#desktop-application)
+    - [IoT Device](#iot-device)
+    - [Web application](#web-application)
+    - [Importance of object oriented design](#importance-of-object-oriented-design)
+  - [c. Requirements of key sub-systems (in the form of selected user stories)](#c-requirements-of-key-sub-systems-in-the-form-of-selected-user-stories)
+      - [User Story 1](#user-story-1)
+      - [User Story 2](#user-story-2)
+      - [User Story 3](#user-story-3)
+      - [User Story 4](#user-story-4)
+      - [User Story 5](#user-story-5)
+    - [Requirements of key subsystems](#requirements-of-key-subsystems)
+    - [Profile of users from stories](#profile-of-users-from-stories)
+    - [Hierarchy of priorities](#hierarchy-of-priorities)
+    - [IoT device](#iot-device-1)
+    - [Desktop application](#desktop-application-1)
+    - [Web application](#web-application-1)
+  - [d. The evolution of UI wireframes for key sub-systems](#d-the-evolution-of-ui-wireframes-for-key-sub-systems)
+    - [Paper Prototype – User Testing](#paper-prototype-%e2%80%93-user-testing)
+    - [Desktop Application](#desktop-application-2)
+    - [Web application](#web-application-2)
+    - [Hardware development](#hardware-development)
+    - [M5Stack UI development](#m5stack-ui-development)
+    - [M5Stick UI development](#m5stick-ui-development)
+  - [e. Details of the communication protocols in use](#e-details-of-the-communication-protocols-in-use)
+    - [JavaScript Object Notation (JSON)](#javascript-object-notation-json)
+      - [Update](#update)
+      - [Route](#route)
+    - [Mosquitto versus HiveMQ](#mosquitto-versus-hivemq)
+  - [f. Details of the data persistence mechanisms in use](#f-details-of-the-data-persistence-mechanisms-in-use)
+  - [g. Details of web technologies in use](#g-details-of-web-technologies-in-use)
+  - [h. Reflective summary](#h-reflective-summary)
 
 ### a. Architecture of the entire system
 #### Overview
@@ -34,11 +62,11 @@ Firstly, the Processing-driven desktop application utilised a Google Maps Static
   </i>
 </p>
 
-Three stakeholders, the user (cyclist), friends or family `(Next of Kin?)` (desktop application) and emergency services (website), can interact with the GuardianCycle architecture at different stages. The IOT device is handled solely by the cyclist who is the primary user. The desktop application provides an interface for the user and family and friends to interact with the cyclist's data collected from journeys. It also allows users to note personal bests, goals and provide aesthetic data interaction. Lastly, the web interface is for the emergency services to track activity from GuardianCycle users within a region and denote if any emergency signals have been triggered at any coordinates, enabling rapid response and ultimately saving GuardianCycle users' lives. 
+Three stakeholders, the user (cyclist), friends or family ie. 'Next of Kin' (desktop application) and emergency services (website), can interact with the GuardianCycle architecture at different stages. The IOT device is handled solely by the cyclist who is the primary user. The desktop application provides an interface for the user and family and friends to interact with the cyclist's data collected from journeys. It also allows users to note personal bests, goals and provide aesthetic data interaction. Lastly, the web interface is for the emergency services to track activity from GuardianCycle users within a region and denote if any emergency signals have been triggered at any coordinates, enabling rapid response and ultimately saving GuardianCycle users' lives. 
 
 ### b. Object-Oriented design of key sub-systems
 
-From the outset, GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems. This means that the various components that made up the system as a whole were considered as separate entities, each with their own set of encapsulated data and methods. Considerable attention was given to how those encapsulated entities interfaced with each other, with a set of standard communication templates enforced throughout the project.
+From the outset, GuardianCycle endeavoured to take an object-oriented approach to the integration of key systems. This means that the various components that made up the system as a whole were considered as separate entities, each with their own set of encapsulated data and methods. Considerable attention was given to how those encapsulated entities interfaced with eachother, with a set of standard communication templates enforced throughout the project.
 
 This was all the more important given our aims and ambition for the project. GuardianCycle strove to provide a whole suite of functionality to the user across a number of different platforms. This meant that the team as a whole needed to understand how the myriad parts interlocked. Taking this strong object-oriented approach fostered this understanding.
 
@@ -74,7 +102,7 @@ This ensured that all developers on the team understood exactly what data they c
 
 #### Desktop Application
 
-The [desktop application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) is intended to log and display cyclist's completed routes, providing them with statistics to track their performance including information about speed, distance and calories burned.  The application was written using Processing and a UML class diagram corresponding to the source code is shown below:
+The [desktop application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/desktop-application) is intended to log and display cyclist's completed routes, providing them with statistics to track their performance including information about speed, distance and calories burned. The application was written using Processing and a UML class diagram corresponding to the source code is shown below:
 
 ![Processing UML Class diagram](media/processing_class_uml.svg)
 <p align="center">
@@ -83,7 +111,9 @@ The [desktop application](https://github.com/HumphreyCurtis/GuardianCycle/tree/m
   </i>
 </p>
 
-This diagram shows that the Processing application follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly. The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly places that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network and to easily request data from the Google maps API).
+This diagram shows that the Processing application follows the object oriented design philosophy, with each class representing a modular functionality, using a form of Model-View-Controller design pattern.  In brief the _Gui_ class serves as the View - producing the various on screen elements (buttons, etc) and displaying data from the route to the user.  
+
+The Controller aspect is dually handled by _DataHandler_  and _MQTTHandler_ which is responsible for accepting input either from  the MQTT protocol or from the user and processing that accordingly. The Model element is handled by _Calculator_, _Maps_ and _PolyLineEncoder_ which take the JSON data from the _Route_ class (referred to above) and runs it through algorithms to determine calories, distance covered, etc and correspondingly places that data in geographical form (the _PolyLineEncoder_ acting to compress latitude / longitudinal data when sending over the lightweight MQTT network and to easily request data from the Google maps API).
 
 #### IoT Device
 
@@ -134,7 +164,7 @@ After departure, the User will be presented with the M5Stack primary home screen
 * Terminate their journey and provide journey data to the desktop application. 
 * Send an emergency signal to emergency services containting precise GPS coordinates of their current location. 
 
-We believed that this indicator functionality would be incredibly useful to other road users and prevent cyclists from having to rely upon arm gestures. This will make road cycling easier and safer as the user would no longer have to physically indicate a turn. The LED indicator feature is particularly useful for new or less confident cyclists. To enable the feature,  the user pushes button 1 to make the indicator display a left arrow. The indicator will hold for 5 seconds; this allows enough time for the cyclist to turn safely:
+We believed that this indicator functionality would be incredibly useful to other road users and prevent cyclists from having to rely upon arm gestures. This will make road cycling easier and safer as the user would no longer have to physically indicate a turn especially if user is potentially [disabled](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#public-interest). The LED indicator feature is particularly useful for new or less confident cyclists. To enable the feature, the user pushes button 1 to make the indicator display a left arrow. The indicator will hold for 5 seconds; this allows enough time for the cyclist to turn safely:
 
 <p align="center">
 <img src="media/left2.jpg" alt="Left turn display" height=400>
@@ -173,7 +203,9 @@ If button 3 is pressed, the LED will show a right arrow.
   </i>
 </p>
 
-Finally, if button 1 is pressed and held for a duration of five seconds the LED and display will perform an emergency sequence and a JSON GPS data package via MQTT will be sent to the website for the emergency services to view and locate the cyclist's precise GPS position. Furthermore, the bright white light of the RGB LED would effectively notify fellow road users that the cyclist was in need of assistance. This is similar to how warning lights on cars are used to notify fellow road users that a car has broken down. In the production device this emergency function will be activated via gyroscope sensor should the cyclist be involved in a collision or a fall.  Therefore, if the cyclist was unconscious or hurt this feature would be triggered automatically.  Should the automatic trigger be a false positive then the cyclist will have a set period within which to cancel the incident, either via the M5Stick or M5Stack, prior to the incident message being dispatched.
+Finally, if button 1 is pressed and held for a duration of five seconds the LED and display will perform an emergency sequence and a JSON GPS data package via MQTT will be sent to the website for the emergency services to view and locate the cyclist's precise GPS position. Furthermore, the bright white light of the RGB LED would effectively notify fellow road users that the cyclist was in need of assistance. This is broadly similar to how warning lights on cars are used to notify fellow road users that a car has broken down. 
+
+In the final production device this emergency function will be activated via gyroscope sensor should the cyclist be involved in a collision or a fall. Therefore, if the cyclist was unconscious or hurt this feature would be triggered automatically. Should the automatic trigger be a false positive then the cyclist will have a set period within which to cancel the incident, either via the M5Stick or M5Stack, prior to the incident message being dispatched.
 
 <p align="center">
 <img src="media/emergency.jpg" alt="Emergency light display">
@@ -215,9 +247,7 @@ The sending of end-of-route journey data is triggered by pressing button 2 which
   </i>
 </p>
 
-The IoT device as well as being made up of the M5Stack and LED display also had a third element: a M5Stick.
-
-The M5Stick, due to its inherent capacity, had far less functionality than the M5Stick with this UML activity diagram describing its flow of activity:
+The IoT device as well as being made up of the M5Stack and LED display also had a third element: a M5Stick. The M5Stick, due to its inherent capacity, had far less functionality than the M5Stack with this UML activity diagram describing its flow of activity:
 
 
 <p align="center">
@@ -230,13 +260,13 @@ The M5Stick, due to its inherent capacity, had far less functionality than the M
   </i>
 </p>
 
-As illustrated, the M5Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert - with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert.  Although this function is also available within the M5Stack it was considered beneficial to duplicate this functionality in the more portable M5Stick in case the cyclist became separated from their bicycle and was unable to reach it (for instance after a fall).
+As illustrated, the M5Stick can be used to alert the emergency services to an incident with two button presses - Arm and Alert - with positive confirmation needed to ensure the incident is raised, and an appropriate colour scheme (orange and red) to indicate escalation towards triggering the incident alert. Although this function is also available within the M5Stack it was considered beneficial to duplicate this functionality in the more portable M5Stick in case the cyclist became separated from their bicycle and was unable to reach it (for instance after a fall).
 
 The IoT device devised by GuardianCycle therefore has a number of interlocking components: the M5Stick, the LED matrix and the M5Stack.  Object-oriented design was again key here, as it helped to ensure that they interacted with the rest of the system in a way that ensured encapsulation of data.  
 
 #### Web application
 
-There were two elements to the [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application): friend-track-view and emergency-services-view.  The former shared the current location of the cyclist with selected friends and family, the latter pinpointed the cyclist's location to the emergency services in the event of an incident.
+There were two elements to the [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application): friend-track-view and emergency-services-view. The former shared the current location of the cyclist with selected friends and family, the latter pinpointed the cyclist's location to the emergency services in the event of an incident.
 
 A UML class diagram of the friend-track-view web application shows object oriented design in work. Admittedly this was a more lightweight approach, being a relatively simple JavaScript React application, than the Java driven Processing desktop application: 
 
@@ -255,13 +285,13 @@ The importance of the object oriented paradigm is potentially easiest to underst
 
 ![Start to end UML Activity Diagram](media/whole_activity_uml.svg)
 
-Within the diagram, white represents the IoT device, yellow the web application and blue the desktop application.  Once the user starts tracking, the gyroscope immediately enters a loop whereby it looks for falls or collisions.  If one is detected then the user has an opportunity, using the M5Stick or M5Stack, to reset the alarm in case of a false-positive. If the user does not cancel via MQTT an Update JSON object is sent to both web applications (emergency-services-view and friend-track-view informing them of the incident) - this continues to loop as long as there is power in the device and the incident has not been cancelled.  If the gyroscope does not detect an incident then a location update is sent to friend-track-view only on a periodic basis.  This continues until the user stops tracking at which point they have an option to upload their route data, again via MQTT, to the desktop application where it can be viewed in Processing.  
+Within the diagram, white represents the IoT device, yellow the web application and blue the desktop application. Once the user starts tracking, the gyroscope immediately enters a loop whereby it looks for falls or collisions.  If one is detected then the user has an opportunity, using the M5Stick or M5Stack, to reset the alarm in case of a false-positive. If the user does not cancel via MQTT an Update JSON object is sent to both web applications (emergency-services-view and friend-track-view informing them of the incident) - this continues to loop as long as there is power in the device and the incident has not been cancelled.  If the gyroscope does not detect an incident then a location update is sent to friend-track-view only on a periodic basis.  This continues until the user stops tracking at which point they have an option to upload their route data, again via MQTT, to the desktop application where it can be viewed in Processing.  
 
 A rigorous separation of data between these elements by using defined interfaces, e.g. object oriented design, is therefore necessary to manage this system effectively and safely considering the importance that users will place in it.
 
 ### c. Requirements of key sub-systems (in the form of selected user stories)
 
-The user stories detail the many different interactions that the three stakeholders have within the GuardianCycle architecture. Designing user stories was an invaluable tool for understanding how stakeholders would effectively utilise the system and to demonstrate how the system should be properly used. Furthermore, user stories helped orient the device to effectively determine which profile of users and target audience the device was best suited too. 
+The user stories detail the many different interactions that the three stakeholders have within the GuardianCycle architecture. Designing user stories was an invaluable tool for understanding how stakeholders would effectively utilise the system and to demonstrate how the system should be properly used. Furthermore, user stories helped orient the device to succinctly determine which profile of users and target audience the device was best suited too. 
 
 ##### User Story 1
 
@@ -298,7 +328,7 @@ In light of these user stories, we used disciplined agile practices to prioritis
   </i>
 </p>
 
-These diagrams demostrate that a wide market section would be potentially interested in purchasing the GuardianCycle. In fact, users from disparate backgrounds such as non-cyclists expressed interest in GuardianCycle whilst of those users who frequently cycle, there was a range from mountain bikers to city cyclists and beginners to novices, interested in our product.
+These diagrams demostrate that a wide market section would be potentially interested in purchasing the GuardianCycle. In fact, users from disparate backgrounds such as non-cyclists expressed interest in GuardianCycle whilst of those users who frequently cycle, there was a range from mountain bikers to city cyclists and beginners to novices collectively interested in our product.
 
 #### Hierarchy of priorities 
 
@@ -319,7 +349,7 @@ In response to these requirements we calibrated on certain key requirements for 
 * The M5Stack had to fully render an RGB LED matrix to display the cyclists state (manoeuvres and emergency) to fellow road users - enabling complete safety as desired in [User Story 5](#user-story-5).
 * The UI of the M5Stack had to be clean and clear preventing the cyclist from losing focus whilst cycling and dealing with needless distractions. 
 * The M5Stack UI had to be intuitive for all age ranges, enabling any cyclist of any level of experience to effectively use the GuardianCycle, satisfying the wide user pool of potential users. 
-* The route log functionality was developed to enable users to gain some cycling data and try and beat their own personal best times. This would satisfy user priorities for improvement. 
+* The route log functionality was developed to enable users to gain some cycling data to try and beat their own personal best times. This would satisfy user priorities for improvement. 
 * The M5Stack had to detect incidents (using its internal gyroscope) and initiate an emergency event manually or automatically (gyroscope functionality not included in the minimum viable product).
 * The M5Stick had to allow users to manually initiate an emergency event, or cancel an emergency event in the event of automatic detection.
 
@@ -356,7 +386,7 @@ In response to these requirements we calibrated on certain key requirements for 
   A sample section of the paper prototype video.
 </p>
 
-An early part of the process saw the development of a paper-prototype that was tested with several people. By using the paper prototype as a simulation for test users, this allowed us to quickly and efficiently test the key features of our design. 
+An early part of the process saw the development of a paper-prototype, which was tested with several individuals. By using the paper prototype as a simulation for test users, this allowed us to quickly and efficiently test the key features of our design. 
 
 Whilst the initial tester feedback was positive, in as much as the system was simple to use and understand, concerns were raised by one user who objected to having to provide email or other data that would enable them to be identified.
 
@@ -466,7 +496,7 @@ Following this, we decided to present the user with a button press to initiate t
   </i>
 </p>
 
-Throughout the design process we tried to keep the Stack's UI clean, functional and simple. We considered this desirable as to prevent any forms of distraction for the cyclist - thus maintaining their eyes on the road at all times. This design feature has been adopted by numerous other applications - for instance, mobile phones automatically activating Do Not Disturb during car journeys.
+Throughout the design process we tried to keep the Stack's UI clean, functional and simple. We considered this desirable as to prevent any forms of distraction for the cyclist - thus maintaining their eyes on the road at all times. This design feature has been adopted by numerous other applications - for instance, mobile phones automatically activating Do Not Disturb during [car journeys](https://support.apple.com/en-gb/HT208090).
 
 #### M5Stick UI development 
 
@@ -490,11 +520,11 @@ The small size of the screen and the limited input methods on the M5 stick was v
   </i>
 </p>
 
-With this in mind, a minimalist user interface was created that consisted simply of colours to indicate the state of the device and a short section of text indicating which state the device was currently at.
+With this in mind, a minimalist user interface was created that consisted simply of colours to indicate the state of the device and a short section of text indicating the state of the device.
 
 ### e. Details of the communication protocols in use
 
-The IoT device communicated with the web and desktop application using the Message Queuing Telemetry Transport (MQTT) protocol.  This is an open standard which typically runs over TCP/IP (Transmission Control Protocol / Internet Protocol) using a publish-subscribe model.  MQTT was originally designed for monitoring oil pipelines in the desert and was therefore designed with a very lightweight footprint, in terms of battery requirements, bandwidth and code.  It was these very qualities that made it perfect for a system designed to serve cyclists who typically cannot enjoy the luxuries of always on power and connectivity.
+The IoT device communicated with the web and desktop application using the Message Queuing Telemetry Transport (MQTT) protocol. This is an open standard which typically runs over TCP/IP (Transmission Control Protocol / Internet Protocol) using a publish-subscribe model. MQTT was originally designed for monitoring oil pipelines in the desert and was therefore designed with a very lightweight footprint, in terms of battery requirements, bandwidth and code. It was these very qualities that made it perfect for a system designed to serve cyclists who typically cannot enjoy the luxuries of always on power and connectivity.
 
 This diagram describes in essence how this communication worked:
 
@@ -521,9 +551,6 @@ Two JSON structures were used, as detailed within [data communication](https://g
    "isIncident": true
 }
 ```
-<p align="center">
-<!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/json-incident.png" alt="Update JSON">--->
-</p>
 <p align="center">
 Example of Update JSON
 </p>
@@ -560,10 +587,6 @@ isIncident | boolean | Whether incident triggered either manually or via gyro
 }
 ```
 
-
-<p align="center">
-<!---<img src="https://raw.githubusercontent.com/HumphreyCurtis/GuardianCycle/master/portfolio/media/JSON-route.png" alt="Route JSON">--->
-</p>
 <p align="center">
 Example of Route JSON
 </p>
@@ -577,9 +600,9 @@ coordinates | int [ ]  | Co-ordintates of journey route, recorded at preset freq
 
 #### Mosquitto versus HiveMQ
 
-To utilise the MQTT protocol a message broker is required.  A MQTT broker acts as a relay which receives messages from clients and then publishes those messages to appropriate clients which are subscribed to the same network.  Initially the team were using the [HiveMQ](https://www.hivemq.com) MQTT broker for development efforts, primarily as it offered an easy to use MQTT Browser client which offered access to their public service.
+To utilise the MQTT protocol a message broker is required.  A MQTT broker acts as a relay which receives messages from clients and then publishes those messages to appropriate clients which are subscribed to the same network. Initially the team were using the [HiveMQ](https://www.hivemq.com) MQTT broker for development efforts, primarily as it offered an easy to use MQTT Browser client which offered access to their public service.
 
-However it soon became apparent that there were serious shortcomings as regards the web application.  Although when running on a development machine the web application flagged no issues, when it was uploaded to the internet the following warning would appear in the browser:
+However it soon became apparent that there were serious shortcomings with regards to the web application. Although when running on a development machine the web application flagged no issues, when it was uploaded to the internet the following warning would appear in the browser:
 
 <p align="center">
 <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/web_blocked_content.png" alt="MQTT blocked content">
@@ -592,9 +615,9 @@ However it soon became apparent that there were serious shortcomings as regards 
 
 Depending on the browser used this warning could be ignored and the page loaded normally - however clearly this was sub-par.
 
-Investigation uncovered that the problem occurred because the browser was delivering content via Hypertext Transfer Protocol Secure (HTTPS), while accessing the MQTT network using an insecure method: WebSocket (WS) as opposed to WebSocket Secure (WSS).  The attempt to access an insecure protocol (WS) within a protocol that guaranteed security (HTTPS) understandably triggered a warning.  The warning was not triggered on a local machine as it was using HTTP (i.e. the non-secure version of HTTP) and likewise online when the warning was ignored, typically the browser would downgrade the connection to HTTP and allow access to the content.
+Investigation uncovered that the problem occurred because the browser was delivering content via Hypertext Transfer Protocol Secure (HTTPS), while accessing the MQTT network using an insecure method: WebSocket (WS) as opposed to WebSocket Secure (WSS). The attempt to access an insecure protocol (WS) within a protocol that guaranteed security (HTTPS) understandably triggered a warning. The warning was not triggered on a local machine as it was using HTTP (i.e. the non-secure version of HTTP) and likewise online when the warning was ignored, typically the browser would downgrade the connection to HTTP and allow access to the content.
 
-The answer was clearly to use WSS within HTTPS, however the mechanism to do this was not readily understood.  Different versions of MQTT client libraries were trialled ([MQTT.js](https://github.com/mqttjs/MQTT.js) and [Eclipse](https://github.com/eclipse/paho.mqtt.javascript)) and the code within the web-application was extensively refactored in an attempt to fix the issue.  After much investigation it transpired that the issue appeared to be the broker itself: switching to the [Mosquitto](https://mosquitto.org) MQTT broker resulted in a WSS connection over HTTPS and no warning.  Mosquitto did not offer a web interface to their broker, but this was not an impediment as either the command line could be used or the HiveMQ browser client could continue to be used, but simply redirected at Mosquitto.  Ultimately the production version of GuardianCycle would likely be using a private MQTT broker rather than a public one for reasons of security and performance.
+The answer was clearly to use WSS within HTTPS, however the mechanism to do this was not readily understood.  Different versions of MQTT client libraries were trialled ([MQTT.js](https://github.com/mqttjs/MQTT.js) and [Eclipse](https://github.com/eclipse/paho.mqtt.javascript)) and the code within the web-application was extensively refactored in an attempt to fix the issue. After much investigation it transpired that the issue appeared to be the broker itself: switching to the [Mosquitto](https://mosquitto.org) MQTT broker resulted in a WSS connection over HTTPS and no warning. Mosquitto did not offer a web interface to their broker, but this was not an impediment as either the command line could be used or the HiveMQ browser client could continue to be used, but simply redirected at Mosquitto. Ultimately the production version of GuardianCycle would likely be using a private MQTT broker rather than a public one for reasons of security and performance.
 
 At the end of the process the team felt that they had made considerable progress on understanding how MQTT can be integrated with a React single page application, and due to the dearth of information on this online, decided to contribute to wider community understanding by blogging a [concise tutorial](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/) for others seeking to replicate this.
 
@@ -602,19 +625,19 @@ At the end of the process the team felt that they had made considerable progress
 
 The only data persistence mechanism used in the minimum viable product is a flat file [data repository](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/data-repository) within the desktop application. This saves any incoming JSON MQTT messages to the application computer as JSON files, with a random string of numbers as the file name. When the application is loaded, the program looks through the data folder and reads every JSON file, creating a route object for each file. In the production version an online database would be used instead of flat files, so the information could be loaded by multiple devices. For this project it was enough to just save flat files as it mimicked the functionality of an online database. A local database could have been created instead of saving flat files, but the files are fairly simple, only containing two columns for coordinates and time. Therefore it made sense to save it simply as a JSON file and not over-engineer a solution by using a relational database.
 
-For the website and M5Stack parts of the system no data persistence was implemented. In the production version of the system both of these components would likely have data persistence. The web application would require data persistence for instance for user authentication purposes. The IoT device may also use some form of persistence to store setup settings, and capture route information should upload or batteries fail; although clearly this would be balanced against the portability of the component.
+For the website and M5Stack parts of the system no data persistence was implemented. In the production version of the system both of these components would likely have data persistence. The web application would require data persistence for instance for user authentication purposes. The IoT device may also use some form of persistence to store setup settings, and capture route information should upload or batteries fail - although clearly this would be balanced against the portability of the component.
 
 ### g. Details of web technologies in use
 
 The [web application](https://github.com/HumphreyCurtis/GuardianCycle/tree/master/web-application) was built using the React web framework.  There were a number of reasons why this proved a good choice of framework: not least because React is extremely popular, topping StackOverflow's 2019 list for both most [Loved and Wanted Web Framework](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks). Although popularity is not a positive in itself, the byproducts of having a vibrant ecosystem is - there are plentiful online resources and documentation, and when time comes to scale GuardianCycle it will not be difficult to find a pool of talent who can easily adapt to the technologies in use by the team.
 
-Aside from its popularity, React also proved a good fit in other ways.  As React uses a virtual Document Object Model (DOM) and a [reconciliation algorithm](https://reactjs.org/docs/reconciliation.html) it can update changes on page quickly without having to refresh the entire DOM. This speed is a key feature for a visualisation tool which is updating repeatedly to show a revised position. Also React being based around components allows re-use of code and makes it easy to impose a standard style, this fitted in very well with the object oriented design aspects of development; although admittedly this is likely something that would be used at scale - there was less need for this within a minimum viable product. Even so however within the current prototype use was made of [material-ui](https://material-ui.com) a library of web components which allows easy implementation of a standardised and professional user interface.
+Aside from its popularity, React also proved a good fit in other ways. As React uses a virtual Document Object Model (DOM) and a [reconciliation algorithm](https://reactjs.org/docs/reconciliation.html) it can update changes on page quickly without having to refresh the entire DOM. This speed is a key feature for a visualisation tool which is updating repeatedly to show a revised position. Also React being based around components allows re-use of code and makes it easy to impose a standard style, this fitted in very well with the object oriented design aspects of development; although admittedly this is likely something that would be used at scale - there was less need for this within a minimum viable product. Even so however within the current prototype use was made of [material-ui](https://material-ui.com) a library of web components which allows easy implementation of a standardised and professional user interface.
 
 For the mapping solution within the web application [mapbox](https://www.mapbox.com) was selected. As well as being able to provide a mapping solution that was ideal for the site (clutter-free and easily understandable), they also featured excellent tutorials, compatibility with GeoJSON (one of the standards considered for use) and have a free pricing tier which was an important consideration prior to funding.
 
 For connecting the website to the MQTT protocol, the [MQTT.js](https://github.com/mqttjs/MQTT.js) client library was used which is written in JavaScript and is intended for both node.js and the browser. Consideration was also given the to [Eclipse Paho](https://github.com/eclipse/paho.mqtt.javascript) JavaScript client - indeed the client was integrated successfully into the single page application when investigations were underway to determine the reason for a WebSocket Secure failure - which ultimately turned out not to be dependent on the client library. Eventually however MQTT.js was chosen due to its more extensive documentation and because its github repository was more actively maintained than its competitor.
 
-Hosting was achieved using [Vercel](https://vercel.com) (formerly Zeit) which allows command line deployment of React/node.js web applications in a frictionless manner, and also features a free tier pricing model.  Vercel also provides robust solutions and good documentation to ensure private API keys (which were required for mapbox) are not publicly viewable once deployed, which was a baseline security requirement.
+Hosting was achieved using [Vercel](https://vercel.com) (formerly Zeit) which allows command line deployment of React/node.js web applications in a frictionless manner, and also features a free tier pricing model. Vercel also provides robust solutions and good documentation to ensure private API keys (which were required for mapbox) are not publicly viewable once deployed, which was a baseline security requirement.
 
 ### h. Reflective summary
 The initial paper prototype allowed us to develop a basic understanding of what we wished to achieve as well as enabled us to perform some basic user testing. This initial design had to evolve in order to accommodate the limitations of the IoT device as well as of course the requirement for the project to be spread across multiple components and protocols. 
@@ -623,4 +646,4 @@ Once this had been refined, the creation of UML diagrams provided a more detaile
 
 This thorough understanding of objectives in turn allowed us to select appropriate technologies  such as MQTT, JSON and React, which each had specific advantages for the scenarios are device would face.
 
-In summary, our design changed considerably from our initial paper prototype as we encountered challenges and added new features.  In the course of this however all team members felt that this understanding and responding to challenges contributed greatly to our knowledge of software engineering; from the perspective of both the technologies employed and the practicalities of deploying them. 
+In summary, our design changed considerably from our initial paper prototype as we encountered challenges and added new features. In the course of this however all team members felt that this understanding and responding to challenges contributed greatly to our knowledge of software engineering; from the perspective of both the technologies employed and the practicalities of deploying them. 
