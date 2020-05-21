@@ -74,7 +74,7 @@ In this sprint user story 3 was completed, with code written for the M5Stick. Th
 
 Unit testing was conducted in an ad-hoc manner by individual developers. This was mostly to safely check individual functions within the code. It was difficult to test the complete operation of the system as this would require each team member using M5Stack to send JSON messages to HiveMQ. While the ad-hoc method of writing unit tests was fast and allowed developers to quickly prototype code, they were not complete enough to say for certain that the code runs without bugs. To ensure that the code was working properly, more unit tests should have been written by team members. Tests should have been written by team members not directly writing the code to spot any bugs or edge cases that cause problems that the main developers had not thought of.
 
-#### Integration Testing
+##### Integration Testing
 
 At multiple times throughout the development process multiple parts of the system were tested together. For example, we tested the website and the desktop application while they were both running, by manually copying and pasting json coordinates into HiveMQ. This found some bugs where the desktop application was trying to use JSON files that were meant for the website application. This was easily solved by adding a parsing function to check that the incoming JSON was for the desktop application and contained the necessary information. 
 
