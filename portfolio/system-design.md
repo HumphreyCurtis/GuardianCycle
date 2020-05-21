@@ -574,8 +574,28 @@ Example of a route JSON for a journey.
 **"coordinates"** &nbsp;&nbsp;&nbsp; The geo-coordinates for the journey. To calculate the total distance, the difference between each co-ordinate is calculated and then summed.    
 **"time"** &nbsp;&nbsp;&nbsp; Duration of the journey in minutes.      
 
-#### Rational for using Mosquitto over MQTT
-While implementing our website, we had difficulty integrating the functionality with MQTT. Specifically, there were issues whereby the browser would flag the site as being insecure and which could only be remedied by modifying the browser settings to allow insecure content. We realised this was not a reasonable expectation for most users so we decided to change the network protocol across to Mosquitto. 
+#### Mosquitto versus HiveMQ
+
+To utilise the MQTT protocol a message broker is required.  A MQTT broker acts as a relay which receives messages from clients and then publishes those messages to appropriate clients which are subscribed to the same network.  Initially the team were using the [HiveMQ](https://www.hivemq.com) MQTT broker for development efforts, primarily as it offered an easy to use MQTT Browser client which offered access to their public service.
+
+However it soon became apparent that there were serious shortcomings as regards the web application.  Although when running on a development machine the web-application flagged no issues, when it was uploaded to the internet the following warning would appear in the browser:
+
+<p align="center">
+<img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/web_blocked_content.png" alt="MQTT blocked content">
+</p>
+<p align="center">
+  <i>
+  Figure ?. Blocked content warning.
+  </i>
+</p>
+
+Depending on the browser used this warning could be ignored and the page loaded normally - however clearly this was sub-par.
+
+Investigation uncovered that the problem occurred because the browser was delivering content via Hypertext Transfer Protocol Secure (HTTPS), while accessing the MQTT network using an insecure method: WebSocket (WS) as opposed to WebSocket Secure (WSS).  The attempt to access an insecure protocol (WS) within a protocol that guaranteed security (HTTPS) understandably triggered a warning.  The warning was not triggered on a local machine as it was using HTTP (i.e. the non-secure version of HTTP) and likewise when the warning was ignored typically the browser would downgrade the connection to HTTP and allow access to the content.
+
+The answer was clearly to use WSS within HTTPS, however the mechanism to do this was not readily understood.  Different versions of MQTT client libraries were trialled ([MQTT.js](https://github.com/mqttjs/MQTT.js) and [Eclipse](https://github.com/eclipse/paho.mqtt.javascript)) and the code within the web-application was extensively refactored in an attempt to fix the issue.  After much investigation it transpired that the issue appeared to be the broker itself: switching to the [Mosquitto](https://mosquitto.org) MQTT broker resulted in a WSS connection over HTTPS and no warning.  Mosquitto did not offer a web interface to their broker, but this was not an impediment as either the command line could be used or the HiveMQ browser client could continue to be used, but simply redirected at Mosquitto.  
+
+At the end of the process the team felt that they had made considerable progress on understanding how MQTT can be integrated with a React single page application, and due to the dearth of information on this online, decided to contribute to wider community understanding by blogging some [concise documentation](https://www.preciouschicken.com/blog/posts/a-taste-of-mqtt-in-react/) for others seeking to replicate this.
 
 ### f. Details of the data persistence mechanisms in use (including a rational for your choice)
 The only data persistence mechanism used in this system is flat file saving in the desktop application. This saves any incoming JSON files to the application computer as JSON files, with a random string of numbers as the file name. When the application is loaded, the program looks through the data folder and reads every JSON file, creating a route object for each file. In a final application an online database would be used instead of flat files, so the information could be loaded by multiple devices. For this project it was enough to just save flat files as it mimicked the functionality of an online database. A local database could have been created instead of saving flat files, but the files are fairly simple, only containing two columns for coordinates and time. Therefore it made sense to save it simply as a JSON file and not try and split the information up into tables. 
