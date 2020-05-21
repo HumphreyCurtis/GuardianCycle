@@ -18,7 +18,7 @@ A key component of GuardianCycle is the IoT device, which is comprised of three 
 * Press to turn M5Stack on:
 
 <p align="center" >
-<img src="./media/start-journey.jpg" alt="Start of journey" height=700>
+<img src=[./media/start-journey.jpg](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/start-journey.jpg)" alt="Start of journey" height=700>
 </p>
 
 * Home UI rendered:
