@@ -468,7 +468,7 @@ After this was acheived, clear colours were chosen for each command to enable cl
 * Large green arrow for right indicator signals.
 * Red to denote emergency status has been triggered.
 
-Having effectively programmed maneuvers, development moved towards a press and hold feature to enable the triggering of an emergency situation for the cyclist. Collectively, it was decided that push and hold for 5 seconds to signal the declaring of an emergency was most effective to mitigate against mistaken pushes and triggering of an emergency. Particularly as the M5Stack's gyroscope had been difficult to function properly with the RGB 5x5 LED. 
+Having effectively programmed manoeuvres, development moved towards a press and hold feature to enable the triggering of an emergency situation for the cyclist. Collectively, it was decided that push and hold for 5 seconds to signal the declaring of an emergency was most effective to mitigate against mistaken pushes and triggering of an emergency. Particularly as the M5Stack's gyroscope had been difficult to function properly with the RGB 5x5 LED. 
 
 Following this, we decided to present the user with a button press to initiate the start of the cycle for the sake of clarity. Followed by basic route log display on push of button 2 to provide the cyclist with journey progress data and the timings concerning progress made during their current cycle. As a later UI design change, for aesthetic purposes it was decided to create a slightly more desirable startup sequence when the M5Stack was turned on - this helped make the device a more coherent and developed product. Particularly, typography was slightly modified from small and indiscernable writing to a clear coloured and eye-catching sequence.
 
