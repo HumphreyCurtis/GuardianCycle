@@ -392,7 +392,7 @@ Once this was established, we merged this interface with the analytics function 
 We then decided we could be utilising the screen space more efficiently. Most notably, that we could fit multiple routes onto the page without it being overcrowded. At this stage, we experimented with a mulitude of different views to determine a best fit. This involved striking the right balance between displaying as much information as possible and the screen being too overcrowded. 
 
 <p align="center">
-  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/desktop-gui-wireframe2.png?raw=true">
+  <img src="https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/media/desktop-gui-wireframe2.png?raw=true" height="400">
 </p>
 <p align="center">
   Image: One of the early interface designs.
