@@ -228,11 +228,21 @@ The minimum viable product devised by GuardianCycle has two components acting as
 
 The MD5 Stack performed a number of different functions, namely starting route tracking, stopping route tracking, uploading route data and activating the left/right/hazard helmet display.  An example of the hazard indicator during early construction is displayed:
 
-![MD5Stack Indicator](media/MD5Stack_indicate.gif)
+<p align="center">
+<img src="media/MD5Stack_indicate.gif" alt="M5 Stack Indicate">
+</p>
+<p align="center">
+  <i>
+  Figure ?. M5 Indicating.
+  </i>
+</p>
 
 Both of these devices had far less complexity in their source code than the desktop application; so UML class diagrams have not been prepared.  However this UML activity diagram describes the flow of activity within the MD5 Stick:
 
-![M5 Stick State Diagram](media/M5Stick-FSM-Updated.png)
+<p align="center">
+<img src="media/M5Stick-FSM-Updated.png" alt="M5 Stack Indicate">
+</p>
+
 <p align="center">
   <i>
   Figure ?. UML state diagram for MD5 Stick.
