@@ -1,21 +1,13 @@
 ## 1. System Design
 <p align="center">
-<img src="media/banner1.png" alt="Final - Alert">
+<img src="media/architecture.png" alt="Overall systems architecture">
 </p>
 <p align="center">
   <i>
-  Figure ?. Overview of alert system.
+  Figure ?. Overview of GuardianCycle architecture
   </i>
 </p>
 
-<p align="center">
-<img src="media/banner2.png" alt="Final - Route">
-</p>
-<p align="center">
-  <i>
-  Figure ?. Overview of route tracker system.
-  </i>
-</p>
 
 ### Contents
 - [a. Architecture of the Entire System](#a-architecture-of-the-entire-system)
