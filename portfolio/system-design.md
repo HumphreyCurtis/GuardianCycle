@@ -300,7 +300,7 @@ John is a cycling enthusiast and experienced first responder. He has worked for 
 
 #### Requirements of key subsystems
 
-In light of these user stories - utilising disciplined agile practices we tried to prioritise the concerns and desires raised from the user stories. As well as develop a clear profile of potential Users of the GuardianCycle. 
+In light of these user stories, we used disciplined agile practices to prioritise the concerns and desires raised from the user stories as well as develop a clear profile of potential Users of GuardianCycle. 
 
 #### Profile of users from stories
 
@@ -313,7 +313,7 @@ In light of these user stories - utilising disciplined agile practices we tried 
   </i>
 </p>
 
-These diagrams demostrate that from the User Story section, a wide pool of users would be potentially interested in purchasing the GuardianCycle. Indeed, users from disparate backgrounds such as non-cyclists demonstrated interest in the GuardianCycle. Furthermore, different fields of cyclists would be intersted - including Mountain and Road cyclists. Also cyclists with different levels of experience from novice to experienced. 
+These diagrams demostrate that a wide pool of people would be potentially interested in purchasing the GuardianCycle. In fact, users from disparate backgrounds such as non-cyclists expressed interest in GuardianCycle whilst of those Users who frequently cycle, there was range from Mountain bikers to City cyclists and beginers to novices, interested in our product.
 
 #### Hierarchy of priorities 
 
@@ -326,14 +326,14 @@ These diagrams demostrate that from the User Story section, a wide pool of users
   </i>
 </p>
 
-In response to these requirements we calibrated certain key requirements for developing subsystems. 
+In response to these requirements we calibrated on certain key requirements for developing subsystems. 
 
 #### IoT device
 
-* The M5Stack had to be communicative and send necessary data to the desktop application and website application - enabling tracing functionality for Guardian cycle with JSON route data sent via Hive MQTT. 
+* The M5Stack had to be communicative and send necessary data to the desktop application and website application, enabling tracing functionality for Guardian cycle with JSON route data sent via Hive MQTT. 
 * The Stack had to fully render an RGB LED matrix to display the cyclists state (manoeuvres and emergency) to fellow road users - enabling complete safety as desired in [User Story 5](#user-story-5).
 * The UI of the Stack had to be clean and clear preventing the cyclist from losing focus whilst cycling and dealing with needless distractions. 
-* The M5Stack UI had to be intuitive for all age ranges - enabling any cyclist of any level of experience to effectively use the GuardianCycle - satisfying the wide user pool of potential users. 
+* The M5Stack UI had to be intuitive for all age ranges, enabling any cyclist of any level of experience to effectively use the GuardianCycle, satisfying the wide user pool of potential users. 
 * The route log functionality was developed to enable users to gain some cycling data and try and beat their own personal best times. This would satisfy user priorities for improvement. 
 * The M5 Stack had to detect incidents (using its internal gyroscope) and initiate an emergency event - functionality not included in the minimum viable product.
 * The M5 Stick had to allow users to manually initiate an emergency event, or cancel an emergency event in the event of automatic detection.
