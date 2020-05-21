@@ -1,7 +1,5 @@
 ## 3. Project Evaluation
 ### Contents
-- [3. Project Evaluation](#3-project-evaluation)
-  - [Contents](#contents)
   - [a. Reflective discussion of the success of the project](#a-reflective-discussion-of-the-success-of-the-project)
       - [IoT hardware](#iot-hardware)
       - [Communication protocols](#communication-protocols)
@@ -174,7 +172,7 @@ It is difficult to truly measure the impact that _COVID-19_ had on the success a
 
 #### Conclusion 
 
-The disruption to the sudden closure of university and subsequent lockdown definitely threw a spanner in the works in terms of workflow and ability to work harmoniously together. However, thanks to softwares such as Skype, Slack and GitHub, we were able to find our feet (in our slippers), and adjust to a very new working environment. For some of us, being at home also meant childcare responsibilities; one of our group members has a toddler whilst another found themselves caring for a 10-year-old sibling  and homeschooling them in the mornings. Overall, this did not have a severe impact on the groups ability to meet on skype or get on with work on the project. 
+The disruption due to the sudden closure of university and subsequent lockdown definitely threw a spanner in the works in terms of workflow and ability to work harmoniously together. However, thanks to software such as Skype, Slack and GitHub, we were able to find our feet (in our slippers), and adjust to a very new working environment. For some of us, being at home with the closure of schools and nurseries also meant childcare responsibilities.  One of our group members has a toddler, which meant a relatively constant stream of interruptions to any task; whilst another found themselves caring for a 10-year-old sibling  and homeschooling them in the mornings. Overall, this did not have a severe impact on the groups ability to meet on skype or get on with work on the project. 
 
 
 
