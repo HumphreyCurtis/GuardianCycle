@@ -2,18 +2,18 @@
 ## 2. System Implementation
 ### Contents
 - [a. Breakdown of project into sprints](#a-breakdown-of-project-into-sprints-showing-the-users-stories-implemented-in-each)
-      - [Sprint 1](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-1---design-and-research-24th-feb---9th-march)
-      - [Sprint 2](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-2---basic-implementation-16th-march---30th-march)
-      - [Sprint 3](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-3---all-implementation-completed-6th-april---20th-apil)
-      - [Sprint 4](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-4---finalise-and-polish--27th-april---11th-may)
+   - [Sprint 1](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-1---design-and-research-24th-feb---9th-march)
+   - [Sprint 2](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-2---basic-implementation-16th-march---30th-march)
+   - [Sprint 3](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-3---all-implementation-completed-6th-april---20th-apil)
+   - [Sprint 4](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-4---finalise-and-polish--27th-april---11th-may)
 - [b. Details of how you evaluated your designs](#b-details-of-how-you-evaluated-your-designs-techniques-used--awareness-of-their-limitations)
-      - [Verification](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#verification)
-      - [Validation](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#validation)
-      - [What we could have done differently](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#what-we-could-have-done-differently)
+   - [Verification](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#verification)
+   - [Validation](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#validation)
+   - [What we could have done differently](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#what-we-could-have-done-differently)
 - [c. Discussion of social and ethical implications of the work](#c-discussion-of-social-and-ethical-implications-of-the-work)
-      - [Public interest](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#public-interest)
-      - [Professional competence and integrity](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#professional-competence-and-integrity)
-      - [Social implications](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#social-implications)
+   - [Public interest](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#public-interest)
+   - [Professional competence and integrity](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#professional-competence-and-integrity)
+   - [Social implications](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#social-implications)
 - [d. Reflective summary](#d-reflective-summary)
 
 ### a. Breakdown of project into sprints (showing the users stories implemented in each).
