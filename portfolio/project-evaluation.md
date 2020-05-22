@@ -47,6 +47,8 @@ There are some issues with the system that may not be possible to solve through 
 
 Indeed, this issue could be best solved by adding a SIM card to the IoT device, allowing the device to always be connected to the internet. We also noticed that the M5Stack's battery life was insufficient for our use cases, which is clearly unacceptable.  Thus potentially a new IoT device might be more preferable for the production version.
 
+Future development work would also be required on the reliability of the connection between MQTT and the React web application.  Occasionally lag or dropped messages were witnessed when receiving messages over the MQTT protocol, particularly on first starting the web application; but due to the number of potential points of failure (host web server, public MQTT broker, MQTT JS library, etc) this was difficult to pinpoint without dedicated resources.  Clearly in a production version this would need to be of a sufficient quality and reliability to gain user trust, so thorough testing is a necessity. 
+
 #### Market Research
 
 While some initial user testing did occur (with the paper prototype) this was minimal and the only testers were Computer Science students from the University of Bristol - this is certainly not a representative sample of the general population. Therefore going forward we would be keen to conduct more detailed market research with potential user groups to determine the viability of our product. For example, this might involve focus groups or interviews with cyclists to determine how concerned they are with their safety and whether they would consider purchasing a device that might help them. This would also be a good opportunity to address any privacy concerns (as the device intends to utilise a GPS tracker).
