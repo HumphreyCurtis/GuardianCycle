@@ -2,8 +2,18 @@
 ## 2. System Implementation
 ### Contents
 - [a. Breakdown of project into sprints](#a-breakdown-of-project-into-sprints-showing-the-users-stories-implemented-in-each)
+      - [Sprint 1](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-1---design-and-research-24th-feb---9th-march)
+      - [Sprint 2](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-2---basic-implementation-16th-march---30th-march)
+      - [Sprint 3](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-3---all-implementation-completed-6th-april---20th-apil)
+      - [Sprint 4](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#sprint-4---finalise-and-polish--27th-april---11th-may)
 - [b. Details of how you evaluated your designs](#b-details-of-how-you-evaluated-your-designs-techniques-used--awareness-of-their-limitations)
+      - [Verification](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#verification)
+      - [Validation](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#validation)
+      - [What we could have done differently](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#what-we-could-have-done-differently)
 - [c. Discussion of social and ethical implications of the work](#c-discussion-of-social-and-ethical-implications-of-the-work)
+      - [Public interest](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#public-interest)
+      - [Professional competence and integrity](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#professional-competence-and-integrity)
+      - [Social implications](https://github.com/HumphreyCurtis/GuardianCycle/blob/master/portfolio/system-implementation.md#social-implications)
 - [d. Reflective summary](#d-reflective-summary)
 
 ### a. Breakdown of project into sprints (showing the users stories implemented in each).
@@ -100,9 +110,9 @@ It would have been beneficial to do a lot more testing with potential users of t
 
 ### c. Discussion of Social and Ethical implications of the work
 
-The GuardianCycle Project followed the BCS Code of Conduct to ensure the development of good principled software. As such, below we will discuss how the prototype of GuardianCycle was designed with Public Interest in mind, adheres to Professional Competence and Integrity and developed with due diligence to our relevant authority and to the IT Profession. 
+The GuardianCycle Project followed the BCS Code of Conduct to ensure the development of good principled software. As such, below we will discuss how the prototype of GuardianCycle was designed with public interest in mind, adheres to professional competence and integrity and developed with due diligence to our relevant authority and to the IT Profession. 
 
-#### Public Interest 
+#### Public interest 
 
 The product was designed with public safety at the forefront of our thinking, most specifically the safety of cyclists. The product is a cycle helmet and so we had to ensure the helmet still performed its primary protective function for the cyclist's head. Incorporated into the helmet for the proposed prototype were light fittings to indicate either a left or right turn signal and an impact detector in the event of a road collision. Upon impact, this sensor would be triggered and in turn send an alert to the designated friend as well as emergency services unless the user indicates through the app that they do not require help. In terms of public health, this product sought to add assurance to cyclists on the road should they be involved in a collision. 
 
@@ -112,18 +122,18 @@ We have considered the impact of our product on disabled cyclists. Many disabled
 
 The product collects location data, usernames, email, and contact information for the user and friend / family. However, the device only collects GPS data when it is being actively used which the user has full control over. This product will not track data without the user’s permission via the app.
 
-#### Professional Competence and Integrity
+#### Professional competence and integrity
 
 Throughout the development of this product, we had to be aware that as students we are not experts and thus fully capable of taking a product such as this to market. At each stage of this project our group have collaborated and shared alternative viewpoints in a respectful manner whilst encouraging productive and honest critique to further the development of this project. We have always aimed to do our best to maintain good practice, and as the project has gone on social and ethical implications related to the work have arisen. For example, at the beginning of the project our initial idea to include an emergency message was targeted at a ‘loved one’. However, as we began developing it became clear that not all cyclists may have a ‘loved one’ to include in their use of the product. Therefore, we decided to change ‘loved one’ to ‘friend and family’ so as to not ostracise cyclists who do not consider anyone in their lives a ‘loved one’. 
 
 Indeed, we realised early on that the phraseology was not inclusive enough  for the range of users who may want flatmates, friends, family as their emergency contact. Our revised decision took inspiration from Apple’s [‘Find my Friends’](https://en.wikipedia.org/wiki/Find_My_Friends) feature through which shares users’ location with specified trusted contacts, and this seemed more inclusive and less likely to cause offence to any potential users. Potential ethical issues that arose from including this feature were that a more neutral phrasing would make the product more inclusive for everyone, and we reflected and acted swiftly to address this issue.
 
-#### Social Implications 
+#### Social implications 
 
 A key potential feature that has not yet been implemented was the triggering of an automatic notification to local emergency services when a collision took place. The ethical implications of this feature were discussed, and we realised that it would require rigorous testing to ensure the reliability of the collision detector on the M5Stack. This is significant as we determined that the possibility of unnecessary alerts being sent to emergency services was too high given the crucial, often time-sensitive nature of their work. 
 
 Responsibility for emergency responders being called - almost entirely falls on the developers of the product, which is a major ethical issue and something to which we would need to dedicate more time, crash testing and resources to solve. The idea itself was ambitious, but it would take the input of emergency services and their understanding of their field to ensure this feature did more good than harm to product users and the healthcare system. 
 
-### d. Reflective Summary
+### d. Reflective summary
 
 Our team was successful in implementing the GuardianCycle system. We developed a system designed to improve public safety, and there is clear scope for either expanding the existing code, or developing a new system with the same functionality to create a marketable product. Through regular meetings and by effectively splitting up the work amoung team members, we completed the project with time to spare. The project was split into four main sprints, this focused the team to complete the most important parts of the system first, then refine the system later. Although we did not use a strictly agile approach, we did implement some elements of agile development to help us complete the project on time and with minimal problems during development. We could have done more unit testing but we did consistently check each others work and test the entire system through implementation testing. 
